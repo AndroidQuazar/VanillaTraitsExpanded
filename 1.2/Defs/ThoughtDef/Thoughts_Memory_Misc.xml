@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>VTE_CreatedLowQualityItem</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Created low quality item</label>
+        <description>I crafted junk. I feel like I can't do anything right.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
+  <ThoughtDef>
+    <defName>VTE_CouldNotFinishItem</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Сould not finish item</label>
+        <description>Сould not finish item, it was not perfect.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VTE_PassionateCleaningWork</defName>
+    <workerClass>VanillaTraitsExpanded.ThoughtWorker_PassionateCleaningWork</workerClass>
+    <stages>
+      <li>
+        <label>Doing cleaning</label>
+        <description>I enjoy my cleaning work.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

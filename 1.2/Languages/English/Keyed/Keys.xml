@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <VTE.HasDestroyedItem>{PAWN_kind} has destroyed the item {PAWN_pronon} just crafted due to the item not being of sufficient quality</VTE.HasDestroyedItem>
+  <VTE.GotBruise>{PAWN_kind} got a bruise due to being clumsy</VTE.GotBruise>
+  
+</LanguageData>

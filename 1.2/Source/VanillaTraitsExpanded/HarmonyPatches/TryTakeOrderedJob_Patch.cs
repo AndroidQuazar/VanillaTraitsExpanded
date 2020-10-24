@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,39 @@ namespace VanillaTraitsExpanded
 	{
 		private static void Prefix(Pawn ___pawn, Job job)
 		{
-			if (___pawn.story?.traits?.HasTrait(TraitsDefOf.VTE_AbsentMinded) ?? false)
+            if (job.def != JobDefOf.Flee && ___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
             {
 				Log.Message(___pawn + " starts " + job);
 				TraitUtils.TraitsManager.forcedJobs[___pawn] = job;
-            }
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(Pawn_JobTracker))]
+	[HarmonyPatch("StartJob")]
+	public static class StartJob_Patch
+	{
+		private static bool Prefix(Pawn ___pawn, Job newJob, JobCondition lastJobEndCondition)
+		{
+			if (newJob.def == JobDefOf.Vomit && ___pawn.HasTrait(VTEDefOf.VTE_IronStomach))
+			{
+				return false;
+			}
+			return true;
+		}
+	}
+
+	[HarmonyPatch(typeof(FoodUtility))]
+	[HarmonyPatch("AddFoodPoisoningHediff")]
+	public static class AddFoodPoisoningHediff_Patch
+	{
+		private static bool Prefix(Pawn pawn, Thing ingestible, FoodPoisonCause cause)
+		{
+			if (pawn.HasTrait(VTEDefOf.VTE_IronStomach))
+			{
+				return false;
+			}
+			return true;
 		}
 	}
 }

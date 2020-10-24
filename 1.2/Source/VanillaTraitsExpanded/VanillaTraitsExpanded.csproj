@@ -41,6 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HarmonyPatches\Drafted_Patch.cs" />
+    <Compile Include="HarmonyPatches\TryGiveJob_Patch.cs" />
+    <Compile Include="HarmonyPatches\TryDropFilth_Patch.cs" />
+    <Compile Include="HarmonyPatches\CurCategory_Patch.cs" />
+    <Compile Include="HarmonyPatches\WithProgressBar_Patch.cs" />
+    <Compile Include="HarmonyPatches\TryCreateThought_Patch.cs" />
+    <Compile Include="HarmonyPatches\SpawnSetup_Patch.cs" />
+    <Compile Include="HarmonyPatches\GenerateQualityCreatedByPawn_Patch.cs" />
+    <Compile Include="HarmonyPatches\Notify_PawnDidWork_Patch.cs" />
+    <Compile Include="Thoughts\ThoughtWorker_PassionateCleaningWork.cs" />
     <Compile Include="TraitsDefOf.cs" />
     <Compile Include="TraitUtils.cs" />
     <Compile Include="TraitsManager.cs" />
@@ -56,8 +66,6 @@
       <Version>2.0.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Thoughts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,12 +18,27 @@ namespace VanillaTraitsExpanded
 		{
 
 		}
+
         public Dictionary<Pawn, Job> forcedJobs = new Dictionary<Pawn, Job>();
+        public HashSet<Pawn> perfectionistsWithJobsToStop = new HashSet<Pawn>();
+        public HashSet<Pawn> cowards = new HashSet<Pawn>();
         public void PreInit()
         {
-            if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>(); 
+            if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>();
+            if (perfectionistsWithJobsToStop == null) perfectionistsWithJobsToStop = new HashSet<Pawn>();
+            if (cowards == null) cowards = new HashSet<Pawn>();
+        }
+        public override void StartedNewGame()
+        {
+            base.StartedNewGame();
+            PreInit();
         }
 
+        public override void LoadedGame()
+        {
+            base.LoadedGame();
+            PreInit();
+        }
         public void TryInterruptForcedJobs()
         {
             var keysToRemove = new List<Pawn>();
@@ -47,24 +62,44 @@ namespace VanillaTraitsExpanded
                 forcedJobs.Remove(key);
             }
         }
-        public override void StartedNewGame()
-        {
-            base.StartedNewGame();
-            PreInit();
-        }
 
-        public override void LoadedGame()
+        public void TryForceFleeCowards()
         {
-            base.LoadedGame();
-            PreInit();
+            foreach (var pawn in cowards)
+            {
+                if (Rand.Chance(0.1f))
+                {
+                    var enemies = pawn.Map.attackTargetsCache.GetPotentialTargetsFor(pawn).Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f).Select(y => y.Thing);
+                    foreach (var e in enemies)
+                    {
+                        Log.Message("Enemy: " + e);
+                    }
+                    if (enemies?.Count() > 0)
+                    {
+                        TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
+                    }
+                }
+            }
         }
-
         public override void GameComponentTick()
         {
             base.GameComponentTick();
             if (Find.TickManager.TicksGame % 60 == 0)
             {
                 TryInterruptForcedJobs();
+                TryForceFleeCowards();
+            }
+            if (perfectionistsWithJobsToStop.Count > 0)
+            {
+                foreach (var pawn in perfectionistsWithJobsToStop)
+                {
+                    pawn.jobs.StopAll();
+                    if (pawn.HasTrait(VTEDefOf.VTE_Perfectionist))
+                    {
+                        pawn.TryGiveThought(VTEDefOf.VTE_CouldNotFinishItem);
+                    }
+                }
+                perfectionistsWithJobsToStop.Clear();
             }
         }
         public override void ExposeData()
