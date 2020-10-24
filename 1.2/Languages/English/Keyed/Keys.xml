@@ -3,5 +3,7 @@
 
   <VTE.HasDestroyedItem>{PAWN_kind} has destroyed the item {PAWN_pronon} just crafted due to the item not being of sufficient quality</VTE.HasDestroyedItem>
   <VTE.GotBruise>{PAWN_kind} got a bruise due to being clumsy</VTE.GotBruise>
+  <VTE.CantBeWokenUpHeavySleeper>{PAWN_kind}  has Perfectionist trait and randomly decises interrupt current construction job</VTE.CantBeWokenUpHeavySleeper>
+  <VTE.DecisesInterruptCurrentCostructionJob>{PAWN_kind}  has given up on {0} for now due to being a perfectionist</VTE.DecisesInterruptCurrentCostructionJob>
   
 </LanguageData>
