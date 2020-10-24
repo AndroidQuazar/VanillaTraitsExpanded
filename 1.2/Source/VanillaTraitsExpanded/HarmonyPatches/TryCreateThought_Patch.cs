@@ -32,6 +32,21 @@ namespace VanillaTraitsExpanded
 		}
 	}
 
+	[HarmonyPatch(typeof(Bill), "PawnAllowedToStartAnew", new Type[]
+	{
+		typeof(Pawn)
+	})]
+	public static class PawnAllowedToStartAnew_Patch
+	{
+		public static bool Prefix(Pawn p, RecipeDef ___recipe)
+		{
+			if (p.HasTrait(VTEDefOf.VTE_AnimalLover) && ___recipe == DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh"))
+			{
+				return false;
+			}
+			return true;
+		}
+	}
 
 	[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[]
 	{
@@ -53,11 +68,33 @@ namespace VanillaTraitsExpanded
 			ThoughtDefOf.SoldMyBondedAnimalMood,
 			ThoughtDefOf.Nuzzled
 		};
+
+		public static Dictionary<ThoughtDef, ThoughtDef> inverseAnimalThoughDefs = new Dictionary<ThoughtDef, ThoughtDef>
+		{
+			{ThoughtDefOf.BondedAnimalBanished, VTEDefOf.VTE_BondedAnimalBanishedHater },
+			{DefDatabase<ThoughtDef>.GetNamed("BondedAnimalDied"), VTEDefOf.VTE_BondedAnimalDiedHater},
+			{DefDatabase<ThoughtDef>.GetNamed("BondedAnimalLost"), VTEDefOf.VTE_BondedAnimalLostHater },
+			{DefDatabase<ThoughtDef>.GetNamed("BondedAnimalMaster"), VTEDefOf.VTE_BondedAnimalMasterHater },
+			{DefDatabase<ThoughtDef>.GetNamed("KilledColonyAnimal"), VTEDefOf.VTE_KilledColonyAnimalHater },
+			{DefDatabase<ThoughtDef>.GetNamed("KilledMyBondedAnimal"), VTEDefOf.VTE_KilledMyBondedAnimalHater },
+			{DefDatabase<ThoughtDef>.GetNamed("NotBondedAnimalMaster"), VTEDefOf.VTE_NotBondedAnimalMasterHater },
+			{DefDatabase<ThoughtDef>.GetNamed("SoldMyBondedAnimal"), VTEDefOf.VTE_SoldMyBondedAnimalHater },
+			{ThoughtDefOf.SoldMyBondedAnimalMood, VTEDefOf.VTE_SoldMyBondedAnimalMoodHater },
+			{ThoughtDefOf.Nuzzled, VTEDefOf.VTE_NuzzledHater}
+		};
 		private static void Prefix(MemoryThoughtHandler __instance, ref Thought_Memory newThought, Pawn otherPawn)
 		{
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalLover) && animalThoughtDefs.Contains(newThought.def))
             {
 				newThought.moodPowerFactor *= 2f;
+			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Vengeful) && newThought.def == ThoughtDefOf.KilledMyRival)
+            {
+				newThought.moodPowerFactor *= 2f;
+			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalHater) && animalThoughtDefs.Contains(newThought.def))
+            {
+				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);
 			}
 		}
 	}

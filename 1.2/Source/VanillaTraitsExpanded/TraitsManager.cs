@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,14 @@ namespace VanillaTraitsExpanded
         public Dictionary<Pawn, Job> forcedJobs = new Dictionary<Pawn, Job>();
         public HashSet<Pawn> perfectionistsWithJobsToStop = new HashSet<Pawn>();
         public HashSet<Pawn> cowards = new HashSet<Pawn>();
+        public HashSet<Pawn> bigBoned = new HashSet<Pawn>();
+        public HashSet<Pawn> rebels = new HashSet<Pawn>();
         public void PreInit()
         {
             if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>();
             if (perfectionistsWithJobsToStop == null) perfectionistsWithJobsToStop = new HashSet<Pawn>();
             if (cowards == null) cowards = new HashSet<Pawn>();
+            if (rebels == null) rebels = new HashSet<Pawn>();
         }
         public override void StartedNewGame()
         {
@@ -49,6 +53,7 @@ namespace VanillaTraitsExpanded
                     if (Rand.Chance(0.5f))
                     {
                         Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
+                        Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.NeutralEvent, historical: false);
                         data.Key.jobs.StopAll();
                     }
                 }
@@ -70,13 +75,45 @@ namespace VanillaTraitsExpanded
                 if (Rand.Chance(0.1f))
                 {
                     var enemies = pawn.Map.attackTargetsCache.GetPotentialTargetsFor(pawn).Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f).Select(y => y.Thing);
-                    foreach (var e in enemies)
-                    {
-                        Log.Message("Enemy: " + e);
-                    }
                     if (enemies?.Count() > 0)
                     {
                         TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
+                        Messages.Message("VTE.PawnCowardlyFlees".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                    }
+                }
+            }
+        }
+
+// probably we can add beds to break them
+//JobDefOf.LayDown
+//JobDefOf.Lovin
+
+        public void TryBreakChairsUnderBigBoneds()
+        {
+            foreach (var pawn in bigBoned)
+            {
+                if (Rand.Chance(0.1f))
+                {
+                    if (pawn.CurJobDef == JobDefOf.Ingest && pawn.Position.GetFirstBuilding(pawn.Map).def.building.isSittable)
+                    {
+                        var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
+                        chairs.Destroy(DestroyMode.KillFinalize);
+                        pawn.jobs.StopAll();
+                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                    }
+                    else if (pawn.CurJobDef == VTEDefOf.WatchTelevision && pawn.Position.GetFirstBuilding(pawn.Map).def.building.isSittable)
+                    {
+                        var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
+                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        chairs.Destroy(DestroyMode.KillFinalize);
+                        pawn.jobs.StopAll();
+                    }
+                    else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob.targetB.Thing != null)
+                    {
+                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), pawn.CurJob.targetB.Thing.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        pawn.CurJob.targetB.Thing.Destroy(DestroyMode.KillFinalize);
+                        pawn.jobs.StopAll();
+
                     }
                 }
             }
@@ -88,6 +125,7 @@ namespace VanillaTraitsExpanded
             {
                 TryInterruptForcedJobs();
                 TryForceFleeCowards();
+                TryBreakChairsUnderBigBoneds();
             }
             if (perfectionistsWithJobsToStop.Count > 0)
             {

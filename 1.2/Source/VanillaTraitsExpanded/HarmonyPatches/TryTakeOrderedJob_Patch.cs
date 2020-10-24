@@ -16,10 +16,25 @@ namespace VanillaTraitsExpanded
 	{
 		private static void Prefix(Pawn ___pawn, Job job)
 		{
-            if (job.def != JobDefOf.Flee && ___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
+			if (job.def != JobDefOf.Ingest && job.def != JobDefOf.Flee)
             {
-				Log.Message(___pawn + " starts " + job);
-				TraitUtils.TraitsManager.forcedJobs[___pawn] = job;
+				if (___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
+				{
+					Log.Message(___pawn + " starts " + job);
+					TraitUtils.TraitsManager.forcedJobs[___pawn] = job;
+				}
+				if (___pawn.HasTrait(VTEDefOf.VTE_Rebel))
+				{
+					Log.Message(___pawn + " starts (rebel) " + job);
+					var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
+					___pawn.health.AddHediff(slowWorkHediff);
+				}
+				if (___pawn.HasTrait(VTEDefOf.VTE_Submissive))
+				{
+					Log.Message(___pawn + " starts (submissive) " + job);
+					var slowWorkHediff = ___pawn.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed);
+					___pawn.health.RemoveHediff(slowWorkHediff);
+				}
 			}
 		}
 	}
@@ -37,8 +52,28 @@ namespace VanillaTraitsExpanded
 			return true;
 		}
 	}
+    [HarmonyPatch(typeof(Pawn_JobTracker), "EndCurrentJob")]
+    public class EndCurrentJobPatch
+    {
+        private static void Prefix(Pawn ___pawn)
+        {
+			if (___pawn.HasTrait(VTEDefOf.VTE_Rebel))
+            {
+				var rebelHediff = ___pawn.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed);
+				if (rebelHediff != null)
+                {
+					___pawn.health.RemoveHediff(rebelHediff);
+				}
+			}
+			if (___pawn.HasTrait(VTEDefOf.VTE_Submissive))
+			{
+				var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
+				___pawn.health.AddHediff(slowWorkHediff);
+			}
+		}
+    }
 
-	[HarmonyPatch(typeof(FoodUtility))]
+    [HarmonyPatch(typeof(FoodUtility))]
 	[HarmonyPatch("AddFoodPoisoningHediff")]
 	public static class AddFoodPoisoningHediff_Patch
 	{

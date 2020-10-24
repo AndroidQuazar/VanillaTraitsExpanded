@@ -50,6 +50,7 @@
     <Compile Include="HarmonyPatches\SpawnSetup_Patch.cs" />
     <Compile Include="HarmonyPatches\GenerateQualityCreatedByPawn_Patch.cs" />
     <Compile Include="HarmonyPatches\Notify_PawnDidWork_Patch.cs" />
+    <Compile Include="Thoughts\ThoughtWorker_MyRivalsAreAlive.cs" />
     <Compile Include="Thoughts\ThoughtWorker_PassionateCleaningWork.cs" />
     <Compile Include="TraitsDefOf.cs" />
     <Compile Include="TraitUtils.cs" />

@@ -38,6 +38,32 @@ namespace VanillaTraitsExpanded
 		public static TraitDef VTE_IronStomach;
 
 		public static TraitDef VTE_AnimalLover;
+
+		public static TraitDef VTE_AnimalHater;
+
+		public static TraitDef VTE_BigBoned;
+
+		public static TraitDef VTE_Rebel;
+
+		public static HediffDef VTE_SlowWorkSpeed;
+
+		public static TraitDef VTE_Submissive;
+
+		public static TraitDef VTE_Vengeful;
+
+		public static JobDef WatchTelevision;
+
+		public static ThoughtDef VTE_BondedAnimalDiedHater;
+		public static ThoughtDef VTE_BondedAnimalLostHater;
+		public static ThoughtDef VTE_BondedAnimalBanishedHater;
+		public static ThoughtDef VTE_NuzzledHater;
+		public static ThoughtDef VTE_KilledMyBondedAnimalHater;
+		public static ThoughtDef VTE_SoldMyBondedAnimalHater;
+		public static ThoughtDef VTE_SoldMyBondedAnimalMoodHater;
+		public static ThoughtDef VTE_KilledColonyAnimalHater;
+		public static ThoughtDef VTE_BondedAnimalMasterHater;
+		public static ThoughtDef VTE_NotBondedAnimalMasterHater;
+
 	}
 }
 

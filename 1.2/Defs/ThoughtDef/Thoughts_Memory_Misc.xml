@@ -39,4 +39,17 @@
       </li>
     </stages>
   </ThoughtDef>
+  
+    <ThoughtDef>
+    <defName>VTE_MyRivalsAreAlive</defName>
+    <workerClass>VanillaTraitsExpanded.ThoughtWorker_MyRivalsAreAlive</workerClass>
+    <stages>
+      <li>
+        <label>My rivals are alive</label>
+        <description>My rivals are alive</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
 </Defs>
