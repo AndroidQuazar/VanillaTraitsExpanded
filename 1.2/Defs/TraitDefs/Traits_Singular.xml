@@ -638,6 +638,10 @@
 		<requiredWorkTags>
 			<li>Intellectual</li>
 		</requiredWorkTags>
+		<forcedPassions>
+			<li>Intellectual</li>
+			<li>Medicine</li>
+		</forcedPassions>
 		<degreeDatas>
 			<li>
 				<label>sawbones</label>
@@ -665,6 +669,10 @@
 		<requiredWorkTags>
 			<li>Mining</li>
 		</requiredWorkTags>
+		<forcedPassions>
+			<li>Mining</li>
+			<li>Construction</li>
+		</forcedPassions>
 		<degreeDatas>
 			<li>
 				<label>groundbreaker</label>
@@ -690,6 +698,10 @@
 	<TraitDef>
 		<defName>VTE_Gastronomist</defName>
 		<commonality>10</commonality>
+		<forcedPassions>
+			<li>Cooking</li>
+			<li>Artistic</li>
+		</forcedPassions>
 		<degreeDatas>
 			<li>
 				<label>gastronomist</label>
@@ -717,6 +729,10 @@
 		<requiredWorkTags>
 			<li>Animals</li>
 		</requiredWorkTags>
+		<forcedPassions>
+			<li>Animals</li>
+			<li>Plants</li>
+		</forcedPassions>
 		<degreeDatas>
 			<li>
 				<label>ecologist</label>
@@ -742,6 +758,10 @@
 	<TraitDef>
 		<defName>VTE_Tycoon</defName>
 		<commonality>10</commonality>
+		<forcedPassions>
+			<li>Social</li>
+			<li>Crafting</li>
+		</forcedPassions>
 		<requiredWorkTags>
 			<li>Social</li>
 		</requiredWorkTags>
