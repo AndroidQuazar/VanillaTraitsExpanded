@@ -667,7 +667,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>VTE_Sawbones</defName>
+		<defName>VTE_Academian</defName>
 		<commonality>1</commonality>
 		<requiredWorkTags>
 			<li>Intellectual</li>
@@ -678,8 +678,8 @@
 		</forcedPassions>
 		<degreeDatas>
 			<li>
-				<label>sawbones</label>
-				<description>[PAWN_nameDef] is a scrappy medic and passionate about it. They're not half bad at researching either.</description>
+				<label>academian</label>
+				<description>Whether through finding ancient manuscripts or years of scholastic persuit [PAWN_nameDef] is surprisingly well read on a variety of topics, particularly science and medical practician.</description>
 				<skillGains>
 					<li>
 						<key>Intellectual</key>
