@@ -23,4 +23,16 @@ namespace VanillaTraitsExpanded
 			return true;
 		}
 	}
+
+	[HarmonyPatch(typeof(Need_Joy), "FallPerInterval", MethodType.Getter)]
+	public static class FallPerInterval_Patch
+	{
+		private static void Postfix(Pawn ___pawn, ref float __result)
+		{
+			if (___pawn.HasTrait(VTEDefOf.VTE_WorldWeary))
+			{
+				__result *= 2f;
+			}
+		}
+	}
 }

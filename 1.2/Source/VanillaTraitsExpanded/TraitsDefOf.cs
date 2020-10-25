@@ -51,7 +51,84 @@ namespace VanillaTraitsExpanded
 
 		public static TraitDef VTE_Vengeful;
 
+		public static TraitDef VTE_Technophobe;
+
+		public static ThoughtDef VTE_MechanoidIsKilled;
+
+		public static TraitDef VTE_FunLoving;
+
+		public static TraitDef VTE_Dunce;
+
+		public static TraitDef VTE_MartialArtist;
+
+		public static TraitDef VTE_Snob;
+
+		public static TraitDef VTE_Squeamish;
+
 		public static JobDef WatchTelevision;
+
+		public static ThoughtDef VTE_ObservedManyBlood;
+
+		public static TraitDef VTE_Anxious;
+
+		public static TraitDef VTE_Insatiable;
+
+		public static TraitDef VTE_Prude;
+
+		public static TraitDef VTE_CouchPotato;
+
+		public static ThoughtDef VTE_WatchedTelevisor;
+
+		public static TraitDef VTE_CatPerson;
+
+		public static TraitDef VTE_DogPerson;
+
+		public static TraitDef VTE_Prodigy;
+
+		public static TraitDef VTE_Menagerist;
+
+		public static TraitDef VTE_ChildOfSea;
+
+		public static TraitDef VTE_ChildOfMountain;
+
+		public static TraitDef VTE_MadSurgeon;
+
+		public static ThoughtDef VTE_HarvestedOrgans;
+
+		public static TraitDef VTE_DrunkenMaster;
+
+		public static JobDef VTE_StealItems;
+
+		public static TraitDef VTE_Stoner;
+
+		public static TraitDef VTE_Lush;
+
+		public static HediffDef SmokeleafAddiction;
+
+		public static HediffDef AlcoholAddiction;
+
+		public static TraitDef VTE_Wanderlust;
+
+		public static HediffDef VTE_RestSlowFallFactor;
+
+		public static TraitDef VTE_Insomniac;
+
+		public static TraitDef VTE_WorldWeary;
+
+		public static TraitDef VTE_Desensitized;
+
+		public static TraitDef VTE_RefinedPalate;
+
+		public static HediffDef VTE_SlowerBleedingRate;
+
+		public static HediffDef VTE_HigherBleedingRate;
+
+		public static TraitDef VTE_ThickSkinned;
+
+		public static TraitDef VTE_ThinSkinned;
+
+		public static TraitDef VTE_Schizoid;
+
 
 		public static ThoughtDef VTE_BondedAnimalDiedHater;
 		public static ThoughtDef VTE_BondedAnimalLostHater;

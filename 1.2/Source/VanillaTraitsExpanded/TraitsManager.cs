@@ -25,41 +25,53 @@ namespace VanillaTraitsExpanded
         public HashSet<Pawn> cowards = new HashSet<Pawn>();
         public HashSet<Pawn> bigBoned = new HashSet<Pawn>();
         public HashSet<Pawn> rebels = new HashSet<Pawn>();
+        public HashSet<Pawn> snobs = new HashSet<Pawn>();
+        public Dictionary<Pawn, int> madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
+        public Dictionary<Pawn, int> wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
+
         public void PreInit()
         {
             if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>();
             if (perfectionistsWithJobsToStop == null) perfectionistsWithJobsToStop = new HashSet<Pawn>();
             if (cowards == null) cowards = new HashSet<Pawn>();
             if (rebels == null) rebels = new HashSet<Pawn>();
+            if (bigBoned == null) bigBoned = new HashSet<Pawn>();
+            if (snobs == null) snobs = new HashSet<Pawn>();
+            if (madSurgeonsWithLastHarvestedTick == null) madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
+            if (wanderLustersWithLastMapExitedTick == null) wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
+
         }
         public override void StartedNewGame()
         {
-            base.StartedNewGame();
             PreInit();
+            base.StartedNewGame();
         }
 
         public override void LoadedGame()
         {
-            base.LoadedGame();
             PreInit();
+            base.LoadedGame();
         }
         public void TryInterruptForcedJobs()
         {
             var keysToRemove = new List<Pawn>();
             foreach (var data in forcedJobs)
             {
-                if (data.Key.CurJob == data.Value)
+                if (data.Key.Map != null)
                 {
-                    if (Rand.Chance(0.5f))
+                    if (data.Key.CurJob == data.Value)
                     {
-                        Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
-                        Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.NeutralEvent, historical: false);
-                        data.Key.jobs.StopAll();
+                        if (Rand.Chance(0.5f))
+                        {
+                            Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
+                            Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.NeutralEvent, historical: false);
+                            data.Key.jobs.StopAll();
+                        }
                     }
-                }
-                else
-                {
-                    keysToRemove.Add(data.Key);
+                    else
+                    {
+                        keysToRemove.Add(data.Key);
+                    }
                 }
             }
             foreach (var key in keysToRemove)
@@ -72,27 +84,26 @@ namespace VanillaTraitsExpanded
         {
             foreach (var pawn in cowards)
             {
-                if (Rand.Chance(0.1f))
+                if (pawn.Map != null && Rand.Chance(0.1f))
                 {
-                    var enemies = pawn.Map.attackTargetsCache.GetPotentialTargetsFor(pawn).Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f).Select(y => y.Thing);
+                    Log.Message(" - TryForceFleeCowards - var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing); - 3", true);
+                    var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing);
+                    Log.Message(" - TryForceFleeCowards - if (enemies?.Count() > 0) - 4", true);
                     if (enemies?.Count() > 0)
                     {
+                        Log.Message(" - TryForceFleeCowards - TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList()); - 5", true);
                         TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
+                        Log.Message(" - TryForceFleeCowards - Messages.Message(\"VTE.PawnCowardlyFlees\".Translate(pawn.Named(\"PAWN\")), pawn, MessageTypeDefOf.NeutralEvent, historical: false); - 6", true);
                         Messages.Message("VTE.PawnCowardlyFlees".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                     }
                 }
             }
         }
-
-// probably we can add beds to break them
-//JobDefOf.LayDown
-//JobDefOf.Lovin
-
         public void TryBreakChairsUnderBigBoneds()
         {
             foreach (var pawn in bigBoned)
             {
-                if (Rand.Chance(0.1f))
+                if (pawn.Map != null && Rand.Chance(0.1f))
                 {
                     if (pawn.CurJobDef == JobDefOf.Ingest && pawn.Position.GetFirstBuilding(pawn.Map).def.building.isSittable)
                     {
@@ -144,9 +155,23 @@ namespace VanillaTraitsExpanded
         {
             base.ExposeData();
             Scribe_Collections.Look(ref forcedJobs, "forcedJobs", LookMode.Reference, LookMode.Reference, ref pawnKeys, ref jobValues);
+            Scribe_Collections.Look(ref madSurgeonsWithLastHarvestedTick, "madSurgeonsWithLastHarvestedTick", LookMode.Reference, LookMode.Value, ref pawnKeys2, ref tickValues);
+            Scribe_Collections.Look(ref wanderLustersWithLastMapExitedTick, "wanderLustersWithLastMapExitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys3, ref tickValues1);
+            Scribe_Collections.Look(ref rebels, "rebels", LookMode.Reference);
+            Scribe_Collections.Look(ref perfectionistsWithJobsToStop, "perfectionistsWithJobsToStop", LookMode.Reference);
+            Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
+            Scribe_Collections.Look(ref snobs, "snobs", LookMode.Reference);
+            Scribe_Collections.Look(ref bigBoned, "bigBoned", LookMode.Reference);
         }
 
         private List<Pawn> pawnKeys = new List<Pawn>();
         private List<Job> jobValues = new List<Job>();
+
+
+        private List<Pawn> pawnKeys2 = new List<Pawn>();
+        private List<int> tickValues = new List<int>();
+
+        private List<Pawn> pawnKeys3 = new List<Pawn>();
+        private List<int> tickValues1 = new List<int>();
     }
 }

@@ -10,33 +10,94 @@ using Verse.AI;
 
 namespace VanillaTraitsExpanded
 {
-	[HarmonyPatch(typeof(Pawn))]
-	[HarmonyPatch("SpawnSetup")]
+    [HarmonyPatch(typeof(Pawn))]
+    [HarmonyPatch("SpawnSetup")]
 
-	public static class SpawnSetup_Patch
-	{
-		private static void Postfix(Pawn __instance)
-		{
-			if (__instance.HasTrait(VTEDefOf.VTE_Coward))
+    public static class SpawnSetup_Patch
+    {
+        private static void Postfix(Pawn __instance)
+        {
+            if (__instance.HasTrait(VTEDefOf.VTE_Coward))
             {
-				TraitUtils.TraitsManager.cowards.Add(__instance);
+                TraitUtils.TraitsManager.cowards.Add(__instance);
             }
-			if (__instance.HasTrait(VTEDefOf.VTE_BigBoned))
+            if (__instance.HasTrait(VTEDefOf.VTE_BigBoned))
             {
-				TraitUtils.TraitsManager.bigBoned.Add(__instance);
-			}
-			if (__instance.HasTrait(VTEDefOf.VTE_Rebel))
+                TraitUtils.TraitsManager.bigBoned.Add(__instance);
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Rebel))
             {
-				TraitUtils.TraitsManager.rebels.Add(__instance);
-			}
-			if (__instance.HasTrait(VTEDefOf.VTE_Submissive))
-			{
-				if (__instance.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed) == null)
+                TraitUtils.TraitsManager.rebels.Add(__instance);
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Submissive))
+            {
+                if (__instance.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed) == null)
                 {
-					var hediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, __instance);
-					__instance.health.AddHediff(hediff);
-				}
-			}
-		}
-	}
+                    var hediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, __instance);
+                    __instance.health.AddHediff(hediff);
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Snob))
+            {
+                TraitUtils.TraitsManager.snobs.Add(__instance);
+            }
+
+            if (__instance.HasTrait(VTEDefOf.VTE_MadSurgeon))
+            {
+                if (TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick == null) TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
+                if (!TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick.ContainsKey(__instance))
+                {
+                    TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[__instance] = Find.TickManager.TicksAbs;
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Stoner))
+            {
+                if (!__instance.health.hediffSet.HasHediff(VTEDefOf.SmokeleafAddiction))
+                {
+                    var hediff = HediffMaker.MakeHediff(VTEDefOf.SmokeleafAddiction, __instance);
+                    __instance.health.AddHediff(hediff);
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Lush))
+            {
+                if (!__instance.health.hediffSet.HasHediff(VTEDefOf.AlcoholAddiction))
+                {
+                    var hediff = HediffMaker.MakeHediff(VTEDefOf.AlcoholAddiction, __instance);
+                    __instance.health.AddHediff(hediff);
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Wanderlust))
+            {
+                if (TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick == null) TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
+                if (!TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick.ContainsKey(__instance))
+                {
+                    TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[__instance] = Find.TickManager.TicksAbs;
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_Insomniac))
+            {
+                if (__instance.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_RestSlowFallFactor) == null)
+                {
+                    var hediff = HediffMaker.MakeHediff(VTEDefOf.VTE_RestSlowFallFactor, __instance);
+                    __instance.health.AddHediff(hediff);
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_ThickSkinned))
+            {
+                if (__instance.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowerBleedingRate) == null)
+                {
+                    var hediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowerBleedingRate, __instance);
+                    __instance.health.AddHediff(hediff);
+                }
+            }
+            if (__instance.HasTrait(VTEDefOf.VTE_ThinSkinned))
+            {
+                if (__instance.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_HigherBleedingRate) == null)
+                {
+                    var hediff = HediffMaker.MakeHediff(VTEDefOf.VTE_HigherBleedingRate, __instance);
+                    __instance.health.AddHediff(hediff);
+                }
+            }
+        }
+    }
 }

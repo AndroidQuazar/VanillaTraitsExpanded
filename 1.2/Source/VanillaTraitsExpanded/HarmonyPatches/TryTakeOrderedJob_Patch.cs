@@ -16,7 +16,7 @@ namespace VanillaTraitsExpanded
 	{
 		private static void Prefix(Pawn ___pawn, Job job)
 		{
-			if (job.def != JobDefOf.Ingest && job.def != JobDefOf.Flee)
+			if (job.def != JobDefOf.Ingest && job.def != JobDefOf.Flee && job.def != JobDefOf.Vomit)
             {
 				if (___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
 				{
@@ -53,7 +53,7 @@ namespace VanillaTraitsExpanded
 		}
 	}
     [HarmonyPatch(typeof(Pawn_JobTracker), "EndCurrentJob")]
-    public class EndCurrentJobPatch
+    public static class EndCurrentJobPatch
     {
         private static void Prefix(Pawn ___pawn)
         {

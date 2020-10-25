@@ -16,5 +16,46 @@
 			</li>
 		</stages>
 	</HediffDef>
+	
+	<HediffDef>
+		<defName>VTE_RestSlowFallFactor</defName>
+		<label>high on wake-up</label>
+		<labelNoun>a wake-up high</labelNoun>
+		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<restFallFactor>0.2</restFallFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef>
+		<defName>VTE_SlowerBleedingRate</defName>
+		<label>high on wake-up</label>
+		<labelNoun>a wake-up high</labelNoun>
+		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<totalBleedFactor>0.5</totalBleedFactor>
+			</li>
+		</stages>
+	</HediffDef>
 
+	<HediffDef>
+		<defName>VTE_HigherBleedingRate</defName>
+		<label>high on wake-up</label>
+		<labelNoun>a wake-up high</labelNoun>
+		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<totalBleedFactor>1.5</totalBleedFactor>
+			</li>
+		</stages>
+	</HediffDef>
 </Defs>
