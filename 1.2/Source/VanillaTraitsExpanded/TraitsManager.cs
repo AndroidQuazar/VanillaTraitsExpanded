@@ -105,21 +105,21 @@ namespace VanillaTraitsExpanded
             {
                 if (pawn.Map != null && Rand.Chance(0.1f))
                 {
-                    if (pawn.CurJobDef == JobDefOf.Ingest && pawn.Position.GetFirstBuilding(pawn.Map).def.building.isSittable)
+                    if (pawn.CurJobDef == JobDefOf.Ingest && (pawn.Position.GetFirstBuilding(pawn.Map)?.def?.building?.isSittable ?? false))
                     {
                         var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
                         chairs.Destroy(DestroyMode.KillFinalize);
                         pawn.jobs.StopAll();
                         Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                     }
-                    else if (pawn.CurJobDef == VTEDefOf.WatchTelevision && pawn.Position.GetFirstBuilding(pawn.Map).def.building.isSittable)
+                    else if (pawn.CurJobDef == VTEDefOf.WatchTelevision && (pawn.Position.GetFirstBuilding(pawn.Map)?.def?.building?.isSittable ?? false))
                     {
                         var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
                         Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                         chairs.Destroy(DestroyMode.KillFinalize);
                         pawn.jobs.StopAll();
                     }
-                    else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob.targetB.Thing != null)
+                    else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob?.targetB.Thing != null)
                     {
                         Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), pawn.CurJob.targetB.Thing.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                         pawn.CurJob.targetB.Thing.Destroy(DestroyMode.KillFinalize);
