@@ -861,8 +861,7 @@
 		<conflictingTraits>
 			<li>IronWilled</li>
 			<!-- no idea how to exclude degrees in the Nerves trait def -->
-			<li>Steafast</li>
-			<!-- what is that? -->
+			<li>Steadfast</li>
 		</conflictingTraits>
 	</TraitDef>
 
