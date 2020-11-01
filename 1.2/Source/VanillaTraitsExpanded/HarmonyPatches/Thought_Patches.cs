@@ -152,6 +152,10 @@ namespace VanillaTraitsExpanded
 			{
 				return false;
 			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_MadSurgeon) && (newThought.def == ThoughtDefOf.KnowColonistOrganHarvested || newThought.def == ThoughtDefOf.KnowGuestOrganHarvested))
+			{
+				return false;
+			}
 			return true;
 		}
 
