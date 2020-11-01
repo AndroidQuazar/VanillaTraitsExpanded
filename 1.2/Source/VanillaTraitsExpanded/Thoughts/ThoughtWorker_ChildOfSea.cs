@@ -7,9 +7,13 @@ using Verse.AI;
 
 namespace VanillaTraitsExpanded
 {
+	public class MapCheck
+    {
+		public int lastTickCheck;
+		public bool value;
+    }
 	public class ThoughtWorker_ChildOfSea : ThoughtWorker
 	{
-
 		public static HashSet<TerrainDef> SeaTerrain = new HashSet<TerrainDef>()
 		{
 			TerrainDefOf.WaterMovingChestDeep,
@@ -17,6 +21,27 @@ namespace VanillaTraitsExpanded
 			TerrainDefOf.WaterOceanDeep,
 			TerrainDefOf.WaterOceanShallow,
 		};
+
+		public Dictionary<Map, MapCheck> mapChecks = new Dictionary<Map, MapCheck>();
+        public bool HasEnoughSeaCheck(Map map)
+        {
+            if (mapChecks.TryGetValue(map, out MapCheck check))
+            {
+                if (Find.TickManager.TicksAbs < check.lastTickCheck + 2000)
+                {
+                    return check.value;
+                }
+            }
+
+            bool value = HasEnoughSea(map); // every 2000 ticks
+			mapChecks[map] = new MapCheck
+            {
+                lastTickCheck = Find.TickManager.TicksAbs,
+                value = value
+            };
+            return value;
+        }
+
 		public bool HasEnoughSea(Map map)
         {
 			int num = 0;
@@ -32,12 +57,13 @@ namespace VanillaTraitsExpanded
                 }
             }
 			return false;
-        } 
+        }
 		protected override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_ChildOfSea))
             {
-				if (p.Map != null && HasEnoughSea(p.Map))
+				Log.Message("HasEnoughSea");
+				if (p.Map != null && HasEnoughSeaCheck(p.Map))
                 {
 					return ThoughtState.ActiveDefault;
 				}

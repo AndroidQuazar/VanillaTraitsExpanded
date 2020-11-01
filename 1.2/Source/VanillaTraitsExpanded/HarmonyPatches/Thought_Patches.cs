@@ -136,6 +136,14 @@ namespace VanillaTraitsExpanded
 					newThought.moodPowerFactor *= 1.5f;
 				}
 			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ColdInclined) && newThought.def == ThoughtDef.Named("EnvironmentCold"))
+			{
+				return false;
+            }
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_HeatInclined) && newThought.def == ThoughtDef.Named("EnvironmentHot"))
+			{
+				return false;
+			}
 			return true;
 		}
 

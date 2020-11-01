@@ -532,7 +532,7 @@
 		<degreeDatas>
 			<li>
 				<label>mad surgeon</label>
-				<description>[PAWN_nameDef] has a twisted secret. [Pawn_pronoun] treats organ harvesting like a sick experiment, and does not even blink at the idea. While harvesting one will make them happy, going too long without giving in to their compulsion will upset them.</description>
+				<description>[PAWN_nameDef] has a twisted secret. [PAWN_pronoun] treats organ harvesting like a sick experiment, and does not even blink at the idea. While harvesting one will make them happy, going too long without giving in to their compulsion will upset them.</description>
 				<statOffsets>
 					<SurgerySuccessChanceFactor>0.20</SurgerySuccessChanceFactor>
 				</statOffsets>
@@ -584,7 +584,7 @@
 		<degreeDatas>
 			<li>
 				<label>stoner</label>
-				<description>Smokeleaf culture is just part life for [PAWN_nameDef]. [Pawn_pronoun] absolutely adores smokeleaf and would die before giving it up.</description>
+				<description>Smokeleaf culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores smokeleaf and would die before giving it up.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -599,7 +599,7 @@
 		<degreeDatas>
 			<li>
 				<label>lush</label>
-				<description>Alcohol culture is just part life for [PAWN_nameDef]. [Pawn_pronoun] absolutely adores booze and would die before giving it up.</description>
+				<description>Alcohol culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores booze and would die before giving it up.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -646,7 +646,7 @@
 		<degreeDatas>
 			<li>
 				<label>world weary</label>
-				<description>[PAWN_nameDef] has grown tired of the world and needs to be constantly distracted to stop dark thoughts. [PAWN_possesive] bleak personality is a big downer and therefore it is very hard to become friends with him.</description>
+				<description>[PAWN_nameDef] has grown tired of the world and needs to be constantly distracted to stop dark thoughts. [PAWN_possessive] bleak personality is a big downer and therefore it is very hard to become friends with him.</description>
 			</li>
 		</degreeDatas>
 	</TraitDef>
@@ -870,11 +870,8 @@
 				<description>[PAWN_nameDef] has trouble expressing themselves until its all too much to bear, whereafter they will have an utter meltdown.</description>
 			</li>
 		</degreeDatas>
-
 		<conflictingTraits>
-			<li>IronWilled</li>
-			<!-- no idea how to exclude degrees in the Nerves trait def -->
-			<li>Steadfast</li>
+			<li>Nerves</li>
 		</conflictingTraits>
 	</TraitDef>
 

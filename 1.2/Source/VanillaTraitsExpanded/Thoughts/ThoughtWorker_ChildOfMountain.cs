@@ -9,7 +9,26 @@ namespace VanillaTraitsExpanded
 {
 	public class ThoughtWorker_ChildOfMountain : ThoughtWorker
 	{
-		public bool HasEnoughMountain(Map map)
+        public Dictionary<Map, MapCheck> mapChecks = new Dictionary<Map, MapCheck>();
+        public bool HasEnoughMountainCheck(Map map)
+        {
+            if (mapChecks.TryGetValue(map, out MapCheck check))
+            {
+                if (Find.TickManager.TicksAbs < check.lastTickCheck + 2000)
+                {
+                    return check.value;
+                }
+            }
+
+            bool value = HasEnoughMountain(map); // every 2000 ticks
+            mapChecks[map] = new MapCheck
+            {
+                lastTickCheck = Find.TickManager.TicksAbs,
+                value = value
+            };
+            return value;
+        }
+        public bool HasEnoughMountain(Map map)
         {
 			int num = 0;
 			foreach (var cell in map.AllCells)
@@ -27,9 +46,9 @@ namespace VanillaTraitsExpanded
         } 
 		protected override ThoughtState CurrentStateInternal(Pawn p)
 		{
-			if (p.HasTrait(VTEDefOf.VTE_ChildOfSea))
+			if (p.HasTrait(VTEDefOf.VTE_ChildOfMountain))
             {
-				if (p.Map != null && HasEnoughMountain(p.Map))
+				if (p.Map != null && HasEnoughMountainCheck(p.Map))
                 {
 					return ThoughtState.ActiveDefault;
 				}

@@ -198,7 +198,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 	<ThoughtDef>
 		<defName>VTE_ChildOfSea</defName>
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_ChildOfSea</workerClass>
@@ -210,19 +210,19 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 	<ThoughtDef>
 		<defName>VTE_ChildOfMountain</defName>
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_ChildOfMountain</workerClass>
 		<stages>
 			<li>
 				<label>Mountain lover</label>
-				<description>I just love being around the mountains, they take my breath away./description>
+				<description>I just love being around the mountains, they take my breath away.</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 	<ThoughtDef>
 		<defName>VTE_HaventHarvestedOrgansForLongTime</defName>
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_HaventHarvestedOrgansForLongTime</workerClass>
@@ -234,7 +234,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 	<ThoughtDef>
 		<defName>VTE_HarvestedOrgans</defName>
 		<durationDays>3</durationDays>
@@ -247,8 +247,8 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
-	
+
+
 	<ThoughtDef>
 		<defName>VTE_HaventExitedColonyForLongTime</defName>
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_HaventExitedColonyForLongTime</workerClass>

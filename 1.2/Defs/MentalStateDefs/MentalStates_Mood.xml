@@ -25,6 +25,7 @@
     <mentalState>VTE_PanicFreezing</mentalState>
     <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
+    <requiredTrait>VTE_Anxious</requiredTrait>
   </MentalBreakDef>
 
   <MentalStateDef ParentName="BaseMentalState">
