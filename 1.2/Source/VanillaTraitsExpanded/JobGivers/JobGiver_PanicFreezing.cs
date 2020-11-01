@@ -26,13 +26,13 @@ namespace VanillaTraitsExpanded
                 }
                 else
                 {
-                    Job job = JobMaker.MakeJob(JobDefOf.Wait);
+                    Job job = JobMaker.MakeJob(JobDefOf.Wait, 60);
                     return job;
                 }
             }
             else
             {
-                Job job = JobMaker.MakeJob(JobDefOf.Wait);
+                Job job = JobMaker.MakeJob(JobDefOf.Wait, 60);
             }
             return null;
         }
