@@ -105,26 +105,28 @@ namespace VanillaTraitsExpanded
             {
                 if (pawn.Map != null && Rand.Chance(0.1f))
                 {
-                    if (pawn.CurJobDef == JobDefOf.Ingest && (pawn.Position.GetFirstBuilding(pawn.Map)?.def?.building?.isSittable ?? false))
+                    var firstBuilding = pawn.Position.GetFirstBuilding(pawn.Map);
+                    if (firstBuilding?.def?.building?.isSittable ?? false && !(firstBuilding is Building_Throne))
                     {
-                        var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
-                        chairs.Destroy(DestroyMode.KillFinalize);
-                        pawn.jobs.StopAll();
-                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        if (pawn.CurJobDef == JobDefOf.Ingest)
+                        {
+                            firstBuilding.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
+                            pawn.jobs.StopAll();
+                            Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), firstBuilding.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        }
+                        else if (pawn.CurJobDef == VTEDefOf.WatchTelevision && (pawn.Position.GetFirstBuilding(pawn.Map)?.def?.building?.isSittable ?? false))
+                        {
+                            var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
+                            Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                            firstBuilding.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
+                            pawn.jobs.StopAll();
+                        }
                     }
-                    else if (pawn.CurJobDef == VTEDefOf.WatchTelevision && (pawn.Position.GetFirstBuilding(pawn.Map)?.def?.building?.isSittable ?? false))
-                    {
-                        var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
-                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-                        chairs.Destroy(DestroyMode.KillFinalize);
-                        pawn.jobs.StopAll();
-                    }
-                    else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob?.targetB.Thing != null)
+                    else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob?.targetB.Thing != null && !(pawn.CurJob?.targetB.Thing is Building_Throne))
                     {
                         Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), pawn.CurJob.targetB.Thing.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-                        pawn.CurJob.targetB.Thing.Destroy(DestroyMode.KillFinalize);
+                        pawn.CurJob.targetB.Thing.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
                         pawn.jobs.StopAll();
-
                     }
                 }
             }
@@ -136,6 +138,9 @@ namespace VanillaTraitsExpanded
             {
                 TryInterruptForcedJobs();
                 TryForceFleeCowards();
+            }
+            else if (Find.TickManager.TicksGame % 100 == 0)
+            {
                 TryBreakChairsUnderBigBoneds();
             }
             if (perfectionistsWithJobsToStop.Count > 0)

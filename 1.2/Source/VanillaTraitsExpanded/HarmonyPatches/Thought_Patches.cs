@@ -136,11 +136,19 @@ namespace VanillaTraitsExpanded
 					newThought.moodPowerFactor *= 1.5f;
 				}
 			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ColdInclined) && newThought.def == ThoughtDef.Named("EnvironmentCold"))
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ColdInclined) && newThought.CurStageIndex < 1 && newThought.def == ThoughtDef.Named("EnvironmentCold"))
 			{
 				return false;
             }
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_HeatInclined) && newThought.def == ThoughtDef.Named("EnvironmentHot"))
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_HeatInclined) && newThought.CurStageIndex < 1 && newThought.def == ThoughtDef.Named("EnvironmentHot"))
+			{
+				return false;
+			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ChildOfMountain) && newThought.def == ThoughtDef.Named("EnvironmentDark"))
+			{
+				return false;
+			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ChildOfSea) && newThought.def == ThoughtDef.Named("SoakingWet"))
 			{
 				return false;
 			}
