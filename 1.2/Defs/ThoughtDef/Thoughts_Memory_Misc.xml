@@ -22,8 +22,8 @@
 		<stages>
 			<li>
 				<label>Сould not finish item</label>
-				<description>Сould not finish item, it was not perfect.</description>
-				<baseMoodEffect>-10</baseMoodEffect>
+				<description>I couldn't finish my project, it just wasn't coming along correctly.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
@@ -33,8 +33,8 @@
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_PassionateCleaningWork</workerClass>
 		<stages>
 			<li>
-				<label>Doing cleaning</label>
-				<description>I enjoy my cleaning work.</description>
+				<label>Passionately cleaning</label>
+				<description>I actually really enjoy organizing and cleaning up the place.</description>
 				<baseMoodEffect>8</baseMoodEffect>
 			</li>
 		</stages>
@@ -46,7 +46,7 @@
 		<stages>
 			<li>
 				<label>My rivals are alive</label>
-				<description>My rivals are alive</description>
+				<description>I hate them. Why should they deserve to live?</description>
 				<baseMoodEffect>-20</baseMoodEffect>
 			</li>
 		</stages>
@@ -58,8 +58,8 @@
 		<stackLimit>1</stackLimit>
 		<stages>
 			<li>
-				<label>Mechanoid is killed</label>
-				<description>Mechanoid is killed.</description>
+				<label>Mechanoid died</label>
+				<description>Those evil machines don't deserve to function.</description>
 				<baseMoodEffect>10</baseMoodEffect>
 			</li>
 		</stages>
@@ -79,7 +79,7 @@
 		<stages>
 			<li>
 				<label>observed many blood</label>
-				<description>I saw many blood laying on the ground. It was disgusting.</description>
+				<description>I saw so much blood and bits. Just remembering it makes me gag.</description>
 				<baseMoodEffect>-6</baseMoodEffect>
 			</li>
 		</stages>
@@ -92,8 +92,8 @@
 		<stackLimit>5</stackLimit>
 		<stages>
 			<li>
-				<label>Watched televisor</label>
-				<description>Watched televisor</description>
+				<label>Watched television recently</label>
+				<description>I got to laze around and catch up on my shows.</description>
 				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 		</stages>
@@ -105,7 +105,7 @@
 		<stages>
 			<li>
 				<label>No dedicated laboratory</label>
-				<description>I wish we had a lab room</description>
+				<description>I have nowhere to study in peace, how annoying.</description>
 				<baseMoodEffect>-5</baseMoodEffect>
 			</li>
 		</stages>
@@ -117,83 +117,83 @@
 		<stages>
 			<li>
 				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<description>We don't have a single animal.</description>
 				<baseMoodEffect>0</baseMoodEffect>
 			</li>
 
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Hardly any animals in the colony</label>
+				<description>We have hardly any animals in the colony, this sucks.</description>
 				<baseMoodEffect>1</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Hardly any animals in the colony</label>
+				<description>We have hardly any animals in the colony, it's something I guess.</description>
 				<baseMoodEffect>2</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Hardly any animals in the colony</label>
+				<description>We have hardly any animals in the colony, it's something I guess.</description>
 				<baseMoodEffect>3</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>A few animals in the colony</label>
+				<description>We have a few animals in the colony, that's nice.</description>
 				<baseMoodEffect>4</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>A few animals in the colony</label>
+				<description>We have a few animals in the colony, that's nice.</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Some animals in the colony</label>
+				<description>We've got a decent amount of animals now, we're getting there.</description>
 				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Some animals in the colony</label>
+				<description>We've got a decent amount of animals now, we're getting there.</description>
 				<baseMoodEffect>7</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Some animals in the colony</label>
+				<description>We've got a decent amount of animals now, we're getting there.</description>
 				<baseMoodEffect>8</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>>Some animals in the colony</label>
+				<description>We've got a decent amount of animals now, we're getting there.</description>
 				<baseMoodEffect>9</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Lots of animals in the colony</label>
+				<description>We've got a lot of animals around the colony now, they're wonderful.</description>
 				<baseMoodEffect>10</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Lots of animals in the colony</label>
+				<description>We've got a lot of animals around the colony now, they're wonderful.</description>
 				<baseMoodEffect>11</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>Lots of animals in the colony</label>
+				<description>We've got a lot of animals around the colony now, they're wonderful.</description>
 				<baseMoodEffect>12</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>A ton of animals in the colony</label>
+				<description>We've got so many animals now! It makes me so happy to see them all!</description>
 				<baseMoodEffect>13</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>A ton of animals in the colony</label>
+				<description>We've got so many animals now! It makes me so happy to see them all!</description>
 				<baseMoodEffect>14</baseMoodEffect>
 			</li>
 			<li>
-				<label>No animals in the colony</label>
-				<description>No animals in the colony</description>
+				<label>A ton of animals in the colony</label>
+				<description>We've got so many animals now! It makes me so happy to see them all!</description>
 				<baseMoodEffect>15</baseMoodEffect>
 			</li>
 		</stages>
@@ -204,8 +204,8 @@
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_ChildOfSea</workerClass>
 		<stages>
 			<li>
-				<label>Child of sea</label>
-				<description>Child of sea</description>
+				<label>Ocean lover</label>
+				<description>I just love being around the ocean and rivers, water is beautiful.</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 		</stages>
@@ -216,8 +216,8 @@
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_ChildOfMountain</workerClass>
 		<stages>
 			<li>
-				<label>Child of mountain</label>
-				<description>Child of mountain</description>
+				<label>Mountain lover</label>
+				<description>I just love being around the mountains, they take my breath away./description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 		</stages>
@@ -228,8 +228,8 @@
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_HaventHarvestedOrgansForLongTime</workerClass>
 		<stages>
 			<li>
-				<label>haven't harvested organs</label>
-				<description>haven't harvested organs</description>
+				<label>Hasn't harvested organs</label>
+				<description>I'm growing impatient and bored, I need more subjects.</description>
 				<baseMoodEffect>-6</baseMoodEffect>
 			</li>
 		</stages>
@@ -242,7 +242,7 @@
 		<stages>
 			<li>
 				<label>Harvested organs</label>
-				<description>Harvested organs</description>
+				<description>The operation went just as expected, my collection has grown.</description>
 				<baseMoodEffect>3</baseMoodEffect>
 			</li>
 		</stages>
@@ -254,8 +254,8 @@
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_HaventExitedColonyForLongTime</workerClass>
 		<stages>
 			<li>
-				<label>haven't exited colony</label>
-				<description>haven't exited colony for long time</description>
+				<label>Has not left colony</label>
+				<description>I haven't left home in a while, I'd really like to travel for a change.</description>
 				<baseMoodEffect>-6</baseMoodEffect>
 			</li>
 		</stages>

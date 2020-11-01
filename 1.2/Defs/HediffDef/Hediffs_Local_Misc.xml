@@ -3,9 +3,9 @@
 
 	<HediffDef>
 		<defName>VTE_SlowWorkSpeed</defName>
-		<label>high on wake-up</label>
-		<labelNoun>a wake-up high</labelNoun>
-		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<label>Rebelling</label>
+		<labelNoun>Rebelling</labelNoun>
+		<description>Whether by sour mood or mental issues, rebelling means any forced work is met with snide comments and eyerolls, and taken less than seriously.</description>
 		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
 		<stages>
 			<li>
@@ -19,9 +19,9 @@
 	
 	<HediffDef>
 		<defName>VTE_RestSlowFallFactor</defName>
-		<label>high on wake-up</label>
-		<labelNoun>a wake-up high</labelNoun>
-		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<label>Insomnia</label>
+		<labelNoun>Insomnia</labelNoun>
+		<description>Pronounced mental or physical unrest causes insomnia, insomnia means one can often feel sluggish or exhausted and find themselves hardly ever capable of sleep.</description>
 		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
 		<stages>
 			<li>
@@ -33,9 +33,9 @@
 	
 	<HediffDef>
 		<defName>VTE_SlowerBleedingRate</defName>
-		<label>high on wake-up</label>
-		<labelNoun>a wake-up high</labelNoun>
-		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<label>hyper-coagulant</label>
+		<labelNoun>hyper-coagulation</labelNoun>
+		<description>Higher red blood-cell count means hyper-coagulation occurs, causing wounds to bleed much less profusely.</description>
 		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
 		<stages>
 			<li>
@@ -47,9 +47,9 @@
 
 	<HediffDef>
 		<defName>VTE_HigherBleedingRate</defName>
-		<label>high on wake-up</label>
-		<labelNoun>a wake-up high</labelNoun>
-		<description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work. It also increases the psyfocus gains from meditation.</description>
+		<label>hemophilic</label>
+		<labelNoun>hemophilia</labelNoun>
+		<description>Hemophilia is the inability for blood to clot properly, causing wounds to bleed much more profusely.</description>
 		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
 		<stages>
 			<li>

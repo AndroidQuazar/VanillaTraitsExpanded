@@ -12,6 +12,7 @@
 		</degreeDatas>
 		<conflictingTraits>
 			<li>VTE_Workaholic</li>
+			<li>Industriousness</li>
 		</conflictingTraits>
 	</TraitDef>
 
@@ -87,6 +88,9 @@
 				<description>Minor bruises and scrapes plague [PAWN_nameDef] all too often, mostly due to uncoordinated tripping or falling.</description>
 			</li>
 		</degreeDatas>
+		<conflictingTraits>
+			<li>Nimble</li>
+		</conflictingTraits>
 	</TraitDef>
 
 	<TraitDef>
@@ -97,7 +101,7 @@
 				<label>heat inclined</label>
 				<description>[PAWN_nameDef] loves the brightness and heat of a dry summer day. They don't mind working up a sweat or sleeping in the warmth either.</description>
 				<statOffsets>
-					<ComfyTemperatureMax>0.2</ComfyTemperatureMax>
+					<ComfyTemperatureMax>10.0</ComfyTemperatureMax>
 				</statOffsets>
 			</li>
 		</degreeDatas>
@@ -114,7 +118,7 @@
 				<label>cold inclined</label>
 				<description>[PAWN_nameDef] loves the overcast and cold of a brisk winter night. They don't mind getting chilly or sleeping in the cold either.</description>
 				<statOffsets>
-					<ComfyTemperatureMin>-0.2</ComfyTemperatureMin>
+					<ComfyTemperatureMin>-10.0</ComfyTemperatureMin>
 				</statOffsets>
 			</li>
 		</degreeDatas>
@@ -173,6 +177,7 @@
 		</degreeDatas>
 		<conflictingTraits>
 			<li>VTE_AbsentMinded</li>
+			<li>Industriousness</li>
 		</conflictingTraits>
 	</TraitDef>
 
@@ -225,7 +230,7 @@
 		<degreeDatas>
 			<li>
 				<label>big-boned</label>
-				<description>Whether because they're a bit chunky or because they shift their weight oddly [PAWN_nameDef] has broken a few chairs in their time and is likely to break more.</description>
+				<description>Whether because they're a bit chunky or because they shift their weight oddly, [PAWN_nameDef] has broken a few chairs in their time and is likely to break more.</description>
 			</li>
 		</degreeDatas>
 	</TraitDef>
@@ -236,7 +241,7 @@
 		<degreeDatas>
 			<li>
 				<label>rebel</label>
-				<description>[PAWN_nameDef] doesn't play by anybody elses rules, and will roll their eyes and take it easy while doing any task they've been forced to do.</description>
+				<description>[PAWN_nameDef] only plays by their own rules, and will roll their eyes and take it easy while doing any task they've been forced to do.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -250,7 +255,7 @@
 		<degreeDatas>
 			<li>
 				<label>submissive</label>
-				<description>[PAWN_nameDef] needs clear instructions on how and when to do certain things and will only work at a normal speed when being forced to do something.</description>
+				<description>[PAWN_nameDef] needs clear instructions on how, and when to do certain things and will only work at a normal speed when being forced to do something.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -504,7 +509,7 @@
 		<commonality>1</commonality>
 		<degreeDatas>
 			<li>
-				<label>child of the Sea</label>
+				<label>Ocean lover</label>
 				<description>The sea calls to [PAWN_nameDef]. [PAWN_pronoun] feels happier just being near the ocean or a deep river.</description>
 			</li>
 		</degreeDatas>
@@ -515,7 +520,7 @@
 		<commonality>1</commonality>
 		<degreeDatas>
 			<li>
-				<label>child of the Mountain</label>
+				<label>Mountain lover</label>
 				<description>The mountains call to [PAWN_nameDef]. [PAWN_pronoun] feels happier just being near a large mountain.</description>
 			</li>
 		</degreeDatas>
@@ -582,6 +587,10 @@
 				<description>Smokeleaf culture is just part life for [PAWN_nameDef]. [Pawn_pronoun] absolutely adores smokeleaf and would die before giving it up.</description>
 			</li>
 		</degreeDatas>
+		<conflictingTraits>
+			<li>DrugDesire</li>
+			<li>VTE_Lush</li>
+		</conflictingTraits>
 	</TraitDef>
 
 	<TraitDef>
@@ -593,6 +602,10 @@
 				<description>Alcohol culture is just part life for [PAWN_nameDef]. [Pawn_pronoun] absolutely adores booze and would die before giving it up.</description>
 			</li>
 		</degreeDatas>
+		<conflictingTraits>
+			<li>DrugDesire</li>
+			<li>VTE_Lush</li>
+		</conflictingTraits>
 	</TraitDef>
 
 	<TraitDef>
@@ -854,7 +867,7 @@
 		<degreeDatas>
 			<li>
 				<label>schizoid</label>
-				<description>[PAWN_nameDef] has trouble expressing themselves until its all too much to bare, whereafter they will have an utter meltdown.</description>
+				<description>[PAWN_nameDef] has trouble expressing themselves until its all too much to bear, whereafter they will have an utter meltdown.</description>
 			</li>
 		</degreeDatas>
 

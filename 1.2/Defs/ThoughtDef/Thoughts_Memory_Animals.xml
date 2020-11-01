@@ -10,7 +10,7 @@
 		<stages>
 			<li>
 				<label>bonded animal {0} died</label>
-				<description>Such a tender, unique animal. This universe is evil!</description>
+				<description>Such a gross, annoying animal. I'm glad it's gone!</description>
 				<baseMoodEffect>8</baseMoodEffect>
 			</li>
 		</stages>
@@ -26,7 +26,7 @@
 		<stages>
 			<li>
 				<label>bonded animal {0} lost</label>
-				<description>Such a tender, unique animal. This universe is evil!</description>
+				<description>Such a gross, annoying animal. I'm glad it's gone!</description>
 				<baseMoodEffect>8</baseMoodEffect>
 			</li>
 		</stages>
@@ -44,7 +44,7 @@
 		<stages>
 			<li>
 				<label>bonded animal {0} banished</label>
-				<description>My bonded animal was banished!</description>
+				<description>My bonded animal was banished, finally</description>
 				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 		</stages>
@@ -61,7 +61,7 @@
 		<stages>
 			<li>
 				<label>nuzzled</label>
-				<description>A cute animal nuzzled me.</description>
+				<description>A disgusting animal nuzzled me.</description>
 				<baseMoodEffect>-4</baseMoodEffect>
 			</li>
 		</stages>
@@ -91,7 +91,7 @@
 			<li>
 				<label>bonded animal given away</label>
 				<labelSocial>gave away my bonded animal</labelSocial>
-				<description>My special bonded animal was given away!</description>
+				<description>My nasty bonded animal was given away, about time!</description>
 				<baseOpinionOffset>-10</baseOpinionOffset>
 			</li>
 		</stages>
@@ -105,7 +105,7 @@
 			<li>
 				<label>bonded animal given away</label>
 				<labelSocial>gave away my bonded animal</labelSocial>
-				<description>My special bonded animal was given away!</description>
+				<description>My nasty bonded animal was given away, about time!</description>
 				<baseMoodEffect>10</baseMoodEffect>
 			</li>
 		</stages>
@@ -137,12 +137,12 @@
 		<stages>
 			<li>
 				<label>{0}'s master</label>
-				<description>Being together with my bonded animal makes me feel better.</description>
+				<description>Being around that nasty thing makes me hate life itself.</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 			<li>
 				<label>master of {0}</label>
-				<description>Being together with my bonded animals makes me feel better.</description>
+				<description>Being around that nasty thing makes me hate life itself.</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 		</stages>
@@ -159,12 +159,12 @@
 		<stages>
 			<li>
 				<label>not {0}'s master</label>
-				<description>I should be together with my bonded animal.</description>
+				<description>That thing may like me, but I certainly don't like it back - I'm glad somebody else took it.</description>
 				<baseMoodEffect>-3</baseMoodEffect>
 			</li>
 			<li>
 				<label>not master of {0}</label>
-				<description>I should be together with my bonded animals.</description>
+				<description>That thing may like me, but I certainly don't like it back - I'm glad somebody else took it.</description>
 				<baseMoodEffect>-3</baseMoodEffect>
 			</li>
 		</stages>

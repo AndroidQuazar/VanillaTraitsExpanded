@@ -16,7 +16,7 @@
     <maxTicksBeforeRecovery>30000</maxTicksBeforeRecovery>
     <recoveryMessage>{0} is no longer in a technophobe tantrum.</recoveryMessage>
     <beginLetterDef>ThreatSmall</beginLetterDef>
-    <beginLetter>{0} has flown into a technophobe tantrum.\n\n[PAWN_pronoun] is going to vent [PAWN_possessive] anger on test.</beginLetter>
+    <beginLetter>{0} has flown into a technophobe tantrum.\n\n[PAWN_pronoun] is going to vent [PAWN_possessive] anger on technology.</beginLetter>
     <baseInspectLine>Mental state: technophobe tantrum</baseInspectLine>
   </MentalStateDef>
 
@@ -34,9 +34,9 @@
     <category>Misc</category>
     <nameColor>(0.65, 0.9, 0.93)</nameColor>
     <beginLetterLabel>flee</beginLetterLabel>
-    <beginLetter>{0} is fleeing in panic.</beginLetter>
-    <recoveryMessage>{0} is no longer fleeing in panic.</recoveryMessage>
-    <baseInspectLine>Mental state: Fleeing in panic</baseInspectLine>
+    <beginLetter>{0} is freezing in panic.</beginLetter>
+    <recoveryMessage>{0} is no longer freezing in panic.</recoveryMessage>
+    <baseInspectLine>Mental state: freezing in panic</baseInspectLine>
     <blockNormalThoughts>true</blockNormalThoughts>
     <unspawnedCanDo>true</unspawnedCanDo>
   </MentalStateDef>
