@@ -10,7 +10,7 @@ namespace VanillaTraitsExpanded
 	public class ThoughtWorker_ChildOfSea : ThoughtWorker
 	{
 
-		public static List<TerrainDef> SeaTerrain = new List<TerrainDef>()
+		public static HashSet<TerrainDef> SeaTerrain = new HashSet<TerrainDef>()
 		{
 			TerrainDefOf.WaterMovingChestDeep,
 			TerrainDefOf.WaterMovingShallow,

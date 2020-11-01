@@ -21,13 +21,24 @@ namespace VanillaTraitsExpanded
                 {
 					map = p.Map;
                 }
-				var labRoom = map.regionGrid.allRooms.Where(x => x.Role == RoomRoleDefOf.Laboratory).FirstOrDefault();
-				if (labRoom == null)
+				if (!HasLab(map))
                 {
 					return ThoughtState.ActiveDefault;
 				}
 			}
 			return ThoughtState.Inactive;
+		}
+
+		public bool HasLab(Map map)
+        {
+			foreach (var room in map.regionGrid.allRooms)
+            {
+				if (room.Role == RoomRoleDefOf.Laboratory)
+                {
+					return true;
+                }
+            }
+			return false;
 		}
 	}
 }

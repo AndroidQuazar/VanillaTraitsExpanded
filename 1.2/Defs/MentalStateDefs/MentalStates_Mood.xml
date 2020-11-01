@@ -43,7 +43,7 @@
 
   <MentalBreakDef>
     <defName>VTE_Kleptomaniac</defName>
-    <mentalState>Kleptomaniac</mentalState>
+    <mentalState>VTE_Kleptomaniac</mentalState>
     <baseCommonality>0.8</baseCommonality>
     <intensity>Minor</intensity>
   </MentalBreakDef>
