@@ -3,7 +3,13 @@
 
   <VTE.HasDestroyedItem>{PAWN_kind} has destroyed the item {PAWN_pronon} just crafted due to the item not being of sufficient quality</VTE.HasDestroyedItem>
   <VTE.GotBruise>{PAWN_kind} got a bruise due to being clumsy</VTE.GotBruise>
-  <VTE.CantBeWokenUpHeavySleeper>{PAWN_kind}  has Perfectionist trait and randomly decises interrupt current construction job</VTE.CantBeWokenUpHeavySleeper>
-  <VTE.DecisesInterruptCurrentCostructionJob>{PAWN_kind}  has given up on {0} for now due to being a perfectionist</VTE.DecisesInterruptCurrentCostructionJob>
+  <VTE.CantBeWokenUpHeavySleeper>{PAWN_kind} has Perfectionist trait and randomly decises interrupt current construction job</VTE.CantBeWokenUpHeavySleeper>
+  <VTE.DecisesInterruptCurrentCostructionJob>{PAWN_kind} has given up on {0} for now due to being a perfectionist</VTE.DecisesInterruptCurrentCostructionJob>
   
+  <VTE.CavaranSpeedIsDoubledWanderlusts></VTE.CavaranSpeedIsDoubledWanderlusts>
+  <VTE.KleptomaniacStealsItemFrom>{PAWN_kind} {VICTIM_kind}</VTE.KleptomaniacStealsItemFrom>
+  <VTE.PawnBreaksChairs>{PAWN_kind} {0}</VTE.PawnBreaksChairs>
+  <VTE.PawnCowardlyFlees>{PAWN_kind}</VTE.PawnCowardlyFlees>
+  <VTE.PawnStopsForcedJob>{PAWN_kind}</VTE.PawnStopsForcedJob>
+  <VTE.VictimDropsEquipmentMartialArtist>{PAWN_kind} {VICTIM_kind}</VTE.VictimDropsEquipmentMartialArtist>
 </LanguageData>

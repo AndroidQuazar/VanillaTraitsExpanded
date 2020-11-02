@@ -131,6 +131,7 @@ namespace VanillaTraitsExpanded
                 }
             }
         }
+
         public override void GameComponentTick()
         {
             base.GameComponentTick();
@@ -159,6 +160,10 @@ namespace VanillaTraitsExpanded
         public override void ExposeData()
         {
             base.ExposeData();
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                ClearListsFromNulls();
+            }
             Scribe_Collections.Look(ref forcedJobs, "forcedJobs", LookMode.Reference, LookMode.Reference, ref pawnKeys, ref jobValues);
             Scribe_Collections.Look(ref madSurgeonsWithLastHarvestedTick, "madSurgeonsWithLastHarvestedTick", LookMode.Reference, LookMode.Value, ref pawnKeys2, ref tickValues);
             Scribe_Collections.Look(ref wanderLustersWithLastMapExitedTick, "wanderLustersWithLastMapExitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys3, ref tickValues1);
@@ -167,6 +172,22 @@ namespace VanillaTraitsExpanded
             Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
             Scribe_Collections.Look(ref snobs, "snobs", LookMode.Reference);
             Scribe_Collections.Look(ref bigBoned, "bigBoned", LookMode.Reference);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                ClearListsFromNulls();
+            }
+        }
+
+        public void ClearListsFromNulls()
+        {
+            forcedJobs.RemoveAll(x => x.Key == null);
+            madSurgeonsWithLastHarvestedTick.RemoveAll(x => x.Key == null);
+            wanderLustersWithLastMapExitedTick.RemoveAll(x => x.Key == null);
+            rebels.RemoveWhere(x => x == null);
+            perfectionistsWithJobsToStop.RemoveWhere(x => x == null);
+            cowards.RemoveWhere(x => x == null);
+            snobs.RemoveWhere(x => x == null);
+            bigBoned.RemoveWhere(x => x == null);
         }
 
         private List<Pawn> pawnKeys = new List<Pawn>();

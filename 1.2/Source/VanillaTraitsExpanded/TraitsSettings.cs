@@ -26,12 +26,12 @@ namespace VanillaTraitsExpanded
 
         public void DoSettingsWindowContents(Rect inRect)
         {
+            var keys = traitStates.Keys.ToList().OrderByDescending(x => x).ToList();
             Rect rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
-            Rect rect2 = new Rect(0f, 0f, inRect.width - 30f, inRect.height * 20f);
+            Rect rect2 = new Rect(0f, 0f, inRect.width - 30f, keys.Count * 24);
             Widgets.BeginScrollView(rect, ref scrollPosition, rect2, true);
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(rect2);
-            var keys = traitStates.Keys.ToList().OrderByDescending(x => x).ToList();
             for (int num = keys.Count - 1; num >= 0; num--)
             {
                 var test = traitStates[keys[num]];

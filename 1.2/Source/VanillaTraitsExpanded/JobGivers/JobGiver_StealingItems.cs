@@ -27,12 +27,13 @@ namespace VanillaTraitsExpanded
 			{
 				return null;
 			}
-			var pawnsCandidates = pawn.Map.mapPawns.AllPawns.Where(x => x.RaceProps.Humanlike && x.FactionOrExtraMiniOrHomeFaction != pawn.Faction && !x.HostileTo(pawn)).ToList();
+			var pawnsCandidates = pawn.Map.mapPawns.AllPawns.Where(x => x.RaceProps.Humanlike && x.Position.IsValid && x.FactionOrExtraMiniOrHomeFaction != pawn.Faction && !x.HostileTo(pawn)).ToList();
 			if (pawnsCandidates != null && pawnsCandidates.Count > 0)
             {
 				var victim = GetCandidateToSteal(pawnsCandidates.OrderBy(x => x.Position.DistanceTo(pawn.Position)).ToList());
 				if (victim != null)
                 {
+					Log.Message(pawn + " trying to steal item from " + victim + " in " + victim.positionInt);
 					return JobMaker.MakeJob(VTEDefOf.VTE_StealItems, victim);
                 }
             }

@@ -156,6 +156,10 @@ namespace VanillaTraitsExpanded
 			{
 				return false;
 			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Prude) && newThought.def == ThoughtDefOf.Naked)
+            {
+				newThought.moodPowerFactor *= 2f;
+			}
 			return true;
 		}
 

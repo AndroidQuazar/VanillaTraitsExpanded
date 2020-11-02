@@ -18,7 +18,6 @@ namespace VanillaTraitsExpanded
         {
             if (__result)
             {
-                Log.Message(__instance.pawn + " - " + __instance.def + __result);
                 if (__instance.def == VTEDefOf.AlcoholAddiction && __instance.pawn.HasTrait(VTEDefOf.VTE_Lush))
                 {
                     __result = false;
