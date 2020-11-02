@@ -201,7 +201,7 @@
 		<degreeDatas>
 			<li>
 				<label>animal lover</label>
-				<description>[PAWN_nameDef] can't stand mistreatment of animals. [PAWN_pronoun] will get a larger mood buff being nuzzled or being a master to a bonded animal, but will be more deeply crushed when not master of a bonded animal or seeing one die. They also refuse to butcher.</description>
+				<description>[PAWN_nameDef] can't stand mistreatment of animals. [PAWN_pronoun] will feel happier being nuzzled or being a master to a bonded animal, but will be more deeply crushed when not master of a bonded animal or seeing one die. They also refuse to butcher.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -283,7 +283,7 @@
 		<degreeDatas>
 			<li>
 				<label>technophobe</label>
-				<description>Whether by past truama or fear of change, [PAWN_nameDef] rejects moderninity. They may random punch of attack mechanical devices and refuse to learn or research anything about them. Additionally they love killing mechanoids.</description>
+				<description>Whether by past truama or fear of change, [PAWN_nameDef] rejects moderninity. They may randomly punch or attack mechanical devices and refuse to learn or research anything about them. Additionally they love killing mechanoids.</description>
 				<theOnlyAllowedMentalBreaks>
 					<li>VTE_TechnophobeTantrum</li>
 				</theOnlyAllowedMentalBreaks>
@@ -353,7 +353,7 @@
 		<degreeDatas>
 			<li>
 				<label>snob</label>
-				<description>[PAWN_nameDef] believes they belong in high society, and love nothing more than critiquing art and brushing elbows with royalty.</description>
+				<description>[PAWN_nameDef] believes they belong in high society, and loves nothing more than critiquing art and brushing elbows with royalty.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -433,7 +433,7 @@
 		<degreeDatas>
 			<li>
 				<label>couch potato</label>
-				<description>An armchair and flatscreen is all [PAWN_nameDef] to be happy. Even reruns or ancient commercials are entertaining to them, they will never grow bored of television and tend to watch it more, as well as get a small mood buff after doing so.</description>
+				<description>An armchair and flatscreen is all [PAWN_nameDef] to be happy. Even reruns or ancient commercials are entertaining to them, they will never grow bored of television and tend to watch it more, as well as feel pleased after doing so.</description>
 			</li>
 		</degreeDatas>
 	</TraitDef>
@@ -477,7 +477,7 @@
 					<MentalBreakThreshold>0.2</MentalBreakThreshold>
 				</statOffsets>
 				<statFactors>
-					<ResearchSpeed>1.20</ResearchSpeed>
+					<ResearchSpeed>1.25</ResearchSpeed>
 				</statFactors>
 			</li>
 		</degreeDatas>
@@ -646,7 +646,7 @@
 		<degreeDatas>
 			<li>
 				<label>world weary</label>
-				<description>[PAWN_nameDef] has grown tired of the world and needs to be constantly distracted to stop dark thoughts. [PAWN_possessive] bleak personality is a big downer and therefore it is very hard to become friends with him.</description>
+				<description>[PAWN_nameDef] has grown tired of the world and needs to be constantly distracted to stop dark thoughts. [PAWN_possessive] bleak personality is a big downer and therefore it is very hard to become friends with them.</description>
 			</li>
 		</degreeDatas>
 	</TraitDef>
