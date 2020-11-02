@@ -91,9 +91,7 @@ namespace VanillaTraitsExpanded
                     Log.Message(" - TryForceFleeCowards - if (enemies?.Count() > 0) - 4", true);
                     if (enemies?.Count() > 0)
                     {
-                        Log.Message(" - TryForceFleeCowards - TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList()); - 5", true);
                         TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
-                        Log.Message(" - TryForceFleeCowards - Messages.Message(\"VTE.PawnCowardlyFlees\".Translate(pawn.Named(\"PAWN\")), pawn, MessageTypeDefOf.NeutralEvent, historical: false); - 6", true);
                         Messages.Message("VTE.PawnCowardlyFlees".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                     }
                 }

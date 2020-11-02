@@ -15,7 +15,7 @@ namespace VanillaTraitsExpanded
 	{
 		private static bool Prefix(Pawn_DraftController __instance, ref bool value)
 		{
-            if (__instance.pawn.CurJob.def == JobDefOf.LayDown && __instance.pawn.HasTrait(VTEDefOf.VTE_HeavySleeper))
+            if (__instance.pawn?.CurJob?.def == JobDefOf.LayDown && __instance.pawn.HasTrait(VTEDefOf.VTE_HeavySleeper))
             {
 				value = false;
 				Messages.Message("VTE.CantBeWokenUpHeavySleeper".Translate(__instance.pawn.Named("PAWN")), __instance.pawn, MessageTypeDefOf.NeutralEvent, historical: false);
