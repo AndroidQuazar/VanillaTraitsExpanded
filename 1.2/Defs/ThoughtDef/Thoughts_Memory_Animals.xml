@@ -44,7 +44,7 @@
 		<stages>
 			<li>
 				<label>bonded animal {0} banished</label>
-				<description>My bonded animal was banished, finally</description>
+				<description>My bonded animal was banished, finally.</description>
 				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 		</stages>
@@ -89,8 +89,8 @@
 		<stackLimitForSameOtherPawn>2</stackLimitForSameOtherPawn>
 		<stages>
 			<li>
-				<label>bonded animal given away</label>
-				<labelSocial>gave away my bonded animal</labelSocial>
+				<label>bonded animal given away.</label>
+				<labelSocial>gave away my bonded animal.</labelSocial>
 				<description>My nasty bonded animal was given away, about time!</description>
 				<baseOpinionOffset>-10</baseOpinionOffset>
 			</li>
@@ -138,12 +138,12 @@
 			<li>
 				<label>{0}'s master</label>
 				<description>Being around that nasty thing makes me hate life itself.</description>
-				<baseMoodEffect>5</baseMoodEffect>
+				<baseMoodEffect>-5</baseMoodEffect>
 			</li>
 			<li>
 				<label>master of {0}</label>
 				<description>Being around that nasty thing makes me hate life itself.</description>
-				<baseMoodEffect>5</baseMoodEffect>
+				<baseMoodEffect>-5</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
