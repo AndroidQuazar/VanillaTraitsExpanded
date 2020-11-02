@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "741ePwiqzutWpe1NN7lYr6TblmVeidqN6FWjNXL4F+YPAxUexYYJ6cTLKkB6Zwv4sG94/1FMdu91KMIaZy8scA==",
+  "dgSpecHash": "QjeOLxg33Bf9w9282OsjWr6WcZZqlBhhjOhYILaWd4oEcsS16Kf3R6fux1/qt5o6I9RA3MfY5N9ZvEI2zDus3g==",
   "success": true,
   "projectFilePath": "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.2.2753\\krafs.rimworld.ref.1.2.2753.nupkg.sha512",
     "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.0.2\\lib.harmony.2.0.2.nupkg.sha512"
   ],
   "logs": []

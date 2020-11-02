@@ -20,7 +20,7 @@ namespace VanillaTraitsExpanded
             }
 			return null;
         }
-		protected override Job TryGiveJob(Pawn pawn)
+		public override Job TryGiveJob(Pawn pawn)
 		{
 			var mentalState = pawn.MentalState as MentalState_Kleptomaniac;
 			if (mentalState == null)

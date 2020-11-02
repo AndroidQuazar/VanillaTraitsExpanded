@@ -8,7 +8,7 @@ namespace VanillaTraitsExpanded
 {
 	public class ThoughtWorker_AnimalsInColony : ThoughtWorker
 	{
-		protected override ThoughtState CurrentStateInternal(Pawn p)
+		public override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_Menagerist))
             {

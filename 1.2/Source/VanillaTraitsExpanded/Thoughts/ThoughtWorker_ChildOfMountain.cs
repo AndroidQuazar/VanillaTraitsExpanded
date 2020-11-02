@@ -43,8 +43,8 @@ namespace VanillaTraitsExpanded
                 }
             }
 			return false;
-        } 
-		protected override ThoughtState CurrentStateInternal(Pawn p)
+        }
+        public override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_ChildOfMountain))
             {

@@ -58,11 +58,10 @@ namespace VanillaTraitsExpanded
             }
 			return false;
         }
-		protected override ThoughtState CurrentStateInternal(Pawn p)
+		public override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_ChildOfSea))
             {
-				Log.Message("HasEnoughSea");
 				if (p.Map != null && HasEnoughSeaCheck(p.Map))
                 {
 					return ThoughtState.ActiveDefault;

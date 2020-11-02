@@ -7,7 +7,7 @@ namespace VanillaTraitsExpanded
 {
 	public class ThoughtWorker_HaventHarvestedOrgansForLongTime : ThoughtWorker
 	{
-		protected override ThoughtState CurrentStateInternal(Pawn p)
+		public override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_MadSurgeon))
             {

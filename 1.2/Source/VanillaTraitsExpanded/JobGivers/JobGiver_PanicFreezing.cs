@@ -8,7 +8,7 @@ namespace VanillaTraitsExpanded
 {
 	public class JobGiver_PanicFreezing : ThinkNode_JobGiver
 	{
-        protected override Job TryGiveJob(Pawn pawn)
+        public override Job TryGiveJob(Pawn pawn)
         {
             var mentalState = pawn.MentalState as MentalState_PanicFreezing;
             if (mentalState == null)

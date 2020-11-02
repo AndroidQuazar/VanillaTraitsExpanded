@@ -8,7 +8,7 @@ namespace VanillaTraitsExpanded
 {
 	public class ThoughtWorker_NoDedicatedLab : ThoughtWorker
 	{
-		protected override ThoughtState CurrentStateInternal(Pawn p)
+		public override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_Prodigy))
             {
@@ -33,7 +33,7 @@ namespace VanillaTraitsExpanded
         {
 			foreach (var room in map.regionGrid.allRooms)
             {
-				if (room.Role == RoomRoleDefOf.Laboratory)
+				if (room.role == RoomRoleDefOf.Laboratory)
                 {
 					return true;
                 }
