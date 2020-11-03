@@ -129,7 +129,7 @@
 	<ThoughtDef>
 		<defName>VTE_BondedAnimalMasterHater</defName>
 		<thoughtClass>Thought_BondedAnimalMaster</thoughtClass>
-		<workerClass>ThoughtWorker_BondedAnimalMaster</workerClass>
+		<workerClass>VanillaTraitsExpanded.ThoughtWorker_BondedAnimalMasterHater</workerClass>
 		<validWhileDespawned>true</validWhileDespawned>
 		<nullifyingTraits>
 			<li>Psychopath</li>
@@ -151,7 +151,7 @@
 	<ThoughtDef>
 		<defName>VTE_NotBondedAnimalMasterHater</defName>
 		<thoughtClass>Thought_NotBondedAnimalMaster</thoughtClass>
-		<workerClass>ThoughtWorker_NotBondedAnimalMaster</workerClass>
+		<workerClass>VanillaTraitsExpanded.ThoughtWorker_NotBondedAnimalMasterHater</workerClass>
 		<validWhileDespawned>true</validWhileDespawned>
 		<nullifyingTraits>
 			<li>Psychopath</li>

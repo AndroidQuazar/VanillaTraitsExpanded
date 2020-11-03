@@ -19,18 +19,17 @@ namespace VanillaTraitsExpanded
 	public static class TryGiveThoughts_Patch
 	{
 		public static void Postfix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
-        {
+		{
 			if (victim.RaceProps.IsMechanoid && thoughtsKind == PawnDiedOrDownedThoughtsKind.Died)
-            {
+			{
 				foreach (var pawn in victim.Map.mapPawns.AllPawns)
-                {
+				{
 					if (pawn.HasTrait(VTEDefOf.VTE_Technophobe))
-                    {
+					{
 						pawn.TryGiveThought(VTEDefOf.VTE_MechanoidIsKilled);
-						Log.Message(pawn + " gets a VTE_MechanoidIsKilled thought due to killed mechanoid");
-                    }
-                }
-            }
+					}
+				}
+			}
 		}
 	}
 
@@ -41,13 +40,13 @@ namespace VanillaTraitsExpanded
 		{
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (__instance.def == ThoughtDefOf.AttendedParty
 				|| __instance.def.defName == "VFEV_AttendedFeast" || __instance.def.defName == "VFEV_TakingPartInFeast")) // vikings compatibility
-            {
+			{
 				if (__instance.age < (__instance.def.DurationTicks * 4))
-                {
+				{
 					__result = false;
 					return false;
 				}
-            }
+			}
 			return true;
 		}
 	}
@@ -68,6 +67,75 @@ namespace VanillaTraitsExpanded
 		}
 	}
 
+	[HarmonyPatch(typeof(IndividualThoughtToAdd), "Add")]
+	public static class Add_Patch
+	{
+		public static void Postfix(IndividualThoughtToAdd __instance, Pawn ___otherPawn)
+		{
+			Log.Message("IndividualThoughtToAdd: " + __instance.addTo + " gets " + __instance.thought);
+			if (__instance.thought is Thought_MemorySocial thought_MemorySocial && (__instance.addTo.HasTrait(VTEDefOf.VTE_WorldWeary) 
+				|| ___otherPawn != null && ___otherPawn.HasTrait(VTEDefOf.VTE_WorldWeary)))
+			{
+				thought_MemorySocial.opinionOffset /= 2f;
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(Thought), "MoodOffset")]
+	public static class MoodOffset_Patch
+	{
+		public static void Postfix(Thought __instance, ref float __result)
+		{
+			if (__instance.def == ThoughtDefOf.Naked && __instance.pawn.HasTrait(VTEDefOf.VTE_Prude))
+			{
+				__result *= 2f;
+			}
+			else if (__instance.pawn.HasTrait(VTEDefOf.VTE_RefinedPalate))
+			{
+				if (__instance.def == ThoughtDefOf.AteFineMeal || __instance.def.defName == "VCE_AteFineDessert")
+				{
+					__result = 0;
+				}
+				else if (__instance.def == ThoughtDefOf.AteLavishMeal || __instance.def.defName == "VCE_AteGourmetMeal" || __instance.def.defName == "VCE_AteLavishDessert")
+				{
+					__result *= 1.5f;
+				}
+			}
+			else if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalLover) && TryGainMemory_Patch.animalThoughtDefs.Contains(__instance.def))
+			{
+				__result *= 2f;
+			}
+			else if (__instance.pawn.HasTrait(VTEDefOf.VTE_Vengeful) && __instance.def == ThoughtDefOf.KilledMyRival)
+			{
+				__result *= 2f;
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(SituationalThoughtHandler), "TryCreateThought")]
+	public static class TryCreateThought_Patch
+	{
+		public static void Postfix(SituationalThoughtHandler __instance, Thought_Situational __result, ThoughtDef def)
+		{
+			if (__result != null)
+			{
+				Log.Message("TryCreateThought: " + __instance.pawn + " gets " + __result);
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(SituationalThoughtHandler), "TryCreateSocialThought")]
+	public static class TryCreateSocialThought_Patch
+	{
+		public static void Postfix(SituationalThoughtHandler __instance, Thought_SituationalSocial __result, ThoughtDef def, Pawn otherPawn)
+		{
+			if (__result != null)
+			{
+				Log.Message("TryCreateSocialThought: " + __instance.pawn + " gets " + __result);
+			}
+		}
+	}
+
 	[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[]
 	{
 		typeof(Thought_Memory),
@@ -75,7 +143,7 @@ namespace VanillaTraitsExpanded
 	})]
 	public static class TryGainMemory_Patch
 	{
-		private static List<ThoughtDef> animalThoughtDefs = new List<ThoughtDef>
+		public static List<ThoughtDef> animalThoughtDefs = new List<ThoughtDef>
 		{
 			ThoughtDefOf.BondedAnimalBanished,
 			DefDatabase<ThoughtDef>.GetNamed("BondedAnimalDied"),
@@ -104,16 +172,9 @@ namespace VanillaTraitsExpanded
 		};
 		private static bool Prefix(MemoryThoughtHandler __instance, ref Thought_Memory newThought, Pawn otherPawn)
 		{
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalLover) && animalThoughtDefs.Contains(newThought.def))
-            {
-				newThought.moodPowerFactor *= 2f;
-			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Vengeful) && newThought.def == ThoughtDefOf.KilledMyRival)
-            {
-				newThought.moodPowerFactor *= 2f;
-			}
+			Log.Message("TryGainMemory: " + __instance.pawn + " gets " + newThought);
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalHater) && animalThoughtDefs.Contains(newThought.def))
-            {
+			{
 				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);
 			}
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Squeamish) && newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse && Rand.Chance(0.5f))
@@ -125,22 +186,15 @@ namespace VanillaTraitsExpanded
 			{
 				return false;
 			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_RefinedPalate)) 
-			{
-				if (newThought.def == ThoughtDefOf.AteFineMeal || newThought.def.defName == "VCE_AteFineDessert")
-				{
-					newThought.moodPowerFactor = 0;
-				}
-				else if (newThought.def == ThoughtDefOf.AteLavishMeal || newThought.def.defName == "VCE_AteGourmetMeal" || newThought.def.defName == "VCE_AteLavishDessert")
-                {
-					newThought.moodPowerFactor *= 1.5f;
-				}
-			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ColdInclined) && newThought.CurStageIndex < 1 && newThought.def == ThoughtDef.Named("EnvironmentCold"))
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ColdInclined) && 
+				(newThought.CurStageIndex < 1 && newThought.def == ThoughtDef.Named("EnvironmentCold")
+				|| newThought.def == ThoughtDefOf.SleptInCold))
 			{
 				return false;
-            }
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_HeatInclined) && newThought.CurStageIndex < 1 && newThought.def == ThoughtDef.Named("EnvironmentHot"))
+			}
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_HeatInclined) && 
+				(newThought.CurStageIndex < 1 && newThought.def == ThoughtDef.Named("EnvironmentHot")
+				|| newThought.def == ThoughtDefOf.SleptInHeat))
 			{
 				return false;
 			}
@@ -155,10 +209,6 @@ namespace VanillaTraitsExpanded
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_MadSurgeon) && (newThought.def == ThoughtDefOf.KnowColonistOrganHarvested || newThought.def == ThoughtDefOf.KnowGuestOrganHarvested))
 			{
 				return false;
-			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Prude) && newThought.def == ThoughtDefOf.Naked)
-            {
-				newThought.moodPowerFactor *= 2f;
 			}
 			return true;
 		}

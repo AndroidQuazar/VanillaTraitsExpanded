@@ -129,19 +129,4 @@ namespace VanillaTraitsExpanded
 			return true;
 		}
 	}
-
-	[HarmonyPatch(typeof(IndividualThoughtToAdd), "Add")]
-	public static class Add_Patch
-	{
-		public static void Postfix(IndividualThoughtToAdd __instance, Pawn ___otherPawn)
-		{
-			Log.Message(__instance.addTo + " - " + __instance.thought + " - " + ___otherPawn);
-			if (__instance.thought is Thought_MemorySocial thought_MemorySocial && (__instance.addTo.HasTrait(VTEDefOf.VTE_WorldWeary) || ___otherPawn != null
-				&& ___otherPawn.HasTrait(VTEDefOf.VTE_WorldWeary)))
-			{
-				thought_MemorySocial.opinionOffset /= 2f;
-			}
-		}
-	}
-
 }

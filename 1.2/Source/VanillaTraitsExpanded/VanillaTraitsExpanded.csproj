@@ -294,28 +294,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HarmonyPatches\Caravan_Patches.cs" />
     <Compile Include="HarmonyPatches\Damage_Patches.cs" />
     <Compile Include="HarmonyPatches\Drafted_Patch.cs" />
     <Compile Include="HarmonyPatches\Faction_Patches.cs" />
     <Compile Include="HarmonyPatches\GenerateQualityCreatedByPawn_Patch.cs" />
-    <Compile Include="HarmonyPatches\Caravan_Patches.cs" />
+    <Compile Include="HarmonyPatches\HarmonyInit.cs" />
     <Compile Include="HarmonyPatches\Hediff_Patches.cs" />
-    <Compile Include="HarmonyPatches\Recipe_Patches.cs" />
-    <Compile Include="HarmonyPatches\PawnObserver_Patches.cs" />
-    <Compile Include="HarmonyPatches\Lord_Patches.cs" />
-    <Compile Include="HarmonyPatches\Relationship_Patches.cs" />
-    <Compile Include="HarmonyPatches\MentalBreaks_Patches.cs" />
-    <Compile Include="HarmonyPatches\TryMeleeAttack_Patch.cs" />
-    <Compile Include="HarmonyPatches\Skill_Patches.cs" />
     <Compile Include="HarmonyPatches\JobDriver_Patches.cs" />
     <Compile Include="HarmonyPatches\JobGivers_Patches.cs" />
-    <Compile Include="HarmonyPatches\TryDropFilth_Patch.cs" />
+    <Compile Include="HarmonyPatches\Lord_Patches.cs" />
+    <Compile Include="HarmonyPatches\MentalBreaks_Patches.cs" />
     <Compile Include="HarmonyPatches\Need_Patches.cs" />
-    <Compile Include="HarmonyPatches\Workgiver_Patches.cs" />
-    <Compile Include="HarmonyPatches\WithProgressBar_Patch.cs" />
-    <Compile Include="HarmonyPatches\Thought_Patches.cs" />
-    <Compile Include="HarmonyPatches\SpawnSetup_Patch.cs" />
     <Compile Include="HarmonyPatches\Notify_PawnDidWork_Patch.cs" />
+    <Compile Include="HarmonyPatches\PawnObserver_Patches.cs" />
+    <Compile Include="HarmonyPatches\Recipe_Patches.cs" />
+    <Compile Include="HarmonyPatches\Relationship_Patches.cs" />
+    <Compile Include="HarmonyPatches\Skill_Patches.cs" />
+    <Compile Include="HarmonyPatches\SpawnSetup_Patch.cs" />
+    <Compile Include="HarmonyPatches\Thought_Patches.cs" />
+    <Compile Include="HarmonyPatches\TryDropFilth_Patch.cs" />
+    <Compile Include="HarmonyPatches\TryMeleeAttack_Patch.cs" />
+    <Compile Include="HarmonyPatches\TryTakeOrderedJob_Patch.cs" />
+    <Compile Include="HarmonyPatches\WithProgressBar_Patch.cs" />
+    <Compile Include="HarmonyPatches\Workgiver_Patches.cs" />
     <Compile Include="JobDrivers\JobDriver_StealItems.cs" />
     <Compile Include="JobGivers\JobGiver_StealingItems.cs" />
     <Compile Include="JobGivers\JobGiver_PanicFreezing.cs" />
@@ -324,6 +326,8 @@
     <Compile Include="MentalStates\MentalState_PanicFreezing.cs" />
     <Compile Include="MentalStates\MentalState_Kleptomaniac.cs" />
     <Compile Include="MentalStates\MentalState_TechnophobeTantrum.cs" />
+    <Compile Include="Thoughts\ThoughtWorker_NotBondedAnimalMasterHater.cs" />
+    <Compile Include="Thoughts\ThoughtWorker_BondedAnimalMasterHater.cs" />
     <Compile Include="Thoughts\ThoughtWorker_ChildOfMountain.cs" />
     <Compile Include="Thoughts\ThoughtWorker_HaventExitedColonyForLongTime.cs" />
     <Compile Include="Thoughts\ThoughtWorker_MyRivalsAreAlive.cs" />
@@ -337,8 +341,6 @@
     <Compile Include="TraitsMod.cs" />
     <Compile Include="TraitUtils.cs" />
     <Compile Include="TraitsManager.cs" />
-    <Compile Include="HarmonyPatches\TryTakeOrderedJob_Patch.cs" />
-    <Compile Include="HarmonyPatches\HarmonyInit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
