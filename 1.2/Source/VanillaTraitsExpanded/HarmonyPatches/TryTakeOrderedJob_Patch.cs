@@ -14,9 +14,16 @@ namespace VanillaTraitsExpanded
 	[HarmonyPatch("TryTakeOrderedJob")]
 	public static class TryTakeOrderedJob_Patch
 	{
+		public static HashSet<JobDef> jobsToExclude = new HashSet<JobDef>
+		{
+			JobDefOf.Ingest,
+			JobDefOf.Flee,
+			JobDefOf.Vomit,
+			JobDefOf.Wait_Combat,
+		};
 		private static void Prefix(Pawn ___pawn, Job job)
 		{
-			if (job.def != JobDefOf.Ingest && job.def != JobDefOf.Flee && job.def != JobDefOf.Vomit)
+			if (!jobsToExclude.Contains(job.def))
             {
 				if (___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
 				{

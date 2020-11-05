@@ -61,7 +61,7 @@ namespace VanillaTraitsExpanded
                 {
                     if (data.Key.CurJob == data.Value)
                     {
-                        if (Rand.Chance(0.5f))
+                        if (Rand.Chance(0.05f))
                         {
                             Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
                             Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.NeutralEvent, historical: false);
