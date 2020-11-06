@@ -11,7 +11,10 @@ namespace VanillaTraitsExpanded
 	{
 		public override bool StateCanOccur(Pawn pawn)
 		{
-			return pawn.Map.mapPawns.AllPawns.Where(x => x.RaceProps.Humanlike && x.FactionOrExtraMiniOrHomeFaction != pawn.Faction && !x.HostileTo(pawn)).Any();
+			Log.Message(pawn + (pawn.HasTrait(VTEDefOf.VTE_Kleptomaniac) && pawn.Map.mapPawns.AllPawns.Where
+				(x => !x.Dead && x.Spawned && x.Position.IsValid && x.RaceProps.Humanlike && x.FactionOrExtraMiniOrHomeFaction != pawn.Faction && !x.HostileTo(pawn)).Any()).ToString());
+			return pawn.HasTrait(VTEDefOf.VTE_Kleptomaniac) && pawn.Map.mapPawns.AllPawns.Where
+				(x => !x.Dead && x.Spawned && x.Position.IsValid && x.RaceProps.Humanlike && x.FactionOrExtraMiniOrHomeFaction != pawn.Faction && !x.HostileTo(pawn)).Any();
 		}
 	}
 }

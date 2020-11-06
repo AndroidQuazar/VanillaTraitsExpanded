@@ -84,45 +84,67 @@ namespace VanillaTraitsExpanded
         {
             foreach (var pawn in cowards)
             {
-                if (pawn.Map != null && Rand.Chance(0.1f))
+                if (pawn.Map != null && !pawn.Downed && !pawn.Dead && Rand.Chance(0.1f))
                 {
                     Log.Message(" - TryForceFleeCowards - var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing); - 3", true);
                     var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing);
                     Log.Message(" - TryForceFleeCowards - if (enemies?.Count() > 0) - 4", true);
                     if (enemies?.Count() > 0)
                     {
-                        TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
-                        Messages.Message("VTE.PawnCowardlyFlees".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        if (pawn.Faction == Faction.OfPlayer)
+                        {
+                            TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
+                            Messages.Message("VTE.PawnCowardlyFlees".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        }
+                        else
+                        {
+                            TraitUtils.MakeExit(pawn);
+                            if (pawn.HostileTo(Faction.OfPlayer))
+                            {
+                                Messages.Message("VTE.PawnCowardlyExitMapHostile".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                            }
+                            else if (pawn.Faction.RelationKindWith(Faction.OfPlayer) == FactionRelationKind.Ally)
+                            {
+                                Messages.Message("VTE.PawnCowardlyExitMapAlly".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                            }
+                            else
+                            {
+                                Messages.Message("VTE.PawnCowardlyExitMapNeutral".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                            }
+                        }
                     }
                 }
             }
         }
+
+        //public Dictionary<string, int> latestChairsBreaks = new Dictionary<int, int>();
         public void TryBreakChairsUnderBigBoneds()
         {
             foreach (var pawn in bigBoned)
             {
-                if (pawn.Map != null && Rand.Chance(0.1f))
+                if (pawn.Map != null && !pawn.pather.moving && Rand.Chance(1f))
                 {
                     var firstBuilding = pawn.Position.GetFirstBuilding(pawn.Map);
                     if (firstBuilding?.def?.building?.isSittable ?? false && !(firstBuilding is Building_Throne))
                     {
+                        //if (latestChairsBreaks.ContainsKey(pawn.GetUniqueLoadID() + firstBuilding.GetUniqueLoadID()))
                         if (pawn.CurJobDef == JobDefOf.Ingest)
                         {
                             firstBuilding.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
                             pawn.jobs.StopAll();
-                            Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), firstBuilding.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                            Messages.Message("VTE.PawnBreaksChairs".Translate(firstBuilding.Label, pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                         }
-                        else if (pawn.CurJobDef == VTEDefOf.WatchTelevision && (pawn.Position.GetFirstBuilding(pawn.Map)?.def?.building?.isSittable ?? false))
+                        else if (pawn.CurJobDef == VTEDefOf.WatchTelevision)
                         {
                             var chairs = pawn.Position.GetFirstBuilding(pawn.Map);
-                            Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), chairs.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                            Messages.Message("VTE.PawnBreaksChairs".Translate(chairs.Label, pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                             firstBuilding.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
                             pawn.jobs.StopAll();
                         }
                     }
                     else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob?.targetB.Thing != null && !(pawn.CurJob?.targetB.Thing is Building_Throne))
                     {
-                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.Named("PAWN"), pawn.CurJob.targetB.Thing.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                        Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.CurJob.targetB.Thing.Label, pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                         pawn.CurJob.targetB.Thing.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
                         pawn.jobs.StopAll();
                     }

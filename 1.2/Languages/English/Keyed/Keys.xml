@@ -5,11 +5,16 @@
   <VTE.GotBruise>{PAWN_nameDef} got a bruise due to being clumsy</VTE.GotBruise>
   <VTE.CantBeWokenUpHeavySleeper>{PAWN_nameDef} is too heavy of a sleeper to be drafted.</VTE.CantBeWokenUpHeavySleeper>
   <VTE.DecisesInterruptCurrentCostructionJob>{PAWN_nameDef} has given up on {0} for now due to being a perfectionist</VTE.DecisesInterruptCurrentCostructionJob>
-  
   <VTE.CavaranSpeedIsDoubledWanderlusts>Wanderlust pawns will traverse to foreign locations at an increased speed</VTE.CavaranSpeedIsDoubledWanderlusts>
   <VTE.KleptomaniacStealsItemFrom>{PAWN_nameDef} has stolen a possession from {VICTIM_nameDef}, this may damage relations between affiliated factions</VTE.KleptomaniacStealsItemFrom>
+  <VTE.KleptomaniacFailedToStealItemFrom>{PAWN_nameDef} caught trying to steal a possession from {VICTIM_nameDef}, this may damage relations between affiliated factions</VTE.KleptomaniacFailedToStealItemFrom>
   <VTE.PawnBreaksChairs>{PAWN_nameDef} has damaged {0} due to their weight or strange posture</VTE.PawnBreaksChairs>
-  <VTE.PawnCowardlyFlees>{PAWN_nameDef} is fleeing from being drafted out of fear</VTE.PawnCowardlyFlees>
+  <VTE.PawnStoleItem>{PAWN_nameDef} stole {0} from {VICTIM_nameDef}</VTE.PawnStoleItem>
+  <VTE.PawnFailedToStealItem>{PAWN_nameDef} failed to stole {0} from {VICTIM_nameDef}. It angered the {VICTIM_nameDef} faction</VTE.PawnFailedToStealItem>
+  <VTE.PawnCowardlyFlees>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyFlees>
+  <VTE.PawnCowardlyExitMapHostile>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyExitMapHostile>
+  <VTE.PawnCowardlyExitMapAlly>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyExitMapAlly>
+  <VTE.PawnCowardlyExitMapNeutral>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyExitMapNeutral>
   <VTE.PawnStopsForcedJob>{PAWN_nameDef} has decided to defy orders and stop working for the time being</VTE.PawnStopsForcedJob>
   <VTE.VictimDropsEquipmentMartialArtist>{PAWN_nameDef} has disarmed {VICTIM_nameDef} in melee combat</VTE.VictimDropsEquipmentMartialArtist>
 </LanguageData>

@@ -129,6 +129,7 @@ namespace VanillaTraitsExpanded
 
 		public static TraitDef VTE_Schizoid;
 
+		public static TraitDef VTE_Kleptomaniac;
 
 		public static ThoughtDef VTE_BondedAnimalDiedHater;
 		public static ThoughtDef VTE_BondedAnimalLostHater;
