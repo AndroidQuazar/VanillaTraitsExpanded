@@ -20,6 +20,7 @@ namespace VanillaTraitsExpanded
 			JobDefOf.Flee,
 			JobDefOf.Vomit,
 			JobDefOf.Wait_Combat,
+			JobDefOf.BestowingCeremony
 		};
 		private static void Prefix(Pawn ___pawn, Job job)
 		{
@@ -34,13 +35,19 @@ namespace VanillaTraitsExpanded
 				{
 					Log.Message(___pawn + " starts (rebel) " + job);
 					var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
-					___pawn.health.AddHediff(slowWorkHediff);
+					if (slowWorkHediff != null)
+                    {
+						___pawn.health.AddHediff(slowWorkHediff);
+                    }
 				}
 				if (___pawn.HasTrait(VTEDefOf.VTE_Submissive))
 				{
 					Log.Message(___pawn + " starts (submissive) " + job);
 					var slowWorkHediff = ___pawn.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed);
-					___pawn.health.RemoveHediff(slowWorkHediff);
+					if (slowWorkHediff != null)
+                    {
+						___pawn.health.RemoveHediff(slowWorkHediff);
+                    }
 				}
 			}
 		}
@@ -75,7 +82,10 @@ namespace VanillaTraitsExpanded
 			if (___pawn.HasTrait(VTEDefOf.VTE_Submissive))
 			{
 				var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
-				___pawn.health.AddHediff(slowWorkHediff);
+				if (slowWorkHediff != null)
+                {
+					___pawn.health.AddHediff(slowWorkHediff);
+                }
 			}
 		}
     }

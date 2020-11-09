@@ -24,7 +24,10 @@ namespace VanillaTraitsExpanded
         }
         public override Job TryGiveJob(Pawn pawn)
         {
-            Log.Message("JobGiver_StealingItems : ThinkNode_JobGiver - TryGiveJob - var mentalState = pawn.MentalState as MentalState_Kleptomaniac; - 5", true);
+            if (Rand.Chance(0.5f))
+            {
+                return null;
+            }
             var mentalState = pawn.MentalState as MentalState_Kleptomaniac;
             Log.Message("JobGiver_StealingItems : ThinkNode_JobGiver - TryGiveJob - if (mentalState == null) - 6", true);
             if (mentalState == null)

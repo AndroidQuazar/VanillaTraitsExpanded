@@ -16,7 +16,7 @@ namespace VanillaTraitsExpanded
 	{
 		private static void Postfix(Bill __instance, Pawn p)
 		{			
-			if (p.HasTrait(VTEDefOf.VTE_Perfectionist) && __instance.recipe.workAmount > 2200 && Find.TickManager.TicksGame % GenDate.TicksPerHour * 3 == 0 && Rand.Chance(0.5f))
+			if (p.HasTrait(VTEDefOf.VTE_Perfectionist) && __instance.recipe.workAmount >= 2200 && Find.TickManager.TicksGame % GenDate.TicksPerHour * 3 == 0 && Rand.Chance(0.5f))
 			{
 				Log.Message(p + " has Perfectionist trait and randomly decises interrupt current bill job");
 				TraitUtils.TraitsManager.perfectionistsWithJobsToStop.Add(p);

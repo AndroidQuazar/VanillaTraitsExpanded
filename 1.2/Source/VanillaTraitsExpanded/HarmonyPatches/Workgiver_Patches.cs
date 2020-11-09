@@ -16,7 +16,7 @@ namespace VanillaTraitsExpanded
 	{
 		private static void Postfix(ref bool __result, Pawn pawn, bool forced = false)
 		{
-			if (Find.ResearchManager.currentProj?.techLevel > TechLevel.Medieval && pawn.HasTrait(VTEDefOf.VTE_Technophobe))
+			if (pawn.HasTrait(VTEDefOf.VTE_Technophobe) && Find.ResearchManager.currentProj?.techLevel > TechLevel.Medieval)
             {
 				__result = false;
             }

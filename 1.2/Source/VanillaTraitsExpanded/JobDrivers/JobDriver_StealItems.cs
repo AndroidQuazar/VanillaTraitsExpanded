@@ -33,11 +33,13 @@ namespace VanillaTraitsExpanded
                     {
 						if (Rand.Chance(0.5f))
                         {
-							Victim.inventory.innerContainer.TryTransferToContainer(mostValuableItem, this.pawn.inventory.innerContainer);
-							Messages.Message("VTE.PawnStoleItem".Translate(mostValuableItem.Label, pawn.Named("PAWN"), Victim.Named("VICTIM")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-							if (Rand.Chance(0.5f))
-							{
-								Victim.Faction.TryAffectGoodwillWith(pawn.Faction, -5, reason: "VTE.KleptomaniacStealsItemFrom".Translate(pawn.Named("PAWN"), Victim.Named("VICTIM")));
+							if (Victim.inventory.innerContainer.TryTransferToContainer(mostValuableItem, this.pawn.inventory.innerContainer))
+                            {
+								Messages.Message("VTE.PawnStoleItem".Translate(mostValuableItem.Label, pawn.Named("PAWN"), Victim.Named("VICTIM")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+								if (Rand.Chance(0.5f))
+								{
+									Victim.Faction.TryAffectGoodwillWith(pawn.Faction, -5, reason: "VTE.KleptomaniacStealsItemFrom".Translate(pawn.Named("PAWN"), Victim.Named("VICTIM")));
+								}
 							}
 						}
 						else

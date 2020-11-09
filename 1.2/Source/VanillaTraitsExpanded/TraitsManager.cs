@@ -122,7 +122,7 @@ namespace VanillaTraitsExpanded
         {
             foreach (var pawn in bigBoned)
             {
-                if (pawn.Map != null && !pawn.pather.moving && Rand.Chance(1f))
+                if (pawn.Map != null && !pawn.pather.moving && Rand.Chance(0.05f))
                 {
                     var firstBuilding = pawn.Position.GetFirstBuilding(pawn.Map);
                     if (firstBuilding?.def?.building?.isSittable ?? false && !(firstBuilding is Building_Throne))

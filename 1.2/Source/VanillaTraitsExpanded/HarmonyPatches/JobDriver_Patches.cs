@@ -38,7 +38,7 @@ namespace VanillaTraitsExpanded
 			{
 				initAction = delegate ()
 				{
-					if (__instance.job.def == VTEDefOf.WatchTelevision)
+					if (__instance.pawn.HasTrait(VTEDefOf.VTE_CouchPotato) && __instance.job.def == VTEDefOf.WatchTelevision)
                     {
 						__instance.pawn.TryGiveThought(VTEDefOf.VTE_WatchedTelevisor);
                     }
