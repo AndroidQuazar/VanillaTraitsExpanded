@@ -248,7 +248,6 @@
 		</stages>
 	</ThoughtDef>
 
-
 	<ThoughtDef>
 		<defName>VTE_HaventExitedColonyForLongTime</defName>
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_HaventExitedColonyForLongTime</workerClass>
@@ -260,4 +259,31 @@
 			</li>
 		</stages>
 	</ThoughtDef>
+	
+	
+  <ThoughtDef>
+    <defName>VTE_SoakingWetChildOfTheSea</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>soaking wet</label>
+        <description>I'm soaking wet. Love it.</description>
+        <baseMoodEffect>33</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+    <ThoughtDef>
+    <defName>EnvironmentDark</defName>
+    <workerClass>VanillaTraitsExpanded.ThoughtWorker_DarkChildOfTheMountain</workerClass>
+    <stages>
+      <li>
+        <label>darkness</label>
+        <description>I've been in the dark for a while. I like it.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
 </Defs>
