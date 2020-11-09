@@ -143,7 +143,7 @@ namespace VanillaTraitsExpanded
 	})]
 	public static class TryGainMemory_Patch
 	{
-		public static List<ThoughtDef> animalThoughtDefs = new List<ThoughtDef>
+		public static HashSet<ThoughtDef> animalThoughtDefs = new HashSet<ThoughtDef>
 		{
 			ThoughtDefOf.BondedAnimalBanished,
 			DefDatabase<ThoughtDef>.GetNamed("BondedAnimalDied"),
@@ -215,7 +215,7 @@ namespace VanillaTraitsExpanded
 		}
 
 
-		public static List<string> horribleThoughts = new List<string>
+		public static HashSet<string> horribleThoughts = new HashSet<string>
 		{
 			"AteKibble",
 			"AteCorpse",
