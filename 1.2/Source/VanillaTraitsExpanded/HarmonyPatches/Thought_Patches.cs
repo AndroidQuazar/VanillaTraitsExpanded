@@ -204,6 +204,7 @@ namespace VanillaTraitsExpanded
 			}
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_ChildOfSea) && newThought.def == ThoughtDef.Named("SoakingWet"))
 			{
+				__instance.pawn.TryGiveThought(VTEDefOf.VTE_SoakingWetChildOfTheSea);
 				return false;
 			}
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_MadSurgeon) && (newThought.def == ThoughtDefOf.KnowColonistOrganHarvested || newThought.def == ThoughtDefOf.KnowGuestOrganHarvested))
@@ -216,6 +217,13 @@ namespace VanillaTraitsExpanded
 
 		public static List<string> horribleThoughts = new List<string>
 		{
+			"AteKibble",
+			"AteCorpse",
+			"AteHumanlikeMeatDirect",
+			"AteHumanlikeMeatAsIngredient",
+			"AteInsectMeatDirect",
+			"AteInsectMeatAsIngredient",
+			"AteRottenFood",
 			"KnowGuestExecuted",
 			"KnowColonistExecuted",
 			"KnowPrisonerDiedInnocent",

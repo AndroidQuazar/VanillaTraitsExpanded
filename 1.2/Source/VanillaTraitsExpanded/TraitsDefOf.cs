@@ -131,6 +131,8 @@ namespace VanillaTraitsExpanded
 
 		public static TraitDef VTE_Kleptomaniac;
 
+		public static ThoughtDef VTE_SoakingWetChildOfTheSea;
+
 		public static ThoughtDef VTE_BondedAnimalDiedHater;
 		public static ThoughtDef VTE_BondedAnimalLostHater;
 		public static ThoughtDef VTE_BondedAnimalBanishedHater;

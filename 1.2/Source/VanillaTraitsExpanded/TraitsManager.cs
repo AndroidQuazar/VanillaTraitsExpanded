@@ -158,9 +158,12 @@ namespace VanillaTraitsExpanded
             if (Find.TickManager.TicksGame % 60 == 0)
             {
                 TryInterruptForcedJobs();
+            }
+            if (Find.TickManager.TicksGame % 300 == 0)
+            {
                 TryForceFleeCowards();
             }
-            else if (Find.TickManager.TicksGame % 100 == 0)
+            if (Find.TickManager.TicksGame % 500 == 0)
             {
                 TryBreakChairsUnderBigBoneds();
             }
