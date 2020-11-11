@@ -3,7 +3,7 @@
 
 	<TraitDef>
 		<defName>VTE_AbsentMinded</defName>
-		<commonality>1</commonality>
+		<commonality>0.7</commonality>
 		<degreeDatas>
 			<li>
 				<label>absent-minded</label>
@@ -18,7 +18,7 @@
 
 	<TraitDef>
 		<defName>VTE_Eccentric</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
 				<label>eccentric</label>
@@ -32,7 +32,7 @@
 
 	<TraitDef>
 		<defName>VTE_Perfectionist</defName>
-		<commonality>1</commonality>
+		<commonality>0.9</commonality>
 		<degreeDatas>
 			<li>
 				<label>perfectionist</label>
@@ -62,7 +62,7 @@
 
 	<TraitDef>
 		<defName>VTE_Brave</defName>
-		<commonality>1</commonality>
+		<commonality>0.7</commonality>
 		<degreeDatas>
 			<li>
 				<label>brave</label>
@@ -95,7 +95,7 @@
 
 	<TraitDef>
 		<defName>VTE_HeatInclined</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
 				<label>heat inclined</label>
@@ -112,7 +112,7 @@
 
 	<TraitDef>
 		<defName>VTE_ColdInclined</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
 				<label>cold inclined</label>
@@ -129,7 +129,7 @@
 
 	<TraitDef>
 		<defName>VTE_HeavySleeper</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>heavy sleeper</label>
@@ -154,7 +154,7 @@
 
 	<TraitDef>
 		<defName>VTE_Slob</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
 				<label>slob</label>
@@ -168,7 +168,7 @@
 
 	<TraitDef>
 		<defName>VTE_Workaholic</defName>
-		<commonality>1</commonality>
+		<commonality>0.7</commonality>
 		<degreeDatas>
 			<li>
 				<label>workaholic</label>
@@ -211,7 +211,7 @@
 
 	<TraitDef>
 		<defName>VTE_AnimalHater</defName>
-		<commonality>1</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>animal hater</label>
@@ -226,7 +226,7 @@
 
 	<TraitDef>
 		<defName>VTE_BigBoned</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>big-boned</label>
@@ -251,7 +251,7 @@
 
 	<TraitDef>
 		<defName>VTE_Submissive</defName>
-		<commonality>1</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>submissive</label>
@@ -265,7 +265,7 @@
 
 	<TraitDef>
 		<defName>VTE_Vengeful</defName>
-		<commonality>1</commonality>
+		<commonality>0.7</commonality>
 		<degreeDatas>
 			<li>
 				<label>vengeful</label>
@@ -279,7 +279,7 @@
 
 	<TraitDef>
 		<defName>VTE_Technophobe</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>technophobe</label>
@@ -302,7 +302,7 @@
 
 	<TraitDef>
 		<defName>VTE_FunLoving</defName>
-		<commonality>1</commonality>
+		<commonality>1.1</commonality>
 		<degreeDatas>
 			<li>
 				<label>fun-loving</label>
@@ -316,7 +316,7 @@
 
 	<TraitDef>
 		<defName>VTE_Dunce</defName>
-		<commonality>1</commonality>
+		<commonality>0.7</commonality>
 		<degreeDatas>
 			<li>
 				<label>dunce</label>
@@ -338,7 +338,7 @@
 
 	<TraitDef>
 		<defName>VTE_MartialArtist</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>martial artist</label>
@@ -363,7 +363,7 @@
 
 	<TraitDef>
 		<defName>VTE_Squeamish</defName>
-		<commonality>1</commonality>
+		<commonality>0.9</commonality>
 		<degreeDatas>
 			<li>
 				<label>squeamish</label>
@@ -400,7 +400,7 @@
 
 	<TraitDef>
 		<defName>VTE_Insatiable</defName>
-		<commonality>1</commonality>
+		<commonality>1.1</commonality>
 		<degreeDatas>
 			<li>
 				<label>insatiable</label>
@@ -429,7 +429,7 @@
 
 	<TraitDef>
 		<defName>VTE_CouchPotato</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>couch potato</label>
@@ -468,7 +468,7 @@
 
 	<TraitDef>
 		<defName>VTE_Prodigy</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
 				<label>prodigy</label>
@@ -477,7 +477,7 @@
 					<MentalBreakThreshold>0.2</MentalBreakThreshold>
 				</statOffsets>
 				<statFactors>
-					<ResearchSpeed>1.25</ResearchSpeed>
+					<ResearchSpeed>1.30</ResearchSpeed>
 				</statFactors>
 			</li>
 		</degreeDatas>
@@ -488,7 +488,7 @@
 
 	<TraitDef>
 		<defName>VTE_Menagerist</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>menagerist</label>
@@ -528,7 +528,7 @@
 
 	<TraitDef>
 		<defName>VTE_MadSurgeon</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>mad surgeon</label>
@@ -542,7 +542,7 @@
 
 	<TraitDef>
 		<defName>VTE_DrunkenMaster</defName>
-		<commonality>1</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>drunken master</label>
@@ -560,7 +560,7 @@
 
 	<TraitDef>
 		<defName>VTE_Kleptomaniac</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>kleptomaniac</label>
@@ -580,7 +580,7 @@
 
 	<TraitDef>
 		<defName>VTE_Stoner</defName>
-		<commonality>1</commonality>
+		<commonality>0.9</commonality>
 		<degreeDatas>
 			<li>
 				<label>stoner</label>
@@ -595,7 +595,7 @@
 
 	<TraitDef>
 		<defName>VTE_Lush</defName>
-		<commonality>1</commonality>
+		<commonality>0.9</commonality>
 		<degreeDatas>
 			<li>
 				<label>lush</label>
@@ -610,7 +610,7 @@
 
 	<TraitDef>
 		<defName>VTE_Wanderlust</defName>
-		<commonality>1</commonality>
+		<commonality>1.1</commonality>
 		<degreeDatas>
 			<li>
 				<label>wanderlust</label>
@@ -624,7 +624,7 @@
 
 	<TraitDef>
 		<defName>VTE_Insomniac</defName>
-		<commonality>1</commonality>
+		<commonality>0.7</commonality>
 		<degreeDatas>
 			<li>
 				<label>insomniac</label>
@@ -642,7 +642,7 @@
 
 	<TraitDef>
 		<defName>VTE_WorldWeary</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
 				<label>world weary</label>
@@ -653,7 +653,7 @@
 
 	<TraitDef>
 		<defName>VTE_Desensitized</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>desensitized</label>
@@ -664,7 +664,7 @@
 
 	<TraitDef>
 		<defName>VTE_RefinedPalate</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>refined palate</label>
@@ -681,7 +681,7 @@
 
 	<TraitDef>
 		<defName>VTE_Academian</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<requiredWorkTags>
 			<li>Intellectual</li>
 		</requiredWorkTags>
@@ -712,7 +712,7 @@
 
 	<TraitDef>
 		<defName>VTE_Groundbreaker</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<requiredWorkTags>
 			<li>Mining</li>
 		</requiredWorkTags>
@@ -744,7 +744,7 @@
 
 	<TraitDef>
 		<defName>VTE_Gastronomist</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<forcedPassions>
 			<li>Cooking</li>
 			<li>Artistic</li>
@@ -772,7 +772,7 @@
 
 	<TraitDef>
 		<defName>VTE_Ecologist</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<requiredWorkTags>
 			<li>Animals</li>
 		</requiredWorkTags>
@@ -804,7 +804,7 @@
 
 	<TraitDef>
 		<defName>VTE_Tycoon</defName>
-		<commonality>1</commonality>
+		<commonality>0.8</commonality>
 		<forcedPassions>
 			<li>Social</li>
 			<li>Crafting</li>
@@ -835,7 +835,7 @@
 
 	<TraitDef>
 		<defName>VTE_ThickSkinned</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>thick skinned</label>
@@ -849,7 +849,7 @@
 
 	<TraitDef>
 		<defName>VTE_ThinSkinned</defName>
-		<commonality>1</commonality>
+		<commonality>0.6</commonality>
 		<degreeDatas>
 			<li>
 				<label>thin skinned</label>
@@ -863,7 +863,7 @@
 
 	<TraitDef>
 		<defName>VTE_Schizoid</defName>
-		<commonality>1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>schizoid</label>
