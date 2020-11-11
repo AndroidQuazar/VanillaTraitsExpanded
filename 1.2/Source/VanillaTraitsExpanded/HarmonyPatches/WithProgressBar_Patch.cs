@@ -18,7 +18,7 @@ namespace VanillaTraitsExpanded
 		{
 			__result.AddPreTickAction(delegate
 			{
-				if (__result.actor.HasTrait(VTEDefOf.VTE_Clumsy) && Rand.Chance(0.00001f))
+				if (__result.actor.HasTrait(VTEDefOf.VTE_Clumsy) && Rand.Chance(0.000005f))
                 {
 					BodyPartRecord partRecord = __result.actor.health.hediffSet.GetNotMissingParts().Where(x => x.depth == BodyPartDepth.Outside).RandomElement();
 					var bruise = HediffMaker.MakeHediff(HediffDefOf.Bruise, __result.actor, partRecord);
