@@ -489,6 +489,12 @@
 	<TraitDef>
 		<defName>VTE_Menagerist</defName>
 		<commonality>0.6</commonality>
+		<requiredWorkTags>
+			<li>Animals</li>
+		</requiredWorkTags>
+		<forcedPassions>
+			<li>Animals</li>
+		</forcedPassions>
 		<degreeDatas>
 			<li>
 				<label>menagerist</label>
