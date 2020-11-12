@@ -28,6 +28,7 @@ namespace VanillaTraitsExpanded
         public HashSet<Pawn> snobs = new HashSet<Pawn>();
         public Dictionary<Pawn, int> madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
         public Dictionary<Pawn, int> wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
+        public Dictionary<Pawn, int> squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
 
         public void PreInit()
         {
@@ -39,6 +40,7 @@ namespace VanillaTraitsExpanded
             if (snobs == null) snobs = new HashSet<Pawn>();
             if (madSurgeonsWithLastHarvestedTick == null) madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
             if (wanderLustersWithLastMapExitedTick == null) wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
+            if (squeamishWithLastVomitedTick == null) squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
 
         }
         public override void StartedNewGame()
@@ -190,6 +192,7 @@ namespace VanillaTraitsExpanded
             Scribe_Collections.Look(ref forcedJobs, "forcedJobs", LookMode.Reference, LookMode.Reference, ref pawnKeys, ref jobValues);
             Scribe_Collections.Look(ref madSurgeonsWithLastHarvestedTick, "madSurgeonsWithLastHarvestedTick", LookMode.Reference, LookMode.Value, ref pawnKeys2, ref tickValues);
             Scribe_Collections.Look(ref wanderLustersWithLastMapExitedTick, "wanderLustersWithLastMapExitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys3, ref tickValues1);
+            Scribe_Collections.Look(ref squeamishWithLastVomitedTick, "squeamishWithLastVomitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys4, ref tickValues2);
             Scribe_Collections.Look(ref rebels, "rebels", LookMode.Reference);
             Scribe_Collections.Look(ref perfectionistsWithJobsToStop, "perfectionistsWithJobsToStop", LookMode.Reference);
             Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
@@ -222,5 +225,8 @@ namespace VanillaTraitsExpanded
 
         private List<Pawn> pawnKeys3 = new List<Pawn>();
         private List<int> tickValues1 = new List<int>();
+
+        private List<Pawn> pawnKeys4 = new List<Pawn>();
+        private List<int> tickValues2 = new List<int>();
     }
 }

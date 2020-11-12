@@ -177,10 +177,15 @@ namespace VanillaTraitsExpanded
 			{
 				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);
 			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Squeamish) && newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse && Rand.Chance(0.5f))
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Squeamish) && newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse)
 			{
-				Job vomit = JobMaker.MakeJob(JobDefOf.Vomit);
-				__instance.pawn.jobs.TryTakeOrderedJob(vomit);
+				var comp = Current.Game.GetComponent<TraitsManager>();
+				if ((!comp.squeamishWithLastVomitedTick.ContainsKey(__instance.pawn) || comp.squeamishWithLastVomitedTick[__instance.pawn] + 30 * 60 >= Find.TickManager.TicksAbs) && Rand.Chance(0.5f))
+				{
+					Job vomit = JobMaker.MakeJob(JobDefOf.Vomit);
+					__instance.pawn.jobs.TryTakeOrderedJob(vomit);
+					comp.squeamishWithLastVomitedTick[__instance.pawn] = Find.TickManager.TicksAbs;
+				}
 			}
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Desensitized) && horribleThoughts.Contains(newThought.def.defName))
 			{

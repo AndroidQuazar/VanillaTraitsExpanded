@@ -39,10 +39,12 @@ namespace VanillaTraitsExpanded
 				if (num > 4)
                 {
 					___pawn.TryGiveThought(VTEDefOf.VTE_ObservedManyBlood);
-					if (Rand.Chance(0.5f))
-                    {
+					var comp = Current.Game.GetComponent<TraitsManager>();
+					if ((!comp.squeamishWithLastVomitedTick.ContainsKey(___pawn) || comp.squeamishWithLastVomitedTick[___pawn] + 30 * 60 >= Find.TickManager.TicksAbs) && Rand.Chance(0.5f))
+					{
 						Job vomit = JobMaker.MakeJob(JobDefOf.Vomit);
 						___pawn.jobs.TryTakeOrderedJob(vomit);
+						comp.squeamishWithLastVomitedTick[___pawn] = Find.TickManager.TicksAbs;
 					}
                 }
 			}
