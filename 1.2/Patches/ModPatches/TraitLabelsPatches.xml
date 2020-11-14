@@ -9,13 +9,13 @@
 				<li Class="PatchOperationReplace"> 
 					<xpath>/Defs/TraitDef[defName="RCT_AnimalHater"]/degreeDatas/li[1]/label</xpath>
 					<value>
-						<label>Animal aficionado</label>		
+						<label>Animal abhorrent</label>		
 					</value>
 				</li>
 				<li Class="PatchOperationReplace"> 
 					<xpath>/Defs/TraitDef[defName="RCT_AnimalLover"]/degreeDatas/li[1]/label</xpath>
 					<value>
-						<label>Animal abhorrent</label>		
+						<label>Animal aficionado</label>		
 					</value>
 				</li>
 				<li Class="PatchOperationReplace"> 
