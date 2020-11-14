@@ -22,7 +22,7 @@ namespace VanillaTraitsExpanded
                 if (alcoholHediff != null)
                 {
                     var newDamAmount = dinfo.Amount * (1 + (alcoholHediff.CurStageIndex / 2f));
-                    Log.Message(instigator + " has Drunken Master trait, melee damage is increased - old value: " + dinfo.Amount + " - new value: " + newDamAmount);
+                    //Log.Message(instigator + " has Drunken Master trait, melee damage is increased - old value: " + dinfo.Amount + " - new value: " + newDamAmount);
                     dinfo.SetAmount(newDamAmount);
                 }
             }

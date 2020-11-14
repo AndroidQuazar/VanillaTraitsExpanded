@@ -64,7 +64,7 @@ namespace VanillaTraitsExpanded
             }
             if (job != null)
             {
-                Log.Message(pawn + " flee");
+                //Log.Message(pawn + " flee");
                 pawn.jobs.TryTakeOrderedJob(job);
             }
         }

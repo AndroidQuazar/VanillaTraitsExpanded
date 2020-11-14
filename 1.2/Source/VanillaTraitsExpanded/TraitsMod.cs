@@ -54,7 +54,6 @@ namespace VanillaTraitsExpanded
         }
         public static void RemoveDef(TraitDef def)
         {
-            Log.Message("Removing " + def);
             def.commonality = 0;
             if (DefDatabase<TraitDef>.AllDefsListForReading.Contains(def))
             {

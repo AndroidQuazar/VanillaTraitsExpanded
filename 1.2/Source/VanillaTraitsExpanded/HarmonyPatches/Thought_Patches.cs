@@ -72,7 +72,7 @@ namespace VanillaTraitsExpanded
 	{
 		public static void Postfix(IndividualThoughtToAdd __instance, Pawn ___otherPawn)
 		{
-			Log.Message("IndividualThoughtToAdd: " + __instance.addTo + " gets " + __instance.thought);
+			//Log.Message("IndividualThoughtToAdd: " + __instance.addTo + " gets " + __instance.thought);
 			if (__instance.thought is Thought_MemorySocial thought_MemorySocial && (__instance.addTo.HasTrait(VTEDefOf.VTE_WorldWeary) 
 				|| ___otherPawn != null && ___otherPawn.HasTrait(VTEDefOf.VTE_WorldWeary)))
 			{
@@ -112,29 +112,29 @@ namespace VanillaTraitsExpanded
 		}
 	}
 
-	[HarmonyPatch(typeof(SituationalThoughtHandler), "TryCreateThought")]
-	public static class TryCreateThought_Patch
-	{
-		public static void Postfix(SituationalThoughtHandler __instance, Thought_Situational __result, ThoughtDef def)
-		{
-			if (__result != null)
-			{
-				Log.Message("TryCreateThought: " + __instance.pawn + " gets " + __result);
-			}
-		}
-	}
+	//[HarmonyPatch(typeof(SituationalThoughtHandler), "TryCreateThought")]
+	//public static class TryCreateThought_Patch
+	//{
+	//	public static void Postfix(SituationalThoughtHandler __instance, Thought_Situational __result, ThoughtDef def)
+	//	{
+	//		if (__result != null)
+	//		{
+	//			Log.Message("TryCreateThought: " + __instance.pawn + " gets " + __result);
+	//		}
+	//	}
+	//}
 
-	[HarmonyPatch(typeof(SituationalThoughtHandler), "TryCreateSocialThought")]
-	public static class TryCreateSocialThought_Patch
-	{
-		public static void Postfix(SituationalThoughtHandler __instance, Thought_SituationalSocial __result, ThoughtDef def, Pawn otherPawn)
-		{
-			if (__result != null)
-			{
-				Log.Message("TryCreateSocialThought: " + __instance.pawn + " gets " + __result);
-			}
-		}
-	}
+	//[HarmonyPatch(typeof(SituationalThoughtHandler), "TryCreateSocialThought")]
+	//public static class TryCreateSocialThought_Patch
+	//{
+	//	public static void Postfix(SituationalThoughtHandler __instance, Thought_SituationalSocial __result, ThoughtDef def, Pawn otherPawn)
+	//	{
+	//		if (__result != null)
+	//		{
+	//			Log.Message("TryCreateSocialThought: " + __instance.pawn + " gets " + __result);
+	//		}
+	//	}
+	//}
 
 	[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[]
 	{
@@ -172,7 +172,7 @@ namespace VanillaTraitsExpanded
 		};
 		private static bool Prefix(MemoryThoughtHandler __instance, ref Thought_Memory newThought, Pawn otherPawn)
 		{
-			Log.Message("TryGainMemory: " + __instance.pawn + " gets " + newThought);
+			//Log.Message("TryGainMemory: " + __instance.pawn + " gets " + newThought);
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalHater) && animalThoughtDefs.Contains(newThought.def))
 			{
 				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);

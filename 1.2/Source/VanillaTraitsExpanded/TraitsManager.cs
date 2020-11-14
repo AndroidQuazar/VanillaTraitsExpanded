@@ -65,7 +65,7 @@ namespace VanillaTraitsExpanded
                     {
                         if (Rand.Chance(0.05f))
                         {
-                            Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
+                            //Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
                             Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.NeutralEvent, historical: false);
                             data.Key.jobs.StopAll();
                         }
@@ -88,9 +88,7 @@ namespace VanillaTraitsExpanded
             {
                 if (pawn.Map != null && !pawn.Downed && !pawn.Dead && Rand.Chance(0.1f))
                 {
-                    Log.Message(" - TryForceFleeCowards - var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing); - 3", true);
                     var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing);
-                    Log.Message(" - TryForceFleeCowards - if (enemies?.Count() > 0) - 4", true);
                     if (enemies?.Count() > 0)
                     {
                         if (pawn.Faction == Faction.OfPlayer)
@@ -119,7 +117,6 @@ namespace VanillaTraitsExpanded
             }
         }
 
-        //public Dictionary<string, int> latestChairsBreaks = new Dictionary<int, int>();
         public void TryBreakChairsUnderBigBoneds()
         {
             foreach (var pawn in bigBoned)

@@ -28,12 +28,12 @@ namespace VanillaTraitsExpanded
             {
 				if (___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
 				{
-					Log.Message(___pawn + " starts " + job);
+					//Log.Message(___pawn + " starts " + job);
 					TraitUtils.TraitsManager.forcedJobs[___pawn] = job;
 				}
 				if (___pawn.HasTrait(VTEDefOf.VTE_Rebel))
 				{
-					Log.Message(___pawn + " starts (rebel) " + job);
+					//Log.Message(___pawn + " starts (rebel) " + job);
 					var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
 					if (slowWorkHediff != null)
                     {
@@ -42,7 +42,7 @@ namespace VanillaTraitsExpanded
 				}
 				if (___pawn.HasTrait(VTEDefOf.VTE_Submissive))
 				{
-					Log.Message(___pawn + " starts (submissive) " + job);
+					//Log.Message(___pawn + " starts (submissive) " + job);
 					var slowWorkHediff = ___pawn.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed);
 					if (slowWorkHediff != null)
                     {

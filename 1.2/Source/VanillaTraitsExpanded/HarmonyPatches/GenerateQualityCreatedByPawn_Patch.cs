@@ -30,13 +30,13 @@ namespace VanillaTraitsExpanded
 				if (__result != QualityCategory.Legendary)
                 {
 					var newResult = (QualityCategory)((int)__result + 1);
-					Log.Message(pawn + " has VTE_Perfectionist, product quality was increased from " + __result + " to " + newResult);
+					//Log.Message(pawn + " has VTE_Perfectionist, product quality was increased from " + __result + " to " + newResult);
 					__result = newResult;
 				}
 				if (__result == QualityCategory.Normal || __result == QualityCategory.Awful || __result == QualityCategory.Poor)
 				{
 					pawn.TryGiveThought(VTEDefOf.VTE_CreatedLowQualityItem);
-					Log.Message(pawn + " has VTE_Perfectionist, gains VTE_CreatedLowQualityItem thought due to low quality item");
+					//Log.Message(pawn + " has VTE_Perfectionist, gains VTE_CreatedLowQualityItem thought due to low quality item");
 				}
 			}
 		}

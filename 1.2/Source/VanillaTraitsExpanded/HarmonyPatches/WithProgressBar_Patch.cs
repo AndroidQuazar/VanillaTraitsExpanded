@@ -23,12 +23,12 @@ namespace VanillaTraitsExpanded
 					BodyPartRecord partRecord = __result.actor.health.hediffSet.GetNotMissingParts().Where(x => x.depth == BodyPartDepth.Outside).RandomElement();
 					var bruise = HediffMaker.MakeHediff(HediffDefOf.Bruise, __result.actor, partRecord);
 					__result.actor.health.AddHediff(bruise);
-					Log.Message(__result.actor + " has a clumsy trait and is getting a bruise in " + partRecord + " this time while doing " + __result.actor.CurJobDef);
+					//Log.Message(__result.actor + " has a clumsy trait and is getting a bruise in " + partRecord + " this time while doing " + __result.actor.CurJobDef);
 					Messages.Message("VTE.GotBruise".Translate(__result.actor.Named("PAWN")), __result.actor, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 				if (__result.actor.HasTrait(VTEDefOf.VTE_Perfectionist) && __result.actor.CurJobDef == JobDefOf.FinishFrame && Rand.Chance(0.0001f))
                 {
-					Log.Message(__result.actor + " has Perfectionist trait and randomly decises interrupt current construction job");
+					//Log.Message(__result.actor + " has Perfectionist trait and randomly decises interrupt current construction job");
 					Messages.Message("VTE.DecisesInterruptCurrentCostructionJob".Translate(__result.actor.Named("PAWN"), __result.actor.CurJob.GetTarget(TargetIndex.A).Thing.Label), __result.actor, MessageTypeDefOf.NeutralEvent, historical: false);
 					TraitUtils.TraitsManager.perfectionistsWithJobsToStop.Add(__result.actor);
 				}
