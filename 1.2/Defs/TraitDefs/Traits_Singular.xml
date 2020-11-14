@@ -306,7 +306,7 @@
 		<degreeDatas>
 			<li>
 				<label>fun-loving</label>
-				<description>[PAWN_nameDef] always recalls the good times and lives to party, any party attended will stick in [PAWN_pronoun] for many times longer than most.</description>
+				<description>[PAWN_nameDef] always recalls the good times and lives to party, any party attended will be remembered for many times longer than most.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
