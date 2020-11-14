@@ -296,6 +296,7 @@
   <ItemGroup>
     <Compile Include="HarmonyPatches\Caravan_Patches.cs" />
     <Compile Include="HarmonyPatches\Damage_Patches.cs" />
+    <Compile Include="HarmonyPatches\Destroy_Patch.cs" />
     <Compile Include="HarmonyPatches\Drafted_Patch.cs" />
     <Compile Include="HarmonyPatches\Faction_Patches.cs" />
     <Compile Include="HarmonyPatches\GenerateQualityCreatedByPawn_Patch.cs" />

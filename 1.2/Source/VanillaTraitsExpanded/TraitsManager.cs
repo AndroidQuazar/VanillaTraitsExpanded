@@ -184,11 +184,8 @@ namespace VanillaTraitsExpanded
         }
         public override void ExposeData()
         {
+            ClearListsFromNulls();
             base.ExposeData();
-            if (Scribe.mode == LoadSaveMode.Saving)
-            {
-                ClearListsFromNulls();
-            }
             Scribe_Collections.Look(ref forcedJobs, "forcedJobs", LookMode.Reference, LookMode.Reference, ref pawnKeys, ref jobValues);
             Scribe_Collections.Look(ref madSurgeonsWithLastHarvestedTick, "madSurgeonsWithLastHarvestedTick", LookMode.Reference, LookMode.Value, ref pawnKeys2, ref tickValues);
             Scribe_Collections.Look(ref wanderLustersWithLastMapExitedTick, "wanderLustersWithLastMapExitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys3, ref tickValues1);
@@ -198,10 +195,6 @@ namespace VanillaTraitsExpanded
             Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
             Scribe_Collections.Look(ref snobs, "snobs", LookMode.Reference);
             Scribe_Collections.Look(ref bigBoned, "bigBoned", LookMode.Reference);
-            if (Scribe.mode == LoadSaveMode.PostLoadInit)
-            {
-                ClearListsFromNulls();
-            }
         }
 
         public void ClearListsFromNulls()
@@ -214,6 +207,20 @@ namespace VanillaTraitsExpanded
             cowards.RemoveWhere(x => x == null);
             snobs.RemoveWhere(x => x == null);
             bigBoned.RemoveWhere(x => x == null);
+            squeamishWithLastVomitedTick.RemoveAll(x => x.Key == null);
+        }
+
+        public void RemoveDestroyedPawn(Pawn key)
+        {
+            forcedJobs.RemoveAll(x => x.Key == key);
+            madSurgeonsWithLastHarvestedTick.RemoveAll(x => x.Key == key);
+            wanderLustersWithLastMapExitedTick.RemoveAll(x => x.Key == key);
+            rebels.RemoveWhere(x => x == key);
+            perfectionistsWithJobsToStop.RemoveWhere(x => x == key);
+            cowards.RemoveWhere(x => x == key);
+            snobs.RemoveWhere(x => x == key);
+            bigBoned.RemoveWhere(x => x == key);
+            squeamishWithLastVomitedTick.RemoveAll(x => x.Key == key);
         }
 
         private List<Pawn> pawnKeys = new List<Pawn>();
