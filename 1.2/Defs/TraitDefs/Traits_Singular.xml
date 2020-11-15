@@ -472,7 +472,7 @@
 		<degreeDatas>
 			<li>
 				<label>prodigy</label>
-				<description>[PAWN_nameDef] is a natural scientist. They research much faster and recall things better. However, they'll be upset without a labratory dedicated to their work and tend to stress out more frequently.</description>
+				<description>[PAWN_nameDef] is a natural scientist. They research much faster and recall things better. However, they'll be upset without a laboratory dedicated to their work and tend to stress out more frequently.</description>
 				<statOffsets>
 					<MentalBreakThreshold>0.2</MentalBreakThreshold>
 				</statOffsets>
