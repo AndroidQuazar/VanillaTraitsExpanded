@@ -23,6 +23,9 @@
 			<li>
 				<label>eccentric</label>
 				<description>[PAWN_nameDef] has a loose screw or two, a small trade off for being naturally scientifically inclined.</description>
+				<statFactors>
+					<ResearchSpeed>1.1</ResearchSpeed>
+				</statFactors>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
