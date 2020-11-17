@@ -113,7 +113,7 @@
 
 	<ThoughtDef>
 		<defName>VTE_AnimalsInColony</defName>
-		<workerClass>VanillaTraitsExpanded.ThoughtWorker_NoDedicatedLab</workerClass>
+		<workerClass>VanillaTraitsExpanded.ThoughtWorker_AnimalsInColony</workerClass>
 		<stages>
 			<li>
 				<label>No animals in the colony</label>
