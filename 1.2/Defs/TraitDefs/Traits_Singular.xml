@@ -286,7 +286,7 @@
 		<degreeDatas>
 			<li>
 				<label>technophobe</label>
-				<description>Whether by past truama or fear of change, [PAWN_nameDef] rejects moderninity. They may randomly punch or attack mechanical devices and refuse to learn or research anything about them. Additionally they love killing mechanoids.</description>
+				<description>Whether by past trauma or fear of change, [PAWN_nameDef] rejects modernity. They may randomly punch or attack mechanical devices and refuse to learn or research anything about them. Additionally they love killing mechanoids.</description>
 				<theOnlyAllowedMentalBreaks>
 					<li>VTE_TechnophobeTantrum</li>
 				</theOnlyAllowedMentalBreaks>
