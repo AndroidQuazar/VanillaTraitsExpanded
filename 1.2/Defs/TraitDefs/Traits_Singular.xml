@@ -190,7 +190,7 @@
 		<degreeDatas>
 			<li>
 				<label>iron stomach</label>
-				<description>[PAWN_nameDef] has never felt nausea in [PAWN_pronoun] life. Throwing up or food poisoning is foreign to [PAWN_pronoun].</description>
+				<description>[PAWN_nameDef] has never felt nausea in [PAWN_possessive] life. Throwing up or food poisoning is foreign to [PAWN_pronoun].</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
