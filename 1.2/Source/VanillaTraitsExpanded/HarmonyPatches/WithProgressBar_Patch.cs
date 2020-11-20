@@ -20,7 +20,7 @@ namespace VanillaTraitsExpanded
 			{
 				if (__result.actor.HasTrait(VTEDefOf.VTE_Clumsy) && Rand.Chance(0.000005f))
                 {
-					BodyPartRecord partRecord = __result.actor.health.hediffSet.GetNotMissingParts().Where(x => x.depth == BodyPartDepth.Outside).RandomElement();
+					BodyPartRecord partRecord = __result.actor.health.hediffSet.GetNotMissingParts().Where(x => x.depth == BodyPartDepth.Outside && x.coverageAbs > 0).RandomElement();
 					var bruise = HediffMaker.MakeHediff(HediffDefOf.Bruise, __result.actor, partRecord);
 					__result.actor.health.AddHediff(bruise);
 					//Log.Message(__result.actor + " has a clumsy trait and is getting a bruise in " + partRecord + " this time while doing " + __result.actor.CurJobDef);
