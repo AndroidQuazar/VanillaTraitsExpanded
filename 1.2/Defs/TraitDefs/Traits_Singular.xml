@@ -24,7 +24,7 @@
 				<label>eccentric</label>
 				<description>[PAWN_nameDef] has a loose screw or two, a small trade off for being naturally scientifically inclined.</description>
 				<statFactors>
-					<ResearchSpeed>1.1</ResearchSpeed>
+					<ResearchSpeed>1.15</ResearchSpeed>
 				</statFactors>
 			</li>
 		</degreeDatas>
@@ -190,7 +190,7 @@
 		<degreeDatas>
 			<li>
 				<label>iron stomach</label>
-				<description>[PAWN_nameDef] has never felt nausea in [PAWN_pronoun] life. Throwing up or food poisoning is foreign to them.</description>
+				<description>[PAWN_nameDef] has never felt nausea in [PAWN_possessive] life. Throwing up or food poisoning is foreign to [PAWN_pronoun].</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -286,7 +286,7 @@
 		<degreeDatas>
 			<li>
 				<label>technophobe</label>
-				<description>Whether by past truama or fear of change, [PAWN_nameDef] rejects moderninity. They may randomly punch or attack mechanical devices and refuse to learn or research anything about them. Additionally they love killing mechanoids.</description>
+				<description>Whether by past trauma or fear of change, [PAWN_nameDef] rejects modernity. They may randomly punch or attack mechanical devices and refuse to learn or research anything about them. They also love killing mechanoids.</description>
 				<theOnlyAllowedMentalBreaks>
 					<li>VTE_TechnophobeTantrum</li>
 				</theOnlyAllowedMentalBreaks>
@@ -384,7 +384,7 @@
 		<degreeDatas>
 			<li>
 				<label>anxious</label>
-				<description>[PAWN_nameDef] feels naturally anxious, but especially from social situations. They will not attend any gathering and may occasionally need time to breathe alone in their room.</description>
+				<description>[PAWN_nameDef] feels naturally anxious, but especially from social situations. They will not attend any gatherings and may occasionally need alone time in their room to breathe.</description>
 				<theOnlyAllowedMentalBreaks>
 					<li>VTE_PanicFreezing</li>
 				</theOnlyAllowedMentalBreaks>
@@ -541,7 +541,7 @@
 		<degreeDatas>
 			<li>
 				<label>mad surgeon</label>
-				<description>[PAWN_nameDef] has a twisted secret. [PAWN_pronoun] treats organ harvesting like a sick experiment, and does not even blink at the idea. While harvesting one will make them happy, going too long without giving in to their compulsion will upset them.</description>
+				<description>[PAWN_nameDef] has a twisted secret. [Pawn_pronoun] treats organ harvesting like a sick experiment, and does not even blink at the idea. While harvesting one will make them happy, going too long without giving in to their compulsion will upset them.</description>
 				<statOffsets>
 					<SurgerySuccessChanceFactor>0.20</SurgerySuccessChanceFactor>
 				</statOffsets>
@@ -593,7 +593,7 @@
 		<degreeDatas>
 			<li>
 				<label>stoner</label>
-				<description>Smokeleaf culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores smokeleaf and would die before giving it up.</description>
+				<description>Smokeleaf culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores smokeleaf and would rather die before giving it up.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -608,7 +608,7 @@
 		<degreeDatas>
 			<li>
 				<label>lush</label>
-				<description>Alcohol culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores booze and would die before giving it up.</description>
+				<description>Alcohol culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores booze and would rather die before giving it up.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -701,7 +701,7 @@
 		<degreeDatas>
 			<li>
 				<label>academian</label>
-				<description>Whether through finding ancient manuscripts or years of scholastic persuit [PAWN_nameDef] is surprisingly well read on a variety of topics, particularly science and medical practician.</description>
+				<description>Whether through studying ancient manuscripts or years of scholastic persuit [PAWN_nameDef] is surprisingly well read on a variety of topics, particularly science and medical practician.</description>
 				<skillGains>
 					<li>
 						<key>Intellectual</key>
@@ -761,7 +761,7 @@
 		<degreeDatas>
 			<li>
 				<label>gastronomist</label>
-				<description>In the eyes of [PAWN_nameDef] food is art, their culinary creations are incredibly beautiful, amazing to taste, and always safe to eat.</description>
+				<description>In the eyes of [PAWN_nameDef] food is art, their culinary creations are incredibly beautiful, amazing to taste, and almost always safe to eat.</description>
 				<skillGains>
 					<li>
 						<key>Cooking</key>
@@ -773,7 +773,7 @@
 					</li>
 				</skillGains>
 				<statOffsets>
-					<FoodPoisonChance>-0.2</FoodPoisonChance>
+					<FoodPoisonChance>-0.25</FoodPoisonChance>
 				</statOffsets>
 			</li>
 		</degreeDatas>
@@ -836,7 +836,7 @@
 					</li>
 				</skillGains>
 				<statOffsets>
-					<TradePriceImprovement>0.2</TradePriceImprovement>
+					<TradePriceImprovement>0.25</TradePriceImprovement>
 				</statOffsets>
 			</li>
 		</degreeDatas>
