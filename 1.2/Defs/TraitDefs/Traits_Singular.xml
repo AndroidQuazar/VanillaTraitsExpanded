@@ -39,7 +39,7 @@
 		<degreeDatas>
 			<li>
 				<label>perfectionist</label>
-				<description>[PAWN_nameDef] strives for perfection in [PAWN_pronoun] work. They will naturally produce better quality products at the expense of time. However, making a low quality product will upset them. Additionally, they may very rarely quit a project mid attempt if they don't like the direction its going in.</description>
+				<description>[PAWN_nameDef] strives for perfection in [PAWN_possessive] work. They will naturally produce better quality products at the expense of time. However, making a low quality product will upset them. Additionally, they may very rarely quit a project mid attempt if they don't like the direction its going in.</description>
 				<statFactors>
 					<WorkSpeedGlobal>0.65</WorkSpeedGlobal>
 				</statFactors>
@@ -53,7 +53,7 @@
 		<degreeDatas>
 			<li>
 				<label>coward</label>
-				<description>While fully capable of warfare in theory, [PAWN_nameDef]'s fight or flight instincts heavily lean towards flight, and will try to hide or run as a first priority.</description>
+				<description>While fully capable of warfare in theory, [PAWN_nameDef]'s fight or flight instincts heavily lean towards flight, and [PAWN_pronoun] will try to hide or run as a first priority.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -436,7 +436,7 @@
 		<degreeDatas>
 			<li>
 				<label>couch potato</label>
-				<description>An armchair and flatscreen is all [PAWN_nameDef] to be happy. Even reruns or ancient commercials are entertaining to them, they will never grow bored of television and tend to watch it more, as well as feel pleased after doing so.</description>
+				<description>An armchair and flatscreen is all [PAWN_nameDef] needs to be happy. Even reruns or ancient commercials are entertaining to them, they will never grow bored of television and tend to watch it more, as well as feel pleased after doing so.</description>
 			</li>
 		</degreeDatas>
 	</TraitDef>
