@@ -190,7 +190,7 @@
 		<degreeDatas>
 			<li>
 				<label>iron stomach</label>
-				<description>[PAWN_nameDef] has never felt nausea in [PAWN_possessive] life. Throwing up or food poisoning is foreign to [PAWN_pronoun].</description>
+				<description>[PAWN_nameDef] has never felt nausea in [PAWN_possessive] life. Throwing up or food poisoning is foreign to [PAWN_possessive].</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -427,6 +427,7 @@
 		</degreeDatas>
 		<conflictingTraits>
 			<li>VTE_Insatiable</li>
+			<li>Nudist</li>
 		</conflictingTraits>
 	</TraitDef>
 
@@ -541,7 +542,7 @@
 		<degreeDatas>
 			<li>
 				<label>mad surgeon</label>
-				<description>[PAWN_nameDef] has a twisted secret. [Pawn_pronoun] treats organ harvesting like a sick experiment, and does not even blink at the idea. While harvesting one will make them happy, going too long without giving in to their compulsion will upset them.</description>
+				<description>[PAWN_nameDef] has a twisted secret. [PAWN_pronoun] treats organ harvesting like a sick experiment, and does not even blink at the idea. While harvesting one will make them happy, going too long without giving in to their compulsion will upset them.</description>
 				<statOffsets>
 					<SurgerySuccessChanceFactor>0.20</SurgerySuccessChanceFactor>
 				</statOffsets>
