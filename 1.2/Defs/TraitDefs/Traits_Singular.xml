@@ -72,7 +72,7 @@
 				<description>[PAWN_nameDef] has a higher mental and physical fortitude compared to most and can more readily adapt to harsh environments in the rimworlds.</description>
 				<statOffsets>
 					<MentalBreakThreshold>-0.2</MentalBreakThreshold>
-					<PainShockThreshold>-0.2</PainShockThreshold>
+					<PainShockThreshold>0.2</PainShockThreshold>
 				</statOffsets>
 			</li>
 		</degreeDatas>

@@ -26,4 +26,19 @@ namespace VanillaTraitsExpanded
 			return true;
 		}
 	}
+
+	[HarmonyPatch(typeof(GatheringsUtility))]
+	[HarmonyPatch("ShouldPawnKeepGathering")]
+
+	public static class ShouldPawnKeepGathering_Patch
+	{
+		private static bool Prefix(Pawn p, GatheringDef gatheringDef)
+		{
+			if (p.HasTrait(VTEDefOf.VTE_Anxious))
+			{
+				return false;
+			}
+			return true;
+		}
+	}
 }

@@ -88,7 +88,8 @@ namespace VanillaTraitsExpanded
             {
                 if (pawn.Map != null && !pawn.Downed && !pawn.Dead && Rand.Chance(0.1f))
                 {
-                    var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f)?.Select(y => y.Thing);
+                    var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => x.Thing.Position.DistanceTo(pawn.Position) < 15f 
+                    && GenSight.LineOfSight(x.Thing.Position, pawn.Position, pawn.Map))?.Select(y => y.Thing);
                     if (enemies?.Count() > 0)
                     {
                         if (pawn.Faction == Faction.OfPlayer)
