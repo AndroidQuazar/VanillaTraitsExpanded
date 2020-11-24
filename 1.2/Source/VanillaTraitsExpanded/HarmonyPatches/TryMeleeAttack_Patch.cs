@@ -18,7 +18,7 @@ namespace VanillaTraitsExpanded
 		{
 			if (__result && __instance.Pawn.HasTrait(VTEDefOf.VTE_MartialArtist) && target is Pawn victim)
             {
-				if (victim.equipment.Primary != null && victim.Position.DistanceTo(__instance.Pawn.Position) <= 1f && Rand.Chance(0.5f))
+				if (victim.equipment?.Primary != null && victim.Position.DistanceTo(__instance.Pawn.Position) <= 1f && Rand.Chance(0.5f))
                 {
 					victim.equipment.TryDropEquipment(victim.equipment.Primary, out ThingWithComps resultingEq, victim.Position);
 					Messages.Message("VTE.VictimDropsEquipmentMartialArtist".Translate(victim.Named("VICTIM"), __instance.Pawn.Named("PAWN")), victim, MessageTypeDefOf.NeutralEvent, historical: false);
