@@ -25,7 +25,7 @@ namespace VanillaTraitsExpanded
 	{
 		private static void Postfix(ref QualityCategory __result, Pawn pawn, SkillDef relevantSkill)
 		{
-			if (pawn.story?.traits?.HasTrait(VTEDefOf.VTE_Perfectionist) ?? false)
+			if (pawn.HasTrait(VTEDefOf.VTE_Perfectionist))
             {
 				if (__result != QualityCategory.Legendary)
                 {

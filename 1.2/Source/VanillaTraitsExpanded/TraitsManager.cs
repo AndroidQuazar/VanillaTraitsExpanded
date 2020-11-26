@@ -29,6 +29,7 @@ namespace VanillaTraitsExpanded
         public Dictionary<Pawn, int> madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
         public Dictionary<Pawn, int> wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
         public Dictionary<Pawn, int> squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
+        public Dictionary<Pawn, int> absentMindedWithLastDiscardedTick = new Dictionary<Pawn, int>();
 
         public void PreInit()
         {
@@ -41,6 +42,7 @@ namespace VanillaTraitsExpanded
             if (madSurgeonsWithLastHarvestedTick == null) madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
             if (wanderLustersWithLastMapExitedTick == null) wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
             if (squeamishWithLastVomitedTick == null) squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
+            if (absentMindedWithLastDiscardedTick == null) absentMindedWithLastDiscardedTick = new Dictionary<Pawn, int>();
 
         }
         public override void StartedNewGame()
@@ -54,6 +56,7 @@ namespace VanillaTraitsExpanded
             PreInit();
             base.LoadedGame();
         }
+
         public void TryInterruptForcedJobs()
         {
             var keysToRemove = new List<Pawn>();
@@ -63,11 +66,14 @@ namespace VanillaTraitsExpanded
                 {
                     if (data.Key.CurJob == data.Value)
                     {
-                        if (Rand.Chance(0.05f))
+                        if ((absentMindedWithLastDiscardedTick.ContainsKey(data.Key)
+                            && Find.TickManager.TicksAbs > absentMindedWithLastDiscardedTick[data.Key] + GenDate.TicksPerHour
+                            || !absentMindedWithLastDiscardedTick.ContainsKey(data.Key)) && Rand.Chance(0.05f))
                         {
                             //Log.Message(data.Key + " - stops forced " + data.Key.CurJob + " due to absent-minded trait");
-                            Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.NeutralEvent, historical: false);
+                            Messages.Message("VTE.PawnStopsForcedJob".Translate(data.Key.Named("PAWN")), data.Key, MessageTypeDefOf.SilentInput, historical: false);
                             data.Key.jobs.StopAll();
+                            absentMindedWithLastDiscardedTick[data.Key] = Find.TickManager.TicksAbs;
                         }
                     }
                     else
@@ -190,6 +196,7 @@ namespace VanillaTraitsExpanded
             Scribe_Collections.Look(ref madSurgeonsWithLastHarvestedTick, "madSurgeonsWithLastHarvestedTick", LookMode.Reference, LookMode.Value, ref pawnKeys2, ref tickValues);
             Scribe_Collections.Look(ref wanderLustersWithLastMapExitedTick, "wanderLustersWithLastMapExitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys3, ref tickValues1);
             Scribe_Collections.Look(ref squeamishWithLastVomitedTick, "squeamishWithLastVomitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys4, ref tickValues2);
+            Scribe_Collections.Look(ref absentMindedWithLastDiscardedTick, "absentMindedWithLastDiscardedTick", LookMode.Reference, LookMode.Value, ref pawnKeys5, ref tickValues3);
             Scribe_Collections.Look(ref rebels, "rebels", LookMode.Reference);
             Scribe_Collections.Look(ref perfectionistsWithJobsToStop, "perfectionistsWithJobsToStop", LookMode.Reference);
             Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
@@ -208,6 +215,7 @@ namespace VanillaTraitsExpanded
             snobs.RemoveWhere(x => x == null);
             bigBoned.RemoveWhere(x => x == null);
             squeamishWithLastVomitedTick.RemoveAll(x => x.Key == null);
+            absentMindedWithLastDiscardedTick.RemoveAll(x => x.Key == null);
         }
 
         public void RemoveDestroyedPawn(Pawn key)
@@ -221,6 +229,8 @@ namespace VanillaTraitsExpanded
             snobs.RemoveWhere(x => x == key);
             bigBoned.RemoveWhere(x => x == key);
             squeamishWithLastVomitedTick.RemoveAll(x => x.Key == key);
+            absentMindedWithLastDiscardedTick.RemoveAll(x => x.Key == key);
+
         }
 
         private List<Pawn> pawnKeys = new List<Pawn>();
@@ -235,5 +245,8 @@ namespace VanillaTraitsExpanded
 
         private List<Pawn> pawnKeys4 = new List<Pawn>();
         private List<int> tickValues2 = new List<int>();
+
+        private List<Pawn> pawnKeys5 = new List<Pawn>();
+        private List<int> tickValues3 = new List<int>();
     }
 }
