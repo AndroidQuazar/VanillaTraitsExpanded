@@ -41,7 +41,7 @@
     </blockInteractionRecipientExcept>
     <blockRandomInteraction>true</blockRandomInteraction>
     <nameColor>(0.65, 0.9, 0.93)</nameColor>
-    <beginLetterLabel>flee</beginLetterLabel>
+    <beginLetterLabel>panic attack</beginLetterLabel>
     <beginLetter>{0} is freezing in panic.</beginLetter>
     <recoveryMessage>{0} is no longer freezing in panic.</recoveryMessage>
     <baseInspectLine>Mental state: freezing in panic</baseInspectLine>

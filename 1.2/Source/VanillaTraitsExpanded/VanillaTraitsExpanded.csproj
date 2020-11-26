@@ -307,7 +307,6 @@
     <Compile Include="HarmonyPatches\Lord_Patches.cs" />
     <Compile Include="HarmonyPatches\MentalBreaks_Patches.cs" />
     <Compile Include="HarmonyPatches\Need_Patches.cs" />
-    <Compile Include="HarmonyPatches\Notify_PawnDidWork_Patch.cs" />
     <Compile Include="HarmonyPatches\PawnObserver_Patches.cs" />
     <Compile Include="HarmonyPatches\Recipe_Patches.cs" />
     <Compile Include="HarmonyPatches\Relationship_Patches.cs" />

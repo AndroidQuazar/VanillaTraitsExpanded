@@ -32,6 +32,11 @@ namespace VanillaTraitsExpanded
 					Messages.Message("VTE.DecisesInterruptCurrentCostructionJob".Translate(__result.actor.Named("PAWN"), __result.actor.CurJob.GetTarget(TargetIndex.A).Thing.Label), __result.actor, MessageTypeDefOf.NeutralEvent, historical: false);
 					TraitUtils.TraitsManager.perfectionistsWithJobsToStop.Add(__result.actor);
 				}
+				if (__result.actor.HasTrait(VTEDefOf.VTE_Perfectionist) && __result.actor.CurJob?.bill?.recipe?.workAmount >= 2200 && Find.TickManager.TicksGame % GenDate.TicksPerHour * 3 == 0 && Rand.Chance(0.5f))
+				{
+					//Log.Message(p + " has Perfectionist trait and randomly decises interrupt current bill job");
+					TraitUtils.TraitsManager.perfectionistsWithJobsToStop.Add(__result.actor);
+				}
 			});
 		}
 	}
