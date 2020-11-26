@@ -54,11 +54,15 @@ namespace VanillaTraitsExpanded
         }
         public static void RemoveDef(TraitDef def)
         {
-            def.commonality = 0;
-            if (DefDatabase<TraitDef>.AllDefsListForReading.Contains(def))
+            try
             {
-                DefDatabase<TraitDef>.AllDefsListForReading.Remove(def);
+                def.commonality = 0;
+                if (DefDatabase<TraitDef>.AllDefsListForReading.Contains(def))
+                {
+                    DefDatabase<TraitDef>.AllDefsListForReading.Remove(def);
+                }
             }
+            catch { };
         }
         public static void DoDefsRemoval()
         {

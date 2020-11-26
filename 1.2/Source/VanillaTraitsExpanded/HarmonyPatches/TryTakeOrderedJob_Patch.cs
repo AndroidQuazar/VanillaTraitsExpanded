@@ -20,7 +20,9 @@ namespace VanillaTraitsExpanded
 			JobDefOf.Flee,
 			JobDefOf.Vomit,
 			JobDefOf.Wait_Combat,
-			JobDefOf.BestowingCeremony
+			JobDefOf.BestowingCeremony,
+			JobDefOf.LayDown,
+			JobDefOf.Wait_Downed,
 		};
 		private static void Prefix(Pawn ___pawn, Job job)
 		{

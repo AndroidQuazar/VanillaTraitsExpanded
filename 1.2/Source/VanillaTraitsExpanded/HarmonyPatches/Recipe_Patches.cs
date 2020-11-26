@@ -17,7 +17,7 @@ namespace VanillaTraitsExpanded
         {
             if (worker.HasTrait(VTEDefOf.VTE_MadSurgeon) && recipeDef == DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh") && ingredients != null)
             {
-                if (ingredients.Where(x => x is Corpse corpse && corpse.InnerPawn.RaceProps.Humanlike).Any())
+                if (ingredients.Where(x => x is Corpse corpse).Any())
                 {
                     TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[worker] = Find.TickManager.TicksAbs;
                     worker.TryGiveThought(VTEDefOf.VTE_HarvestedOrgans);
