@@ -13,11 +13,14 @@ namespace VanillaTraitsExpanded
             {
 				if (TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick.ContainsKey(p))
                 {
-					var lastTick = TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[p];
-					if ((Find.TickManager.TicksAbs - lastTick) > 10 * GenDate.TicksPerDay)
+					if (p.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(VTEDefOf.VTE_HarvestedOrgans) == null)
                     {
-						return ThoughtState.ActiveDefault;
-                    }
+						var lastTick = TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[p];
+						if (Find.TickManager.TicksAbs - lastTick > 10 * GenDate.TicksPerDay)
+						{
+							return ThoughtState.ActiveDefault;
+						}
+					}
 				}
 				else
                 {

@@ -7,7 +7,6 @@ namespace VanillaTraitsExpanded
 {
 	public class ThoughtWorker_Dunce : ThoughtWorker
 	{
-
 		public override ThoughtState CurrentStateInternal(Pawn p)
 		{
 			if (p.HasTrait(VTEDefOf.VTE_Dunce))
