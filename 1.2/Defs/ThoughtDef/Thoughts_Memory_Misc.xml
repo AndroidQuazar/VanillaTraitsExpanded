@@ -275,13 +275,25 @@
   </ThoughtDef>
   
     <ThoughtDef>
-    <defName>EnvironmentDark</defName>
+    <defName>VTE_EnvironmentDark</defName>
     <workerClass>VanillaTraitsExpanded.ThoughtWorker_DarkChildOfTheMountain</workerClass>
     <stages>
       <li>
         <label>darkness</label>
         <description>I've been in the dark for a while. I like it.</description>
         <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+	<ThoughtDef>
+    <defName>VTE_Dunce</defName>
+    <workerClass>VanillaTraitsExpanded.ThoughtWorker_Dunce</workerClass>
+    <stages>
+      <li>
+        <label>dunce</label>
+        <description>dunce.</description>
+        <baseMoodEffect>20</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>

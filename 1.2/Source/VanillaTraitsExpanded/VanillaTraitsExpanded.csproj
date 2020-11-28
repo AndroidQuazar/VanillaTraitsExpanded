@@ -327,6 +327,7 @@
     <Compile Include="MentalStates\MentalState_Kleptomaniac.cs" />
     <Compile Include="MentalStates\MentalState_TechnophobeTantrum.cs" />
     <Compile Include="Thoughts\ThoughtWorker_DarkChildOfTheMountain.cs" />
+    <Compile Include="Thoughts\ThoughtWorker_Dunce.cs" />
     <Compile Include="Thoughts\ThoughtWorker_NotBondedAnimalMasterHater.cs" />
     <Compile Include="Thoughts\ThoughtWorker_BondedAnimalMasterHater.cs" />
     <Compile Include="Thoughts\ThoughtWorker_ChildOfMountain.cs" />

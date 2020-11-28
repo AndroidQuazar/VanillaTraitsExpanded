@@ -16,7 +16,7 @@ namespace VanillaTraitsExpanded
 	{
 		public static void Postfix(bool __result, Pawn_MeleeVerbs __instance, Thing target, Verb verbToUse = null, bool surpriseAttack = false)
 		{
-			if (__result && __instance.Pawn.HasTrait(VTEDefOf.VTE_MartialArtist) && target is Pawn victim)
+			if (__result && __instance.Pawn.HasTrait(VTEDefOf.VTE_MartialArtist) && target is Pawn victim && (!victim.RaceProps?.IsMechanoid ?? false))
             {
 				if (victim.equipment?.Primary != null && victim.Position.DistanceTo(__instance.Pawn.Position) <= 1f && Rand.Chance(0.5f))
                 {
