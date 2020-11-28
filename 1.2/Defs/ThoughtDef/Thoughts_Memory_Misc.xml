@@ -291,8 +291,8 @@
     <workerClass>VanillaTraitsExpanded.ThoughtWorker_Dunce</workerClass>
     <stages>
       <li>
-        <label>dunce</label>
-        <description>dunce.</description>
+        <label>Dunce</label>
+        <description>I don't really understand why everybody's so upset all the time.</description>
         <baseMoodEffect>20</baseMoodEffect>
       </li>
     </stages>
