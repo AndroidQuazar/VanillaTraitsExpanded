@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -46,6 +47,132 @@ namespace VanillaTraitsExpanded
 					__result = false;
 					return false;
 				}
+			}
+			return true;
+		}
+	}
+
+	[HarmonyPatch(typeof(NeedsCardUtility), "DrawThoughtGroup")]
+	public static class DrawThoughtGroup_Patch
+	{
+		public static bool Prefix(ref bool __result, Rect rect, Thought group, Pawn pawn)
+		{
+			if (pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (group.def == ThoughtDefOf.AttendedParty
+				|| group.def.defName == "VFEV_AttendedFeast" || group.def.defName == "VFEV_TakingPartInFeast"))
+			{
+				try
+				{
+					pawn.needs.mood.thoughts.GetMoodThoughts(group, NeedsCardUtility.thoughtGroup);
+					Thought leadingThoughtInGroup = PawnNeedsUIUtility.GetLeadingThoughtInGroup(NeedsCardUtility.thoughtGroup);
+					if (!leadingThoughtInGroup.VisibleInNeedsTab)
+					{
+						NeedsCardUtility.thoughtGroup.Clear();
+						__result = false;
+						return false;
+					}
+					if (leadingThoughtInGroup != NeedsCardUtility.thoughtGroup[0])
+					{
+						NeedsCardUtility.thoughtGroup.Remove(leadingThoughtInGroup);
+						NeedsCardUtility.thoughtGroup.Insert(0, leadingThoughtInGroup);
+					}
+					if (Mouse.IsOver(rect))
+					{
+						Widgets.DrawHighlight(rect);
+					}
+					if (Mouse.IsOver(rect))
+					{
+						StringBuilder stringBuilder = new StringBuilder();
+						stringBuilder.Append(leadingThoughtInGroup.Description);
+						if (group.def.DurationTicks > 5)
+						{
+							stringBuilder.AppendLine();
+							stringBuilder.AppendLine();
+							Thought_Memory thought_Memory = leadingThoughtInGroup as Thought_Memory;
+							if (thought_Memory != null)
+							{
+								if (NeedsCardUtility.thoughtGroup.Count == 1)
+								{
+									stringBuilder.Append("ThoughtExpiresIn".Translate(((group.def.DurationTicks - thought_Memory.age) * 4).ToStringTicksToPeriod()));
+								}
+								else
+								{
+									int num = int.MaxValue;
+									int num2 = int.MinValue;
+									foreach (Thought_Memory item in NeedsCardUtility.thoughtGroup)
+									{
+										num = Mathf.Min(num, item.age);
+										num2 = Mathf.Max(num2, item.age);
+									}
+									stringBuilder.Append("ThoughtStartsExpiringIn".Translate(((group.def.DurationTicks - num2) * 4).ToStringTicksToPeriod()));
+									stringBuilder.AppendLine();
+									stringBuilder.Append("ThoughtFinishesExpiringIn".Translate(((group.def.DurationTicks - num) * 4).ToStringTicksToPeriod()));
+								}
+							}
+						}
+						if (NeedsCardUtility.thoughtGroup.Count > 1)
+						{
+							bool flag = false;
+							for (int i = 1; i < NeedsCardUtility.thoughtGroup.Count; i++)
+							{
+								bool flag2 = false;
+								for (int j = 0; j < i; j++)
+								{
+									if (NeedsCardUtility.thoughtGroup[i].LabelCap == NeedsCardUtility.thoughtGroup[j].LabelCap)
+									{
+										flag2 = true;
+										break;
+									}
+								}
+								if (!flag2)
+								{
+									if (!flag)
+									{
+										stringBuilder.AppendLine();
+										stringBuilder.AppendLine();
+										flag = true;
+									}
+									stringBuilder.AppendLine("+ " + NeedsCardUtility.thoughtGroup[i].LabelCap);
+								}
+							}
+						}
+						TooltipHandler.TipRegion(rect, new TipSignal(stringBuilder.ToString(), 7291));
+					}
+					Text.WordWrap = false;
+					Text.Anchor = TextAnchor.MiddleLeft;
+					Rect rect2 = new Rect(rect.x + 10f, rect.y, 225f, rect.height);
+					rect2.yMin -= 3f;
+					rect2.yMax += 3f;
+					string text = leadingThoughtInGroup.LabelCap;
+					if (NeedsCardUtility.thoughtGroup.Count > 1)
+					{
+						text = text + " x" + NeedsCardUtility.thoughtGroup.Count;
+					}
+					Widgets.Label(rect2, text);
+					Text.Anchor = TextAnchor.MiddleCenter;
+					float num3 = pawn.needs.mood.thoughts.MoodOffsetOfGroup(group);
+					if (num3 == 0f)
+					{
+						GUI.color = NeedsCardUtility.NoEffectColor;
+					}
+					else if (num3 > 0f)
+					{
+						GUI.color = NeedsCardUtility.MoodColor;
+					}
+					else
+					{
+						GUI.color = NeedsCardUtility.MoodColorNegative;
+					}
+					Widgets.Label(new Rect(rect.x + 235f, rect.y, 32f, rect.height), num3.ToString("##0"));
+					Text.Anchor = TextAnchor.UpperLeft;
+					GUI.color = Color.white;
+					Text.WordWrap = true;
+				}
+				catch (Exception ex)
+				{
+					Log.ErrorOnce(string.Concat("Exception in DrawThoughtGroup for ", group.def, " on ", pawn, ": ", ex.ToString()), 3452698);
+				}
+				__result = true;
+				return false;
 			}
 			return true;
 		}
@@ -135,6 +262,7 @@ namespace VanillaTraitsExpanded
 	//		}
 	//	}
 	//}
+
 
 	[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[]
 	{

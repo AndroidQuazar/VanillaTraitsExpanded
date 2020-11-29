@@ -15,9 +15,9 @@ namespace VanillaTraitsExpanded
     {
         private static void Postfix(RecipeDef recipeDef, Pawn worker, List<Thing> ingredients, Thing dominantIngredient, IBillGiver billGiver)
         {
-            if (worker.HasTrait(VTEDefOf.VTE_MadSurgeon) && recipeDef == DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh") && ingredients != null)
+            if (worker.HasTrait(VTEDefOf.VTE_MadSurgeon))
             {
-                if (ingredients.Where(x => x is Corpse corpse).Any())
+                if ((recipeDef == DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh") && ingredients != null && ingredients.Where(x => x is Corpse corpse).Any()) || recipeDef == RecipeDefOf.RemoveBodyPart)
                 {
                     TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[worker] = Find.TickManager.TicksAbs;
                     worker.TryGiveThought(VTEDefOf.VTE_HarvestedOrgans);
