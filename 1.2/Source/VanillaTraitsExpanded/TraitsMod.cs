@@ -70,7 +70,11 @@ namespace VanillaTraitsExpanded
             {
                 if (!traitState.Value)
                 {
-                    RemoveDef(TraitDef.Named(traitState.Key));
+                    var defToRemove = DefDatabase<TraitDef>.GetNamedSilentFail(traitState.Key);
+                    if (defToRemove != null)
+                    {
+                        RemoveDef(defToRemove);
+                    }
                 }
             }
         }

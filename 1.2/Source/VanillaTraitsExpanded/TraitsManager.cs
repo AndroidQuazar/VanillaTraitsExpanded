@@ -188,9 +188,9 @@ namespace VanillaTraitsExpanded
                 perfectionistsWithJobsToStop.Clear();
             }
         }
+
         public override void ExposeData()
         {
-            ClearListsFromNulls();
             base.ExposeData();
             Scribe_Collections.Look(ref forcedJobs, "forcedJobs", LookMode.Reference, LookMode.Reference, ref pawnKeys, ref jobValues);
             Scribe_Collections.Look(ref madSurgeonsWithLastHarvestedTick, "madSurgeonsWithLastHarvestedTick", LookMode.Reference, LookMode.Value, ref pawnKeys2, ref tickValues);
@@ -202,20 +202,6 @@ namespace VanillaTraitsExpanded
             Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
             Scribe_Collections.Look(ref snobs, "snobs", LookMode.Reference);
             Scribe_Collections.Look(ref bigBoned, "bigBoned", LookMode.Reference);
-        }
-
-        public void ClearListsFromNulls()
-        {
-            forcedJobs.RemoveAll(x => x.Key == null);
-            madSurgeonsWithLastHarvestedTick.RemoveAll(x => x.Key == null);
-            wanderLustersWithLastMapExitedTick.RemoveAll(x => x.Key == null);
-            rebels.RemoveWhere(x => x == null);
-            perfectionistsWithJobsToStop.RemoveWhere(x => x == null);
-            cowards.RemoveWhere(x => x == null);
-            snobs.RemoveWhere(x => x == null);
-            bigBoned.RemoveWhere(x => x == null);
-            squeamishWithLastVomitedTick.RemoveAll(x => x.Key == null);
-            absentMindedWithLastDiscardedTick.RemoveAll(x => x.Key == null);
         }
 
         public void RemoveDestroyedPawn(Pawn key)
@@ -230,7 +216,6 @@ namespace VanillaTraitsExpanded
             bigBoned.RemoveWhere(x => x == key);
             squeamishWithLastVomitedTick.RemoveAll(x => x.Key == key);
             absentMindedWithLastDiscardedTick.RemoveAll(x => x.Key == key);
-
         }
 
         private List<Pawn> pawnKeys = new List<Pawn>();
