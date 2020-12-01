@@ -217,7 +217,7 @@ namespace VanillaTraitsExpanded
 			{
 				__result *= 2f;
 			}
-			else if (__instance.pawn.HasTrait(VTEDefOf.VTE_RefinedPalate))
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_RefinedPalate))
 			{
 				if (__instance.def == ThoughtDefOf.AteFineMeal || __instance.def.defName == "VCE_AteFineDessert")
 				{
@@ -228,11 +228,11 @@ namespace VanillaTraitsExpanded
 					__result *= 1.5f;
 				}
 			}
-			else if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalLover) && TryGainMemory_Patch.animalThoughtDefs.Contains(__instance.def))
+			if (TryGainMemory_Patch.animalThoughtDefs.Contains(__instance.def) && __instance.pawn.HasTrait(VTEDefOf.VTE_AnimalLover))
 			{
 				__result *= 2f;
 			}
-			else if (__instance.pawn.HasTrait(VTEDefOf.VTE_Vengeful) && __instance.def == ThoughtDefOf.KilledMyRival)
+			if (__instance.def == ThoughtDefOf.KilledMyRival && __instance.pawn.HasTrait(VTEDefOf.VTE_Vengeful))
 			{
 				__result *= 2f;
 			}
