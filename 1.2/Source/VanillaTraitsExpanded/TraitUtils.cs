@@ -29,7 +29,7 @@ namespace VanillaTraitsExpanded
 
         public static bool HasTrait(this Pawn pawn, TraitDef traitDef)
         {
-            if (pawn.story?.traits?.HasTrait(traitDef) ?? false)
+            if (traitDef != null && (pawn?.story?.traits?.HasTrait(traitDef) ?? false))
             {
                 return true;
             }

@@ -59,6 +59,7 @@ namespace VanillaTraitsExpanded
 
         public void TryInterruptForcedJobs()
         {
+            if (forcedJobs is null) PreInit();
             var keysToRemove = new List<Pawn>();
             foreach (var data in forcedJobs)
             {
@@ -90,14 +91,15 @@ namespace VanillaTraitsExpanded
 
         public void TryForceFleeCowards()
         {
+            if (cowards is null) PreInit();
             foreach (var pawn in cowards)
             {
-                if (pawn.Map != null && !pawn.Downed && !pawn.Dead && Rand.Chance(0.1f))
+                if (pawn?.Map != null && !pawn.Downed && !pawn.Dead && Rand.Chance(0.1f))
                 {
                     var enemies = pawn.Map.attackTargetsCache?.GetPotentialTargetsFor(pawn)?.Where(x => 
-                    (x is Pawn pawnEnemy && !pawnEnemy.Dead && !pawnEnemy.Downed || !(x.Thing is Pawn) && x.Thing.DestroyedOrNull())
-                    && x.Thing.Position.DistanceTo(pawn.Position) < 15f 
-                    && GenSight.LineOfSight(x.Thing.Position, pawn.Position, pawn.Map))?.Select(y => y.Thing);
+                        (x is Pawn pawnEnemy && !pawnEnemy.Dead && !pawnEnemy.Downed || !(x.Thing is Pawn) && x.Thing.DestroyedOrNull())
+                        && x.Thing.Position.DistanceTo(pawn.Position) < 15f 
+                        && GenSight.LineOfSight(x.Thing.Position, pawn.Position, pawn.Map))?.Select(y => y.Thing);
                     if (enemies?.Count() > 0)
                     {
                         if (pawn.Faction == Faction.OfPlayer)
@@ -105,7 +107,7 @@ namespace VanillaTraitsExpanded
                             TraitUtils.MakeFlee(pawn, enemies.OrderBy(x => x.Position.DistanceTo(pawn.Position)).First(), 15, enemies.ToList());
                             Messages.Message("VTE.PawnCowardlyFlees".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                         }
-                        else
+                        else if (pawn.Faction != null)
                         {
                             TraitUtils.MakeExit(pawn);
                             if (pawn.HostileTo(Faction.OfPlayer))
@@ -128,9 +130,10 @@ namespace VanillaTraitsExpanded
 
         public void TryBreakChairsUnderBigBoneds()
         {
+            if (bigBoned is null) PreInit();
             foreach (var pawn in bigBoned)
             {
-                if (pawn.Map != null && !pawn.pather.moving && Rand.Chance(0.05f))
+                if (pawn?.Map != null && !pawn.pather.moving && Rand.Chance(0.05f))
                 {
                     var firstBuilding = pawn.Position.GetFirstBuilding(pawn.Map);
                     if (firstBuilding?.def?.building?.isSittable ?? false && !(firstBuilding is Building_Throne))
@@ -150,7 +153,7 @@ namespace VanillaTraitsExpanded
                             pawn.jobs.StopAll();
                         }
                     }
-                    else if (pawn.jobs.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob?.targetB.Thing != null && !(pawn.CurJob?.targetB.Thing is Building_Throne))
+                    else if (pawn.jobs?.curDriver is JobDriver_SitFacingBuilding && pawn.CurJob?.targetB.Thing != null && !(pawn.CurJob?.targetB.Thing is Building_Throne))
                     {
                         Messages.Message("VTE.PawnBreaksChairs".Translate(pawn.CurJob.targetB.Thing.Label, pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
                         pawn.CurJob.targetB.Thing.TakeDamage(new DamageInfo(DamageDefOf.Crush, (60f * firstBuilding.MaxHitPoints) / 100f));
