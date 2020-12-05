@@ -38,7 +38,7 @@ namespace VanillaTraitsExpanded
 					pawn.TryGiveThought(VTEDefOf.VTE_CreatedLowQualityItem);
 					//Log.Message(pawn + " has VTE_Perfectionist, gains VTE_CreatedLowQualityItem thought due to low quality item");
 				}
-				if (__result == QualityCategory.Legendary && pawn.InspirationDef != null && pawn.InspirationDef != InspirationDefOf.Inspired_Creativity)
+				if (__result == QualityCategory.Legendary && pawn.InspirationDef != InspirationDefOf.Inspired_Creativity)
                 {
 					__result = QualityCategory.Masterwork;
 				}
