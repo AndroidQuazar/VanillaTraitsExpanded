@@ -25,10 +25,6 @@ namespace VanillaTraitsExpanded
             {
                 TraitUtils.TraitsManager.bigBoned.Add(__instance);
             }
-            if (__instance.HasTrait(VTEDefOf.VTE_Rebel))
-            {
-                TraitUtils.TraitsManager.rebels.Add(__instance);
-            }
             if (__instance.HasTrait(VTEDefOf.VTE_Submissive))
             {
                 if (__instance.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed) == null)

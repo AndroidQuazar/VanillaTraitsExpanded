@@ -24,7 +24,6 @@ namespace VanillaTraitsExpanded
         public HashSet<Pawn> perfectionistsWithJobsToStop = new HashSet<Pawn>();
         public HashSet<Pawn> cowards = new HashSet<Pawn>();
         public HashSet<Pawn> bigBoned = new HashSet<Pawn>();
-        public HashSet<Pawn> rebels = new HashSet<Pawn>();
         public HashSet<Pawn> snobs = new HashSet<Pawn>();
         public Dictionary<Pawn, int> madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
         public Dictionary<Pawn, int> wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
@@ -36,7 +35,6 @@ namespace VanillaTraitsExpanded
             if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>();
             if (perfectionistsWithJobsToStop == null) perfectionistsWithJobsToStop = new HashSet<Pawn>();
             if (cowards == null) cowards = new HashSet<Pawn>();
-            if (rebels == null) rebels = new HashSet<Pawn>();
             if (bigBoned == null) bigBoned = new HashSet<Pawn>();
             if (snobs == null) snobs = new HashSet<Pawn>();
             if (madSurgeonsWithLastHarvestedTick == null) madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
@@ -200,7 +198,6 @@ namespace VanillaTraitsExpanded
             Scribe_Collections.Look(ref wanderLustersWithLastMapExitedTick, "wanderLustersWithLastMapExitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys3, ref tickValues1);
             Scribe_Collections.Look(ref squeamishWithLastVomitedTick, "squeamishWithLastVomitedTick", LookMode.Reference, LookMode.Value, ref pawnKeys4, ref tickValues2);
             Scribe_Collections.Look(ref absentMindedWithLastDiscardedTick, "absentMindedWithLastDiscardedTick", LookMode.Reference, LookMode.Value, ref pawnKeys5, ref tickValues3);
-            Scribe_Collections.Look(ref rebels, "rebels", LookMode.Reference);
             Scribe_Collections.Look(ref perfectionistsWithJobsToStop, "perfectionistsWithJobsToStop", LookMode.Reference);
             Scribe_Collections.Look(ref cowards, "cowards", LookMode.Reference);
             Scribe_Collections.Look(ref snobs, "snobs", LookMode.Reference);
@@ -212,7 +209,6 @@ namespace VanillaTraitsExpanded
             forcedJobs.RemoveAll(x => x.Key == key);
             madSurgeonsWithLastHarvestedTick.RemoveAll(x => x.Key == key);
             wanderLustersWithLastMapExitedTick.RemoveAll(x => x.Key == key);
-            rebels.RemoveWhere(x => x == key);
             perfectionistsWithJobsToStop.RemoveWhere(x => x == key);
             cowards.RemoveWhere(x => x == key);
             snobs.RemoveWhere(x => x == key);

@@ -24,7 +24,7 @@ namespace VanillaTraitsExpanded
 			JobDefOf.LayDown,
 			JobDefOf.Wait_Downed,
 		};
-		private static void Prefix(Pawn ___pawn, Job job)
+		private static void Postfix(Pawn ___pawn, Job job)
 		{
 			if (!jobsToExclude.Contains(job.def))
             {
@@ -83,9 +83,9 @@ namespace VanillaTraitsExpanded
 			}
 			if (___pawn.HasTrait(VTEDefOf.VTE_Submissive))
 			{
-				var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
-				if (slowWorkHediff != null)
+				if (___pawn.health.hediffSet.GetFirstHediffOfDef(VTEDefOf.VTE_SlowWorkSpeed) == null)
                 {
+					var slowWorkHediff = HediffMaker.MakeHediff(VTEDefOf.VTE_SlowWorkSpeed, ___pawn);
 					___pawn.health.AddHediff(slowWorkHediff);
                 }
 			}
