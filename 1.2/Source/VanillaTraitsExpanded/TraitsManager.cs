@@ -32,15 +32,79 @@ namespace VanillaTraitsExpanded
 
         public void PreInit()
         {
-            if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>();
-            if (perfectionistsWithJobsToStop == null) perfectionistsWithJobsToStop = new HashSet<Pawn>();
-            if (cowards == null) cowards = new HashSet<Pawn>();
-            if (bigBoned == null) bigBoned = new HashSet<Pawn>();
-            if (snobs == null) snobs = new HashSet<Pawn>();
-            if (madSurgeonsWithLastHarvestedTick == null) madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
-            if (wanderLustersWithLastMapExitedTick == null) wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
-            if (squeamishWithLastVomitedTick == null) squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
-            if (absentMindedWithLastDiscardedTick == null) absentMindedWithLastDiscardedTick = new Dictionary<Pawn, int>();
+            try
+            {
+                if (forcedJobs == null) forcedJobs = new Dictionary<Pawn, Job>();
+                if (perfectionistsWithJobsToStop == null) perfectionistsWithJobsToStop = new HashSet<Pawn>();
+                if (cowards == null) cowards = new HashSet<Pawn>();
+                if (bigBoned == null) bigBoned = new HashSet<Pawn>();
+                if (snobs == null) snobs = new HashSet<Pawn>();
+                if (madSurgeonsWithLastHarvestedTick == null) madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
+                if (wanderLustersWithLastMapExitedTick == null) wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
+                if (squeamishWithLastVomitedTick == null) squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
+                if (absentMindedWithLastDiscardedTick == null) absentMindedWithLastDiscardedTick = new Dictionary<Pawn, int>();
+
+                foreach (var f in forcedJobs)
+                {
+                    if (!f.Key.HasTrait(VTEDefOf.VTE_AbsentMinded))
+                    {
+                        Log.Error("Pawn " + f.Key + " has no VTE_AbsentMinded trait and is in the wrong list of absent-minded pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+
+                foreach (var f in absentMindedWithLastDiscardedTick)
+                {
+                    if (!f.Key.HasTrait(VTEDefOf.VTE_AbsentMinded))
+                    {
+                        Log.Error("Pawn " + f.Key + " has no VTE_AbsentMinded trait and is in the wrong list of absent-minded pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+
+                foreach (var p in perfectionistsWithJobsToStop)
+                {
+                    if (!p.HasTrait(VTEDefOf.VTE_Perfectionist))
+                    {
+                        Log.Error("Pawn " + p + " has no VTE_Perfectionist trait and is in the wrong list of perfectionists pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+
+                foreach (var p in cowards)
+                {
+                    if (!p.HasTrait(VTEDefOf.VTE_Coward))
+                    {
+                        Log.Error("Pawn " + p + " has no VTE_Coward trait and is in the wrong list of coward pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+
+                foreach (var p in bigBoned)
+                {
+                    if (!p.HasTrait(VTEDefOf.VTE_BigBoned))
+                    {
+                        Log.Error("Pawn " + p + " has no VTE_BigBoned trait and is in the wrong list of big boned pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+
+                foreach (var p in snobs)
+                {
+                    if (!p.HasTrait(VTEDefOf.VTE_Snob))
+                    {
+                        Log.Error("Pawn " + p + " has no VTE_Snob trait and is in the wrong list of snob pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+
+                foreach (var p in madSurgeonsWithLastHarvestedTick)
+                {
+                    if (!p.Key.HasTrait(VTEDefOf.VTE_MadSurgeon))
+                    {
+                        Log.Error("Pawn " + p.Key + " has no VTE_MadSurgeon trait and is in the wrong list of mad surgeons pawns. Please report it to Vanilla Traits Expanded mod page");
+                    }
+                }
+            }
+
+            catch
+            {
+
+            }
 
         }
         public override void StartedNewGame()

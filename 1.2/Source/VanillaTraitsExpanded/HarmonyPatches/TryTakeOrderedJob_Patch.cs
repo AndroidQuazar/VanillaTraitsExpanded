@@ -30,7 +30,7 @@ namespace VanillaTraitsExpanded
             {
 				if (___pawn.HasTrait(VTEDefOf.VTE_AbsentMinded))
 				{
-					//Log.Message(___pawn + " starts " + job);
+					Log.Message(___pawn + " starts (absent-minded) " + job);
 					TraitUtils.TraitsManager.forcedJobs[___pawn] = job;
 				}
 				if (___pawn.HasTrait(VTEDefOf.VTE_Rebel))
