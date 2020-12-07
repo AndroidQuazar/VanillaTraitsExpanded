@@ -21,10 +21,14 @@ namespace VanillaTraitsExpanded
             {
 				foreach (var pawn in TraitUtils.TraitsManager.snobs)
 				{
-					if (pawn.Spawned && !pawn.Dead)
-					{
-						num++;
+					if (pawn != null)
+                    {
+						if (pawn.Spawned && !pawn.Dead)
+						{
+							num++;
+						}
 					}
+
 				}
 			}
 			return num;
