@@ -43,6 +43,7 @@ namespace VanillaTraitsExpanded
                 if (wanderLustersWithLastMapExitedTick == null) wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
                 if (squeamishWithLastVomitedTick == null) squeamishWithLastVomitedTick = new Dictionary<Pawn, int>();
                 if (absentMindedWithLastDiscardedTick == null) absentMindedWithLastDiscardedTick = new Dictionary<Pawn, int>();
+                TryRemoveWrongPawns();
 
                 foreach (var f in forcedJobs)
                 {
@@ -240,6 +241,10 @@ namespace VanillaTraitsExpanded
             {
                 TryBreakChairsUnderBigBoneds();
             }
+            if (Find.TickManager.TicksGame % 2000 == 0)
+            {
+                TryRemoveWrongPawns();
+            }
             if (perfectionistsWithJobsToStop.Count > 0)
             {
                 foreach (var pawn in perfectionistsWithJobsToStop)
@@ -279,6 +284,19 @@ namespace VanillaTraitsExpanded
             bigBoned.RemoveWhere(x => x == key);
             squeamishWithLastVomitedTick.RemoveAll(x => x.Key == key);
             absentMindedWithLastDiscardedTick.RemoveAll(x => x.Key == key);
+        }
+
+        public void TryRemoveWrongPawns()
+        {
+            forcedJobs.RemoveAll(x => !x.Key.HasTrait(VTEDefOf.VTE_AbsentMinded));
+            absentMindedWithLastDiscardedTick.RemoveAll(x => !x.Key.HasTrait(VTEDefOf.VTE_AbsentMinded));
+            madSurgeonsWithLastHarvestedTick.RemoveAll(x => !x.Key.HasTrait(VTEDefOf.VTE_MadSurgeon));
+            wanderLustersWithLastMapExitedTick.RemoveAll(x => !x.Key.HasTrait(VTEDefOf.VTE_Wanderlust));
+            perfectionistsWithJobsToStop.RemoveWhere(x => !x.HasTrait(VTEDefOf.VTE_Perfectionist));
+            cowards.RemoveWhere(x => !x.HasTrait(VTEDefOf.VTE_Coward));
+            snobs.RemoveWhere(x => !x.HasTrait(VTEDefOf.VTE_Snob));
+            bigBoned.RemoveWhere(x => !x.HasTrait(VTEDefOf.VTE_BigBoned));
+            squeamishWithLastVomitedTick.RemoveAll(x => !x.Key.HasTrait(VTEDefOf.VTE_Squeamish));
         }
 
         private List<Pawn> pawnKeys = new List<Pawn>();

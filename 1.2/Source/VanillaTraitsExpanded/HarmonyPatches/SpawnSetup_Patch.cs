@@ -10,12 +10,26 @@ using Verse.AI;
 
 namespace VanillaTraitsExpanded
 {
+    [HarmonyPatch(typeof(TraitSet))]
+    [HarmonyPatch("GainTrait")]
+    public static class GainTrait_Patch
+    {
+        private static void Postfix(Pawn ___pawn)
+        {
+            SpawnSetup_Patch.AddPawn(___pawn);
+        }
+    }
+
     [HarmonyPatch(typeof(Pawn))]
     [HarmonyPatch("SpawnSetup")]
 
     public static class SpawnSetup_Patch
     {
         private static void Postfix(Pawn __instance)
+        {
+            AddPawn(__instance);
+        }
+        public static void AddPawn(Pawn __instance)
         {
             if (__instance.HasTrait(VTEDefOf.VTE_Coward))
             {
@@ -40,7 +54,8 @@ namespace VanillaTraitsExpanded
 
             if (__instance.HasTrait(VTEDefOf.VTE_MadSurgeon))
             {
-                if (TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick == null) TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
+                if (TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick == null)
+                    TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
                 if (!TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick.ContainsKey(__instance))
                 {
                     TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[__instance] = Find.TickManager.TicksAbs;
