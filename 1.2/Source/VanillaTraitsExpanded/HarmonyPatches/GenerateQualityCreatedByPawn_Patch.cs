@@ -23,22 +23,31 @@ namespace VanillaTraitsExpanded
 		})]
 	public static class GenerateQualityCreatedByPawn_Patch
 	{
-		private static void Postfix(ref QualityCategory __result, Pawn pawn, SkillDef relevantSkill)
+		private static void Prefix(Pawn pawn, out bool __state)
+        {
+			if (pawn.InspirationDef == InspirationDefOf.Inspired_Creativity)
+            {
+				__state = true;
+			}
+			else
+            {
+				__state = false;
+            }
+        }
+		private static void Postfix(ref QualityCategory __result, Pawn pawn, SkillDef relevantSkill, bool __state)
 		{
 			if (pawn.HasTrait(VTEDefOf.VTE_Perfectionist))
             {
 				if (__result != QualityCategory.Legendary)
                 {
 					var newResult = (QualityCategory)((int)__result + 1);
-					//Log.Message(pawn + " has VTE_Perfectionist, product quality was increased from " + __result + " to " + newResult);
 					__result = newResult;
 				}
 				if (__result == QualityCategory.Normal || __result == QualityCategory.Awful || __result == QualityCategory.Poor)
 				{
 					pawn.TryGiveThought(VTEDefOf.VTE_CreatedLowQualityItem);
-					//Log.Message(pawn + " has VTE_Perfectionist, gains VTE_CreatedLowQualityItem thought due to low quality item");
 				}
-				if (__result == QualityCategory.Legendary && pawn.InspirationDef != InspirationDefOf.Inspired_Creativity)
+				if (__result == QualityCategory.Legendary && !__state)
                 {
 					__result = QualityCategory.Masterwork;
 				}
