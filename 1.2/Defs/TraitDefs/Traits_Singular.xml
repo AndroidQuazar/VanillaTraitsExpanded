@@ -702,7 +702,7 @@
 		<degreeDatas>
 			<li>
 				<label>academian</label>
-				<description>Whether through studying ancient manuscripts or years of scholastic persuit [PAWN_nameDef] is surprisingly well read on a variety of topics, particularly science and medical practician.</description>
+				<description>Whether through studying ancient manuscripts or years of scholastic pursuit [PAWN_nameDef] is surprisingly well read on a variety of topics, particularly science and medical practice.</description>
 				<skillGains>
 					<li>
 						<key>Intellectual</key>
