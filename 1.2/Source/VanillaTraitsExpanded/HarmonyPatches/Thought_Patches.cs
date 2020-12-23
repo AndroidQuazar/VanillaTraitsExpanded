@@ -308,11 +308,11 @@ namespace VanillaTraitsExpanded
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Squeamish) && newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse)
 			{
 				var comp = Current.Game.GetComponent<TraitsManager>();
-				if ((!comp.squeamishWithLastVomitedTick.ContainsKey(__instance.pawn) || Find.TickManager.TicksAbs >= comp.squeamishWithLastVomitedTick[__instance.pawn] + (30 * 60)) && Rand.Chance(0.5f))
+				if ((!comp.squeamishWithLastVomitedTick.ContainsKey(__instance.pawn) || GenTicks.TicksAbs >= comp.squeamishWithLastVomitedTick[__instance.pawn] + (30 * 60)) && Rand.Chance(0.5f))
 				{
 					Job vomit = JobMaker.MakeJob(JobDefOf.Vomit);
 					__instance.pawn.jobs.TryTakeOrderedJob(vomit);
-					comp.squeamishWithLastVomitedTick[__instance.pawn] = Find.TickManager.TicksAbs;
+					comp.squeamishWithLastVomitedTick[__instance.pawn] = GenTicks.TicksAbs;
 				}
 			}
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Desensitized) && horribleThoughts.Contains(newThought.def.defName))

@@ -58,7 +58,7 @@ namespace VanillaTraitsExpanded
                     TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick = new Dictionary<Pawn, int>();
                 if (!TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick.ContainsKey(__instance))
                 {
-                    TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[__instance] = Find.TickManager.TicksAbs;
+                    TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[__instance] = GenTicks.TicksAbs;
                 }
             }
             if (__instance.HasTrait(VTEDefOf.VTE_Stoner))
@@ -82,7 +82,7 @@ namespace VanillaTraitsExpanded
                 if (TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick == null) TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick = new Dictionary<Pawn, int>();
                 if (!TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick.ContainsKey(__instance))
                 {
-                    TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[__instance] = Find.TickManager.TicksAbs;
+                    TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[__instance] = GenTicks.TicksAbs;
                 }
             }
             if (__instance.HasTrait(VTEDefOf.VTE_Insomniac))

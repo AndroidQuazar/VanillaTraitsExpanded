@@ -14,14 +14,14 @@ namespace VanillaTraitsExpanded
 				if (TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick.ContainsKey(p))
                 {
 					var lastTick = TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[p];
-					if ((Find.TickManager.TicksAbs - lastTick) > 10 * GenDate.TicksPerDay)
+					if ((GenTicks.TicksAbs - lastTick) > 10 * GenDate.TicksPerDay)
                     {
 						return ThoughtState.ActiveDefault;
                     }
 				}
 				else
                 {
-					TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[p] = Find.TickManager.TicksAbs;
+					TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[p] = GenTicks.TicksAbs;
 				}
 			}
 			return ThoughtState.Inactive;

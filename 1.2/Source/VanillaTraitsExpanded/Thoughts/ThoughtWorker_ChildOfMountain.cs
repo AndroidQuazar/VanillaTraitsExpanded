@@ -14,7 +14,7 @@ namespace VanillaTraitsExpanded
         {
             if (mapChecks.TryGetValue(map, out MapCheck check))
             {
-                if (Find.TickManager.TicksAbs < check.lastTickCheck + 2000)
+                if (GenTicks.TicksAbs < check.lastTickCheck + 2000)
                 {
                     return check.value;
                 }
@@ -23,7 +23,7 @@ namespace VanillaTraitsExpanded
             bool value = HasEnoughMountain(map); // every 2000 ticks
             mapChecks[map] = new MapCheck
             {
-                lastTickCheck = Find.TickManager.TicksAbs,
+                lastTickCheck = GenTicks.TicksAbs,
                 value = value
             };
             return value;

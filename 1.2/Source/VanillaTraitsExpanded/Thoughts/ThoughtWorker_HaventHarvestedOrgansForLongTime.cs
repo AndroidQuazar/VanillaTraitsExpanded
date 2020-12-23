@@ -16,7 +16,7 @@ namespace VanillaTraitsExpanded
 					if (p.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(VTEDefOf.VTE_HarvestedOrgans) == null)
                     {
 						var lastTick = TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[p];
-						if (Find.TickManager.TicksAbs - lastTick > 10 * GenDate.TicksPerDay)
+						if (GenTicks.TicksAbs - lastTick > 10 * GenDate.TicksPerDay)
 						{
 							return ThoughtState.ActiveDefault;
 						}
@@ -24,7 +24,7 @@ namespace VanillaTraitsExpanded
 				}
 				else
                 {
-					TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[p] = Find.TickManager.TicksAbs;
+					TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[p] = GenTicks.TicksAbs;
 				}
 			}
 			return ThoughtState.Inactive;

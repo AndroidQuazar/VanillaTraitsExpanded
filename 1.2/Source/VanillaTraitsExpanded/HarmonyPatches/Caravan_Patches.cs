@@ -43,7 +43,7 @@ namespace VanillaTraitsExpanded
 		{
 			if (__instance.HasTrait(VTEDefOf.VTE_Wanderlust))
             {
-				TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[__instance] = Find.TickManager.TicksAbs;
+				TraitUtils.TraitsManager.wanderLustersWithLastMapExitedTick[__instance] = GenTicks.TicksAbs;
 			}
 		}
 	}

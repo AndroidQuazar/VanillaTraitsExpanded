@@ -12,7 +12,7 @@ namespace VanillaTraitsExpanded
 		public MapPawns(List<Pawn> pawns)
 		{
 			this.pawns = pawns;
-			this.lastTickCheck = Find.TickManager.TicksAbs;
+			this.lastTickCheck = GenTicks.TicksAbs;
 		}
 		public List<Pawn> pawns;
 		public int lastTickCheck;
@@ -24,10 +24,10 @@ namespace VanillaTraitsExpanded
 		{
 			if (mapPawns.TryGetValue(map, out MapPawns mapPawns2))
 			{
-				if (Find.TickManager.TicksAbs > mapPawns2.lastTickCheck + 60)
+				if (GenTicks.TicksAbs > mapPawns2.lastTickCheck + 60)
 				{
 					mapPawns2.pawns = map.mapPawns.AllPawns.Where(x => x.RaceProps.Animal && x.Faction == faction).ToList();
-					mapPawns2.lastTickCheck = Find.TickManager.TicksAbs;
+					mapPawns2.lastTickCheck = GenTicks.TicksAbs;
 				}
 				return mapPawns2.pawns;
 			}
