@@ -594,7 +594,7 @@
 		<degreeDatas>
 			<li>
 				<label>stoner</label>
-				<description>Smokeleaf culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores smokeleaf and would rather die before giving it up.</description>
+				<description>Smokeleaf culture is just part of life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores smokeleaf and would rather die before giving it up.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
@@ -609,7 +609,7 @@
 		<degreeDatas>
 			<li>
 				<label>lush</label>
-				<description>Alcohol culture is just part life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores booze and would rather die before giving it up.</description>
+				<description>Alcohol culture is just part of life for [PAWN_nameDef]. [PAWN_pronoun] absolutely adores booze and would rather die before giving it up.</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
