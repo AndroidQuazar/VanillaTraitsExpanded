@@ -16,7 +16,7 @@ namespace VanillaTraitsExpanded
 	{
 		public static int SnobCount()
         {
-			int num = 1;
+			int num = 0;
 			if (TraitUtils.TraitsManager?.snobs != null)
             {
 				foreach (var pawn in TraitUtils.TraitsManager.snobs)
@@ -35,19 +35,22 @@ namespace VanillaTraitsExpanded
         }
 		public static void Prefix(Faction __instance, Faction other, ref int goodwillChange, bool canSendMessage = true, bool canSendHostilityLetter = true, string reason = null, GlobalTargetInfo? lookTarget = null)
 		{
-			if (__instance == Faction.OfPlayer && other == Faction.Empire)
+			if (goodwillChange > 0)
             {
-				var snobCount = SnobCount();
-				var newGoodWillChange = (int)(goodwillChange * (SnobCount() / 10f));
-				//Log.Message("Faction.OfPlayer gets new relationship change to Empire due to " + snobCount + " snobs in the faction. Old value: " + goodwillChange + " - new value: " + newGoodWillChange);
-				goodwillChange = newGoodWillChange;
-			}
-			else if (other == Faction.OfPlayer && __instance == Faction.Empire)
-            {
-				var snobCount = SnobCount();
-				var newGoodWillChange = (int)(goodwillChange * (SnobCount() / 10f));
-				//Log.Message("Faction.OfPlayer gets new relationship change to Empire due to " + snobCount + " snobs in the faction. Old value: " + goodwillChange + " - new value: " + newGoodWillChange);
-				goodwillChange = newGoodWillChange;
+				if (__instance == Faction.OfPlayer && other == Faction.Empire)
+				{
+					var snobCount = SnobCount();
+					var newGoodWillChange = (int)(goodwillChange * (1 + (SnobCount() / 10f)));
+					Log.Message("Faction.OfPlayer gets new relationship change to Empire due to " + snobCount + " snobs in the faction. Old value: " + goodwillChange + " - new value: " + newGoodWillChange);
+					goodwillChange = newGoodWillChange;
+				}
+				else if (other == Faction.OfPlayer && __instance == Faction.Empire)
+				{
+					var snobCount = SnobCount();
+					var newGoodWillChange = (int)(goodwillChange * (1 + (SnobCount() / 10f)));
+					Log.Message("Faction.OfPlayer gets new relationship change to Empire due to " + snobCount + " snobs in the faction. Old value: " + goodwillChange + " - new value: " + newGoodWillChange);
+					goodwillChange = newGoodWillChange;
+				}
 			}
 		}
 	}
