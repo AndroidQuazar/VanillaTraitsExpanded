@@ -45,6 +45,7 @@
     <beginLetter>{0} is freezing in panic.</beginLetter>
     <recoveryMessage>{0} is no longer freezing in panic.</recoveryMessage>
     <baseInspectLine>Mental state: freezing in panic</baseInspectLine>
+	<stateEffecter>VTE_PanicFreezing</stateEffecter>
     <blockNormalThoughts>true</blockNormalThoughts>
     <unspawnedCanDo>true</unspawnedCanDo>
   </MentalStateDef>
