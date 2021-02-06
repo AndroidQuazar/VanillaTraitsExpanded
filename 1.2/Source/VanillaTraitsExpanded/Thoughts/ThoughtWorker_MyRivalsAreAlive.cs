@@ -11,10 +11,10 @@ namespace VanillaTraitsExpanded
         {
 			foreach (var pawn in p.relations.PotentiallyRelatedPawns)
             {
-				if (pawn.RaceProps.IsFlesh)
+				if (pawn.RaceProps.IsFlesh && !pawn.Dead)
 				{
 					int num = pawn.relations.OpinionOf(p);
-					if (num <= -20 && !pawn.Dead)
+					if (num <= -20)
 					{
 						return true;
 					}

@@ -24,6 +24,15 @@ namespace VanillaTraitsExpanded
 			JobDefOf.LayDown,
 			JobDefOf.Wait_Downed,
 		};
+
+		private static bool Prefix(Pawn ___pawn, Job job)
+        {
+			if (___pawn.HasTrait(VTEDefOf.VTE_HeavySleeper) && ___pawn.CurJobDef == JobDefOf.LayDown)
+            {
+				return false;
+            }
+			return true;
+        }
 		private static void Postfix(Pawn ___pawn, Job job)
 		{
 			if (!jobsToExclude.Contains(job.def))

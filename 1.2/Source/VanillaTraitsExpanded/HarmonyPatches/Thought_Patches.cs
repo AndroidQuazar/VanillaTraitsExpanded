@@ -340,12 +340,18 @@ namespace VanillaTraitsExpanded
 				__instance.pawn.TryGiveThought(VTEDefOf.VTE_SoakingWetChildOfTheSea);
 				return false;
 			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_MadSurgeon) && (newThought.def == ThoughtDefOf.KnowColonistOrganHarvested 
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_HeavySleeper) && newThought.def == ThoughtDefOf.SleepDisturbed)
+            {
+				return false;
+            }
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_MadSurgeon) && 
+				(newThought.def == ThoughtDefOf.KnowColonistOrganHarvested 
 				|| newThought.def == ThoughtDefOf.KnowGuestOrganHarvested 
 				|| newThought.def == ThoughtDefOf.ButcheredHumanlikeCorpse
 				|| newThought.def == ThoughtDefOf.KnowButcheredHumanlikeCorpse
 				|| newThought.def == ThoughtDefOf.ObservedLayingCorpse
-				|| newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse))
+				|| newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse
+				|| newThought.def == ThoughtDefOf.KnowPrisonerDiedInnocent))
 			{
 				return false;
 			}
