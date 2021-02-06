@@ -370,7 +370,7 @@
 		<degreeDatas>
 			<li>
 				<label>squeamish</label>
-				<description>Sour stomach plagues [PAWN_nameDef] any time they're around too much blood or rotting corpses. Vomiting is just part of life for [PAWN_possessive].</description>
+				<description>Sour stomach plagues [PAWN_nameDef] any time they're around too much blood or rotting corpses. Vomiting is just part of life for [PAWN_pronoun].</description>
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
