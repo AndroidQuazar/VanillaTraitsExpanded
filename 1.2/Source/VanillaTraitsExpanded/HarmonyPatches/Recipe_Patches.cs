@@ -17,12 +17,42 @@ namespace VanillaTraitsExpanded
         {
             if (worker.HasTrait(VTEDefOf.VTE_MadSurgeon))
             {
-                if ((recipeDef == DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh") && ingredients != null && ingredients.Where(x => x is Corpse corpse).Any()) || recipeDef == RecipeDefOf.RemoveBodyPart)
+                if (recipeDef == DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh") && ingredients != null && ingredients.Where(x => x is Corpse corpse).Any())
                 {
                     TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[worker] = GenTicks.TicksAbs;
                     worker.TryGiveThought(VTEDefOf.VTE_HarvestedOrgans);
                 }
             }
+        }
+    }
+    [HarmonyPatch(typeof(Thing), "TakeDamage")]
+    internal static class TakeDamage_Patch
+    {
+        public static bool dirty = false;
+        private static void Postfix()
+        {
+            dirty = true;
+        }
+    }
+    
+    [HarmonyPatch(typeof(Recipe_RemoveBodyPart), "ApplyOnPawn")]
+    internal static class ApplyOnPawn_Patch
+    {
+        private static void Prefix()
+        {
+            TakeDamage_Patch.dirty = false;
+        }
+        private static void Postfix(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
+        {
+            if (billDoer.HasTrait(VTEDefOf.VTE_MadSurgeon))
+            {
+                if (TakeDamage_Patch.dirty)
+                {
+                    TraitUtils.TraitsManager.madSurgeonsWithLastHarvestedTick[billDoer] = GenTicks.TicksAbs;
+                    billDoer.TryGiveThought(VTEDefOf.VTE_HarvestedOrgans);
+                }
+            }
+            TakeDamage_Patch.dirty = false;
         }
     }
 }

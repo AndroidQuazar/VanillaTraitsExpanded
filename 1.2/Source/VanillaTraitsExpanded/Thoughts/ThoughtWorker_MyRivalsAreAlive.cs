@@ -9,7 +9,7 @@ namespace VanillaTraitsExpanded
 	{
 		public bool RivalsAreAlive(Pawn p)
         {
-			foreach (var pawn in p.relations.PotentiallyRelatedPawns)
+			foreach (var pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction)
             {
 				if (pawn.RaceProps.IsFlesh && !pawn.Dead)
 				{
