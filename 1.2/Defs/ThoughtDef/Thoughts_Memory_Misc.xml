@@ -269,7 +269,7 @@
       <li>
         <label>soaking wet</label>
         <description>I'm soaking wet. Love it.</description>
-        <baseMoodEffect>33</baseMoodEffect>
+        <baseMoodEffect>3</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>
