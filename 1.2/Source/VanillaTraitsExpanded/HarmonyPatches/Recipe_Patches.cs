@@ -25,6 +25,7 @@ namespace VanillaTraitsExpanded
             }
         }
     }
+
     [HarmonyPatch(typeof(Thing), "TakeDamage")]
     internal static class TakeDamage_Patch
     {

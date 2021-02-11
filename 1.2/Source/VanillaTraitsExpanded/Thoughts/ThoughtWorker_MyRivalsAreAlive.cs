@@ -13,7 +13,7 @@ namespace VanillaTraitsExpanded
             {
 				if (pawn.RaceProps.IsFlesh && !pawn.Dead)
 				{
-					int num = pawn.relations.OpinionOf(p);
+					int num = p.relations.OpinionOf(pawn);
 					if (num <= -20)
 					{
 						return true;
