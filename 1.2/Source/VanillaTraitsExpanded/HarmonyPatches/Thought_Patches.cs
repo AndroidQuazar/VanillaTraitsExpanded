@@ -42,16 +42,8 @@ namespace VanillaTraitsExpanded
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (__instance.def == ThoughtDefOf.AttendedParty
 				|| __instance.def.defName == "VFEV_AttendedFeast" || __instance.def.defName == "VFEV_TakingPartInFeast")) // vikings compatibility
 			{
-				
 				if (__instance.age < (__instance.def.DurationTicks * 4))
 				{
-					Log.Message("__instance.def: " + __instance.def);
-					Log.Message("__instance.def.durationDays: " + __instance.def.durationDays);
-					Log.Message("(int)(__instance.def.durationDays * 60000f): " + (int)(__instance.def.durationDays * 60000f));
-					Log.Message("__instance.def: " + __instance.def);
-					Log.Message("__instance.age: " + __instance.age);
-					Log.Message("__instance.def.DurationTicks: " + __instance.def.DurationTicks);
-					Log.Message("__instance.def.DurationTicks * 4: " + (__instance.def.DurationTicks * 4));
 					__result = false;
 					return false;
 				}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {}
+    "C:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {}
   },
   "projects": {
-    "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {
+    "C:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
+        "projectUniqueName": "C:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
         "projectName": "VanillaTraitsExpanded",
-        "projectPath": "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
+        "projectPath": "C:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
         "packagesPath": "C:\\Users\\Vova\\.nuget\\packages\\",
-        "outputPath": "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\obj\\",
+        "outputPath": "C:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
