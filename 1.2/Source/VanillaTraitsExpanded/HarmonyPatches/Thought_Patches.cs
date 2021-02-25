@@ -42,8 +42,16 @@ namespace VanillaTraitsExpanded
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (__instance.def == ThoughtDefOf.AttendedParty
 				|| __instance.def.defName == "VFEV_AttendedFeast" || __instance.def.defName == "VFEV_TakingPartInFeast")) // vikings compatibility
 			{
+				
 				if (__instance.age < (__instance.def.DurationTicks * 4))
 				{
+					Log.Message("__instance.def: " + __instance.def);
+					Log.Message("__instance.def.durationDays: " + __instance.def.durationDays);
+					Log.Message("(int)(__instance.def.durationDays * 60000f): " + (int)(__instance.def.durationDays * 60000f));
+					Log.Message("__instance.def: " + __instance.def);
+					Log.Message("__instance.age: " + __instance.age);
+					Log.Message("__instance.def.DurationTicks: " + __instance.def.DurationTicks);
+					Log.Message("__instance.def.DurationTicks * 4: " + (__instance.def.DurationTicks * 4));
 					__result = false;
 					return false;
 				}
@@ -92,7 +100,7 @@ namespace VanillaTraitsExpanded
 							{
 								if (NeedsCardUtility.thoughtGroup.Count == 1)
 								{
-									stringBuilder.Append("ThoughtExpiresIn".Translate(((group.def.DurationTicks - thought_Memory.age) * 4).ToStringTicksToPeriod()));
+									stringBuilder.Append("ThoughtExpiresIn".Translate(((group.def.DurationTicks * 4) - thought_Memory.age).ToStringTicksToPeriod()));
 								}
 								else
 								{
@@ -103,9 +111,9 @@ namespace VanillaTraitsExpanded
 										num = Mathf.Min(num, item.age);
 										num2 = Mathf.Max(num2, item.age);
 									}
-									stringBuilder.Append("ThoughtStartsExpiringIn".Translate(((group.def.DurationTicks - num2) * 4).ToStringTicksToPeriod()));
+									stringBuilder.Append("ThoughtStartsExpiringIn".Translate(((group.def.DurationTicks * 4) - num2).ToStringTicksToPeriod()));
 									stringBuilder.AppendLine();
-									stringBuilder.Append("ThoughtFinishesExpiringIn".Translate(((group.def.DurationTicks - num) * 4).ToStringTicksToPeriod()));
+									stringBuilder.Append("ThoughtFinishesExpiringIn".Translate(((group.def.DurationTicks * 4) - num).ToStringTicksToPeriod()));
 								}
 							}
 						}
