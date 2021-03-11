@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aize5qxuR5f1sui3g3nn96pGobUWFNjqrO95sWP8toBi0I/OK7cqUs0v/KBmNYkJ8Q0lX5Df0ExSS1Q4Xaz11w==",
+  "dgSpecHash": "zRE6jm32ipmH3KEYRZzxFXWYUvH5dqT91rltev3VRJw8mW+m0uQeWAju+Qn2KAy1AeVlevu1iJzRZn2+R3DICA==",
   "success": true,
-  "projectFilePath": "C:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
+  "projectFilePath": "c:\\GAMES\\Rimworld\\Mods\\VanillaTraitsExpanded\\1.2\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.0.4\\lib.harmony.2.0.4.nupkg.sha512"
   ],
