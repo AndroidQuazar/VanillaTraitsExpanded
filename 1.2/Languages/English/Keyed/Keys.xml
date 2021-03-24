@@ -15,6 +15,6 @@
   <VTE.PawnCowardlyExitMapHostile>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyExitMapHostile>
   <VTE.PawnCowardlyExitMapAlly>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyExitMapAlly>
   <VTE.PawnCowardlyExitMapNeutral>{PAWN_nameDef} runs away from combat due to being a coward</VTE.PawnCowardlyExitMapNeutral>
-  <VTE.PawnStopsForcedJob>{PAWN_nameDef} has decided to defy orders and stop working for the time being</VTE.PawnStopsForcedJob>
+  <VTE.PawnStopsForcedJob>{PAWN_nameDef} has defied or forgotten their orders and stopped working for the time being</VTE.PawnStopsForcedJob>
   <VTE.VictimDropsEquipmentMartialArtist>{PAWN_nameDef} has disarmed {VICTIM_nameDef} in melee combat</VTE.VictimDropsEquipmentMartialArtist>
 </LanguageData>
