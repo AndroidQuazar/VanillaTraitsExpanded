@@ -348,6 +348,9 @@
 				<description>[PAWN_nameDef] learned a specific move in melee combat which allows them to disarm opponents and will use it frequently.</description>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+  		    <li>Violent</li>
+		 </requiredWorkTags>
 	</TraitDef>
 
 	<TraitDef>
@@ -567,6 +570,9 @@
 				</skillGains>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+  		    <li>Violent</li>
+		 </requiredWorkTags>
 	</TraitDef>
 
 
