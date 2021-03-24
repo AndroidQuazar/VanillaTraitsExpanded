@@ -678,6 +678,9 @@
 				<description>[PAWN_nameDef] is hardened through what can only be presumed as old emotional trauma. They feel absolutely nothing from lost animals, colonists, family, prisoners or dead bodies.</description>
 			</li>
 		</degreeDatas>
+		<conflictingTraits>
+			<li>VTE_Squeamish</li>
+		</conflictingTraits>
 	</TraitDef>
 
 	<TraitDef>
