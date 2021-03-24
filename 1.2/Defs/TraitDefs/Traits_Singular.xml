@@ -375,6 +375,7 @@
 		</degreeDatas>
 		<conflictingTraits>
 			<li>VTE_IronStomach</li>
+			<li>VTE_Desensitized</li>
 		</conflictingTraits>
 	</TraitDef>
 
@@ -413,6 +414,7 @@
 		<conflictingTraits>
 			<li>VTE_Prude</li>
 			<li>Asexual</li>
+			<li>Nudist</li>
 		</conflictingTraits>
 	</TraitDef>
 
