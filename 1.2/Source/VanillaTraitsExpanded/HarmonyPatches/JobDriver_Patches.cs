@@ -49,4 +49,18 @@ namespace VanillaTraitsExpanded
 			__result = list;
 		}
 	}
+
+	[HarmonyPatch(typeof(Pawn_JobTracker), "EndCurrentJob")]
+	public class EndCurrentJobPatch3
+	{
+		private static bool Prefix(Pawn_JobTracker __instance, Pawn ___pawn, JobCondition condition, ref bool startNewJob, bool canReturnToPool = true)
+		{
+			if ((condition == JobCondition.Incompletable || condition == JobCondition.InterruptForced) 
+				&& ___pawn.CurJobDef == JobDefOf.LayDown && ___pawn.HasTrait(VTEDefOf.VTE_HeavySleeper) && !___pawn.Downed)
+			{
+				return false;
+			}
+			return true;
+		}
+	}
 }
