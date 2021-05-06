@@ -351,7 +351,9 @@ namespace VanillaTraitsExpanded
 				|| newThought.def == ThoughtDefOf.KnowButcheredHumanlikeCorpse
 				|| newThought.def == ThoughtDefOf.ObservedLayingCorpse
 				|| newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse
-				|| newThought.def == ThoughtDefOf.KnowPrisonerDiedInnocent))
+				|| newThought.def == ThoughtDefOf.KnowPrisonerDiedInnocent
+				|| newThought.def == ThoughtDefOf.KnowColonistExecuted && newThought.CurStageIndex == 3
+				))
 			{
 				return false;
 			}

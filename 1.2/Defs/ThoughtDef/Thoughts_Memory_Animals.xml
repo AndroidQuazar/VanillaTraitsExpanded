@@ -128,12 +128,9 @@
 
 	<ThoughtDef>
 		<defName>VTE_BondedAnimalMasterHater</defName>
-		<thoughtClass>Thought_BondedAnimalMaster</thoughtClass>
+		<thoughtClass>VanillaTraitsExpanded.Thought_BondedAnimalMasterHater</thoughtClass>
 		<workerClass>VanillaTraitsExpanded.ThoughtWorker_BondedAnimalMasterHater</workerClass>
 		<validWhileDespawned>true</validWhileDespawned>
-		<nullifyingTraits>
-			<li>Psychopath</li>
-		</nullifyingTraits>
 		<stages>
 			<li>
 				<label>{0}'s master</label>

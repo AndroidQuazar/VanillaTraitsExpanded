@@ -11,10 +11,10 @@ namespace VanillaTraitsExpanded
         {
 			foreach (var pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction)
             {
-				if (pawn.RaceProps.IsFlesh && !pawn.Dead)
+				if (pawn.RaceProps.IsFlesh && !pawn.Dead && !pawn.Destroyed)
 				{
 					int num = p.relations.OpinionOf(pawn);
-					if (num <= -20)
+					if (num < -20)
 					{
 						return true;
 					}
