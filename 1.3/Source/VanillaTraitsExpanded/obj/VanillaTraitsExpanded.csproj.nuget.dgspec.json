@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {}
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {}
   },
   "projects": {
-    "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
+        "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
         "projectName": "VanillaTraitsExpanded",
-        "projectPath": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
+        "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\VanillaTraitsExpanded.csproj",
         "packagesPath": "C:\\Users\\Vova\\.nuget\\packages\\",
-        "outputPath": "C:\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\obj\\",
+        "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaTraitsExpanded\\1.3\\Source\\VanillaTraitsExpanded\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -34,6 +34,10 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "Krafs.Rimworld.Ref": {
+              "target": "Package",
+              "version": "[1.3.3050-beta, )"
+            },
             "Lib.Harmony": {
               "target": "Package",
               "version": "[2.0.4, )"

@@ -144,6 +144,8 @@ namespace VanillaTraitsExpanded
 		public static ThoughtDef VTE_BondedAnimalMasterHater;
 		public static ThoughtDef VTE_NotBondedAnimalMasterHater;
 
+		public static ThoughtDef ObservedLayingCorpse;
+		public static ThoughtDef ObservedLayingRottingCorpse;
 		public static EffecterDef Drunk;
 	}
 }

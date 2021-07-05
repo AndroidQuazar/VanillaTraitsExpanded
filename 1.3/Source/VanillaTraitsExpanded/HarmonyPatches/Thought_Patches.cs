@@ -311,7 +311,7 @@ namespace VanillaTraitsExpanded
 			{
 				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);
 			}
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Squeamish) && newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse)
+			if (__instance.pawn.HasTrait(VTEDefOf.VTE_Squeamish) && newThought.def == VTEDefOf.ObservedLayingRottingCorpse)
 			{
 				var comp = Current.Game.GetComponent<TraitsManager>();
 				if ((!comp.squeamishWithLastVomitedTick.ContainsKey(__instance.pawn) || GenTicks.TicksAbs >= comp.squeamishWithLastVomitedTick[__instance.pawn] + (30 * 60)) && Rand.Chance(0.5f))
@@ -355,8 +355,8 @@ namespace VanillaTraitsExpanded
 				|| newThought.def == ThoughtDefOf.KnowGuestOrganHarvested 
 				|| newThought.def == ThoughtDefOf.ButcheredHumanlikeCorpse
 				|| newThought.def == ThoughtDefOf.KnowButcheredHumanlikeCorpse
-				|| newThought.def == ThoughtDefOf.ObservedLayingCorpse
-				|| newThought.def == ThoughtDefOf.ObservedLayingRottingCorpse
+				|| newThought.def == VTEDefOf.ObservedLayingCorpse
+				|| newThought.def == VTEDefOf.ObservedLayingRottingCorpse
 				|| newThought.def == ThoughtDefOf.KnowPrisonerDiedInnocent
 				|| newThought.def == ThoughtDefOf.KnowColonistExecuted && newThought.CurStageIndex == 3
 				))
