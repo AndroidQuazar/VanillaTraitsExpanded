@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "Krafs.Rimworld.Ref/1.3.3050-beta": {
+      "Krafs.Rimworld.Ref/1.3.3081-beta": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -32,7 +32,6 @@
           "ref/net472/UnityEngine.ClusterInputModule.dll": {},
           "ref/net472/UnityEngine.ClusterRendererModule.dll": {},
           "ref/net472/UnityEngine.CoreModule.dll": {},
-          "ref/net472/UnityEngine.CoreModule_publicised.dll": {},
           "ref/net472/UnityEngine.CrashReportingModule.dll": {},
           "ref/net472/UnityEngine.DSPGraphModule.dll": {},
           "ref/net472/UnityEngine.DirectorModule.dll": {},
@@ -86,18 +85,18 @@
           "ref/net472/mscorlib.dll": {}
         }
       },
-      "Lib.Harmony/2.0.4": {
+      "Lib.Harmony/2.1.1": {
         "type": "package",
         "compile": {
           "lib/net472/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net472/0Harmony.dll": {}
+          "lib/net472/_._": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.2/win": {
-      "Krafs.Rimworld.Ref/1.3.3050-beta": {
+      "Krafs.Rimworld.Ref/1.3.3081-beta": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -127,7 +126,6 @@
           "ref/net472/UnityEngine.ClusterInputModule.dll": {},
           "ref/net472/UnityEngine.ClusterRendererModule.dll": {},
           "ref/net472/UnityEngine.CoreModule.dll": {},
-          "ref/net472/UnityEngine.CoreModule_publicised.dll": {},
           "ref/net472/UnityEngine.CrashReportingModule.dll": {},
           "ref/net472/UnityEngine.DSPGraphModule.dll": {},
           "ref/net472/UnityEngine.DirectorModule.dll": {},
@@ -181,18 +179,18 @@
           "ref/net472/mscorlib.dll": {}
         }
       },
-      "Lib.Harmony/2.0.4": {
+      "Lib.Harmony/2.1.1": {
         "type": "package",
         "compile": {
           "lib/net472/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net472/0Harmony.dll": {}
+          "lib/net472/_._": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.2/win-x64": {
-      "Krafs.Rimworld.Ref/1.3.3050-beta": {
+      "Krafs.Rimworld.Ref/1.3.3081-beta": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -222,7 +220,6 @@
           "ref/net472/UnityEngine.ClusterInputModule.dll": {},
           "ref/net472/UnityEngine.ClusterRendererModule.dll": {},
           "ref/net472/UnityEngine.CoreModule.dll": {},
-          "ref/net472/UnityEngine.CoreModule_publicised.dll": {},
           "ref/net472/UnityEngine.CrashReportingModule.dll": {},
           "ref/net472/UnityEngine.DSPGraphModule.dll": {},
           "ref/net472/UnityEngine.DirectorModule.dll": {},
@@ -276,18 +273,18 @@
           "ref/net472/mscorlib.dll": {}
         }
       },
-      "Lib.Harmony/2.0.4": {
+      "Lib.Harmony/2.1.1": {
         "type": "package",
         "compile": {
           "lib/net472/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net472/0Harmony.dll": {}
+          "lib/net472/_._": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.2/win-x86": {
-      "Krafs.Rimworld.Ref/1.3.3050-beta": {
+      "Krafs.Rimworld.Ref/1.3.3081-beta": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -317,7 +314,6 @@
           "ref/net472/UnityEngine.ClusterInputModule.dll": {},
           "ref/net472/UnityEngine.ClusterRendererModule.dll": {},
           "ref/net472/UnityEngine.CoreModule.dll": {},
-          "ref/net472/UnityEngine.CoreModule_publicised.dll": {},
           "ref/net472/UnityEngine.CrashReportingModule.dll": {},
           "ref/net472/UnityEngine.DSPGraphModule.dll": {},
           "ref/net472/UnityEngine.DirectorModule.dll": {},
@@ -371,32 +367,31 @@
           "ref/net472/mscorlib.dll": {}
         }
       },
-      "Lib.Harmony/2.0.4": {
+      "Lib.Harmony/2.1.1": {
         "type": "package",
         "compile": {
           "lib/net472/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net472/0Harmony.dll": {}
+          "lib/net472/_._": {}
         }
       }
     }
   },
   "libraries": {
-    "Krafs.Rimworld.Ref/1.3.3050-beta": {
-      "sha512": "44DHOrDvhEi/iEIYU93J7O+vzVrWCkoO1MagdC6Y/oT24gb8VWADNO52kZ5YfUjuOdQM5qSbp5hFTowFZxz0Ag==",
+    "Krafs.Rimworld.Ref/1.3.3081-beta": {
+      "sha512": "8/mPzd1l2zmPeu/pHTmVJ0WNvK7nBnPoQ6fUjZ4V3H/oHt29TLhWZo/+2JYhJZghz2qVbXFlNIdpyWcuxTbVOw==",
       "type": "package",
-      "path": "krafs.rimworld.ref/1.3.3050-beta",
+      "path": "krafs.rimworld.ref/1.3.3081-beta",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
         "icon.png",
-        "krafs.rimworld.ref.1.3.3050-beta.nupkg.sha512",
+        "krafs.rimworld.ref.1.3.3081-beta.nupkg.sha512",
         "krafs.rimworld.ref.nuspec",
         "ref/net472/Assembly-CSharp-firstpass.dll",
         "ref/net472/Assembly-CSharp.dll",
-        "ref/net472/Assembly-CSharp_hash.hash",
         "ref/net472/ISharpZipLib.dll",
         "ref/net472/Mono.Posix.dll",
         "ref/net472/Mono.Security.dll",
@@ -422,8 +417,6 @@
         "ref/net472/UnityEngine.ClusterInputModule.dll",
         "ref/net472/UnityEngine.ClusterRendererModule.dll",
         "ref/net472/UnityEngine.CoreModule.dll",
-        "ref/net472/UnityEngine.CoreModule_hash.hash",
-        "ref/net472/UnityEngine.CoreModule_publicised.dll",
         "ref/net472/UnityEngine.CrashReportingModule.dll",
         "ref/net472/UnityEngine.DSPGraphModule.dll",
         "ref/net472/UnityEngine.DirectorModule.dll",
@@ -477,16 +470,16 @@
         "ref/net472/mscorlib.dll"
       ]
     },
-    "Lib.Harmony/2.0.4": {
-      "sha512": "m4Lm5W2pYU6+aTJpeUzHsX12chKXynIZPlsM5tV6O+WQxs3xa+teQHBjCNFXePDB1HXiiuAmtjyCo/E9fRuSIg==",
+    "Lib.Harmony/2.1.1": {
+      "sha512": "CZiVcq01bVIjL2baWW5SVGZWyd6ew8adFp4BB2bzZfIGcWkTEto0G9sKu+9HDrEd75qBq3EHnZxx/gizi4NnqA==",
       "type": "package",
-      "path": "lib.harmony/2.0.4",
+      "path": "lib.harmony/2.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "HarmonyLogo.png",
         "LICENSE",
-        "lib.harmony.2.0.4.nupkg.sha512",
+        "lib.harmony.2.1.1.nupkg.sha512",
         "lib.harmony.nuspec",
         "lib/net35/0Harmony.dll",
         "lib/net35/0Harmony.xml",
@@ -496,6 +489,8 @@
         "lib/net472/0Harmony.xml",
         "lib/net48/0Harmony.dll",
         "lib/net48/0Harmony.xml",
+        "lib/net5.0/0Harmony.dll",
+        "lib/net5.0/0Harmony.xml",
         "lib/netcoreapp3.0/0Harmony.dll",
         "lib/netcoreapp3.0/0Harmony.xml",
         "lib/netcoreapp3.1/0Harmony.dll",
@@ -505,8 +500,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "Krafs.Rimworld.Ref >= 1.3.3050-beta",
-      "Lib.Harmony >= 2.0.4"
+      "Krafs.Rimworld.Ref >= 1.3.3081-beta",
+      "Lib.Harmony >= 2.1.1"
     ]
   },
   "packageFolders": {
@@ -544,11 +539,12 @@
         "dependencies": {
           "Krafs.Rimworld.Ref": {
             "target": "Package",
-            "version": "[1.3.3050-beta, )"
+            "version": "[1.3.3081-beta, )"
           },
           "Lib.Harmony": {
+            "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[2.0.4, )"
+            "version": "[2.1.1, )"
           }
         }
       }

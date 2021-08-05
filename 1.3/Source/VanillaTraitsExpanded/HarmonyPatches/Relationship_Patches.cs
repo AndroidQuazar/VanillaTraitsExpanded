@@ -55,7 +55,7 @@ namespace VanillaTraitsExpanded
 	{
 		public static bool Prefix(Pawn pawn)
 		{
-			if (pawn.HasTrait(VTEDefOf.VTE_Prude) && pawn.GetSpouses(false).Any())
+			if (pawn.HasTrait(VTEDefOf.VTE_Prude) && !pawn.GetSpouses(false).Any())
 			{
 				return false;
 			}

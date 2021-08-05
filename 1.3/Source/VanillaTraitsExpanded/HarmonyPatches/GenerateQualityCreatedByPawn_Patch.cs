@@ -49,6 +49,14 @@ namespace VanillaTraitsExpanded
 				}
 				if (__result == QualityCategory.Legendary && !__state)
                 {
+					if (ModsConfig.IdeologyActive)
+                    {
+						var role = pawn.Ideo.GetRole(pawn);
+						if (role != null && role.def.defName == "IdeoRole_ProductionSpecialist")
+                        {
+							return; // we allow legendary for production specialist
+                        }
+                    }
 					__result = QualityCategory.Masterwork;
 				}
 			}
