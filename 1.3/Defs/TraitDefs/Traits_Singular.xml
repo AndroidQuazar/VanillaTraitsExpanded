@@ -553,6 +553,9 @@
 				</statOffsets>
 			</li>
 		</degreeDatas>
+		<requiredWorkTypes>
+			<li>Doctor</li>
+		</requiredWorkTypes>
 	</TraitDef>
 
 	<TraitDef>
