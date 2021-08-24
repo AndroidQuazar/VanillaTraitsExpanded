@@ -147,6 +147,9 @@ namespace VanillaTraitsExpanded
 		public static ThoughtDef ObservedLayingCorpse;
 		public static ThoughtDef ObservedLayingRottingCorpse;
 		public static EffecterDef Drunk;
+
+		public static ThoughtDef SmokeleafHigh;
+		public static ThoughtDef Inebriated;
 	}
 }
 

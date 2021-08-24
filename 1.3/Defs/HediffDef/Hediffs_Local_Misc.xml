@@ -3,9 +3,9 @@
 
 	<HediffDef>
 		<defName>VTE_SlowWorkSpeed</defName>
-		<label>Rebelling</label>
-		<labelNoun>Rebelling</labelNoun>
-		<description>Whether by sour mood or mental issues, rebelling means any forced work is met with snide comments and eyerolls, and taken less than seriously.</description>
+		<label>slow work</label>
+		<labelNoun>slow work</labelNoun>
+		<description>slow work</description>
 		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
 		<stages>
 			<li>

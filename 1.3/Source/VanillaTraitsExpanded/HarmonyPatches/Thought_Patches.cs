@@ -223,6 +223,14 @@ namespace VanillaTraitsExpanded
 			{
 				__result *= 2f;
 			}
+			if (__instance.def == VTEDefOf.SmokeleafHigh && __instance.pawn.HasTrait(VTEDefOf.VTE_Stoner))
+            {
+				__result *= 2f;
+            }
+			if (__instance.def == VTEDefOf.Inebriated && __instance.pawn.HasTrait(VTEDefOf.VTE_Lush))
+            {
+				__result *= 2f;
+			}
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_RefinedPalate))
 			{
 				if (__instance.def == ThoughtDefOf.AteFineMeal || __instance.def.defName == "VCE_AteFineDessert")
@@ -306,7 +314,7 @@ namespace VanillaTraitsExpanded
 		};
 		private static bool Prefix(MemoryThoughtHandler __instance, ref Thought_Memory newThought, Pawn otherPawn)
 		{
-			//Log.Message("TryGainMemory: " + __instance.pawn + " gets " + newThought);
+			Log.Message("TryGainMemory: " + __instance.pawn + " gets " + newThought);
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalHater) && animalThoughtDefs.Contains(newThought.def))
 			{
 				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);

@@ -87,7 +87,7 @@
     <Compile Include="Thoughts\ThoughtWorker_NoDedicatedLab.cs" />
     <Compile Include="Thoughts\ThoughtWorker_HaventHarvestedOrgansForLongTime.cs" />
     <Compile Include="Thoughts\ThoughtWorker_PassionateCleaningWork.cs" />
-    <Compile Include="TraitsDefOf.cs" />
+    <Compile Include="VTEDefOf.cs" />
     <Compile Include="TraitsSettings.cs" />
     <Compile Include="TraitsMod.cs" />
     <Compile Include="TraitUtils.cs" />
