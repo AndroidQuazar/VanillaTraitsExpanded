@@ -314,7 +314,6 @@ namespace VanillaTraitsExpanded
 		};
 		private static bool Prefix(MemoryThoughtHandler __instance, ref Thought_Memory newThought, Pawn otherPawn)
 		{
-			Log.Message("TryGainMemory: " + __instance.pawn + " gets " + newThought);
 			if (__instance.pawn.HasTrait(VTEDefOf.VTE_AnimalHater) && animalThoughtDefs.Contains(newThought.def))
 			{
 				newThought = (Thought_Memory)ThoughtMaker.MakeThought(inverseAnimalThoughDefs[newThought.def]);
