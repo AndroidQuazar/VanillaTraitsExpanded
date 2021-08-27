@@ -18,7 +18,7 @@ namespace VanillaTraitsExpanded
 	{
 		private static bool Prefix(Lord __instance, Pawn p)
 		{
-			if (p.HasTrait(VTEDefOf.VTE_Anxious) && (__instance.LordJob is LordJob_Joinable_Gathering 
+			if (p.HasTrait(VTEDefOf.VTE_Anxious) && !(__instance.LordJob is LordJob_BestowingCeremony) && (__instance.LordJob is LordJob_Joinable_Gathering 
 				|| __instance.LordJob is LordJob_Joinable_MarriageCeremony marriageCeremony && marriageCeremony.firstPawn != p && marriageCeremony.secondPawn != p))
             {
 				return false;

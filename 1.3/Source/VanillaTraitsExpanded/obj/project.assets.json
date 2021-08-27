@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "Krafs.Rimworld.Ref/1.3.3101": {
+      "Krafs.Rimworld.Ref/1.3.3102": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -96,7 +96,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win": {
-      "Krafs.Rimworld.Ref/1.3.3101": {
+      "Krafs.Rimworld.Ref/1.3.3102": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -190,7 +190,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x64": {
-      "Krafs.Rimworld.Ref/1.3.3101": {
+      "Krafs.Rimworld.Ref/1.3.3102": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -284,7 +284,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x86": {
-      "Krafs.Rimworld.Ref/1.3.3101": {
+      "Krafs.Rimworld.Ref/1.3.3102": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -379,16 +379,16 @@
     }
   },
   "libraries": {
-    "Krafs.Rimworld.Ref/1.3.3101": {
-      "sha512": "OcnOLwD1/WcUsXVy0xVZDFldD+MJ4opt+95nN3HgB1b6wQ9C7POXDrfNwnAU/7kraU0B4R2hjiEwne6TDy4pag==",
+    "Krafs.Rimworld.Ref/1.3.3102": {
+      "sha512": "+dAhS9vyEWeqCEEicFLQT7LfyRgJYlumSA8blkvORYZ27/NbXQSxHidx9O2B6zIJQ57AiDui/Pv2bcQRxsK6XQ==",
       "type": "package",
-      "path": "krafs.rimworld.ref/1.3.3101",
+      "path": "krafs.rimworld.ref/1.3.3102",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
         "icon.png",
-        "krafs.rimworld.ref.1.3.3101.nupkg.sha512",
+        "krafs.rimworld.ref.1.3.3102.nupkg.sha512",
         "krafs.rimworld.ref.nuspec",
         "ref/net472/Assembly-CSharp-firstpass.dll",
         "ref/net472/Assembly-CSharp.dll",
@@ -500,7 +500,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "Krafs.Rimworld.Ref >= 1.3.3101",
+      "Krafs.Rimworld.Ref >= 1.3.3102",
       "Lib.Harmony >= 2.1.1"
     ]
   },
@@ -539,7 +539,7 @@
         "dependencies": {
           "Krafs.Rimworld.Ref": {
             "target": "Package",
-            "version": "[1.3.3101, )"
+            "version": "[1.3.3102, )"
           },
           "Lib.Harmony": {
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
