@@ -21,9 +21,9 @@ namespace VanillaTraitsExpanded
 	{
 		public static void Postfix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
 		{
-			if (victim.RaceProps.IsMechanoid && thoughtsKind == PawnDiedOrDownedThoughtsKind.Died)
+			if (victim.RaceProps.IsMechanoid && thoughtsKind == PawnDiedOrDownedThoughtsKind.Died && victim.MapHeld != null)
 			{
-				foreach (var pawn in victim.Map.mapPawns.AllPawns)
+				foreach (var pawn in victim.MapHeld.mapPawns.AllPawns)
 				{
 					if (pawn.HasTrait(VTEDefOf.VTE_Technophobe))
 					{
