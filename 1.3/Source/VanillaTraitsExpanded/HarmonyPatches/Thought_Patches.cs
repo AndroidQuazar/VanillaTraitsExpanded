@@ -34,156 +34,6 @@ namespace VanillaTraitsExpanded
 		}
 	}
 
-	[HarmonyPatch(typeof(Thought_Memory), "ShouldDiscard", MethodType.Getter)]
-	public static class ShouldDiscard_Patch
-	{
-		public static bool Prefix(Thought_Memory __instance, ref bool __result)
-		{
-			if (__instance.pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (__instance.def == ThoughtDefOf.AttendedParty
-				|| __instance.def.defName == "VFEV_AttendedFeast" || __instance.def.defName == "VFEV_TakingPartInFeast")) // vikings compatibility
-			{
-				if (__instance.age < (__instance.def.DurationTicks * 4))
-				{
-					__result = false;
-					return false;
-				}
-			}
-			return true;
-		}
-	}
-
-	[HarmonyPatch(typeof(NeedsCardUtility), "DrawThoughtGroup")]
-	public static class DrawThoughtGroup_Patch
-	{
-		private static readonly Color MoodColor = new Color(0.1f, 1f, 0.1f);
-
-		private static readonly Color MoodColorNegative = new Color(0.8f, 0.4f, 0.4f);
-
-		private static readonly Color NoEffectColor = new Color(0.5f, 0.5f, 0.5f, 0.75f);
-
-		public static bool Prefix(ref bool __result, ref List<Thought> ___thoughtGroup, Rect rect, Thought group, Pawn pawn)
-		{
-			if (pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (group.def == ThoughtDefOf.AttendedParty
-				|| group.def.defName == "VFEV_AttendedFeast" || group.def.defName == "VFEV_TakingPartInFeast"))
-			{
-				try
-				{
-					pawn.needs.mood.thoughts.GetMoodThoughts(group, ___thoughtGroup);
-					Thought leadingThoughtInGroup = PawnNeedsUIUtility.GetLeadingThoughtInGroup(___thoughtGroup);
-					if (!leadingThoughtInGroup.VisibleInNeedsTab)
-					{
-						___thoughtGroup.Clear();
-						__result = false;
-						return false;
-					}
-					if (leadingThoughtInGroup != ___thoughtGroup[0])
-					{
-						___thoughtGroup.Remove(leadingThoughtInGroup);
-						___thoughtGroup.Insert(0, leadingThoughtInGroup);
-					}
-					if (Mouse.IsOver(rect))
-					{
-						Widgets.DrawHighlight(rect);
-					}
-					if (Mouse.IsOver(rect))
-					{
-						StringBuilder stringBuilder = new StringBuilder();
-						stringBuilder.Append(leadingThoughtInGroup.Description);
-						if (group.def.DurationTicks > 5)
-						{
-							stringBuilder.AppendLine();
-							stringBuilder.AppendLine();
-							Thought_Memory thought_Memory = leadingThoughtInGroup as Thought_Memory;
-							if (thought_Memory != null)
-							{
-								if (___thoughtGroup.Count == 1)
-								{
-									stringBuilder.Append("ThoughtExpiresIn".Translate(((group.def.DurationTicks * 4) - thought_Memory.age).ToStringTicksToPeriod()));
-								}
-								else
-								{
-									int num = int.MaxValue;
-									int num2 = int.MinValue;
-									foreach (Thought_Memory item in ___thoughtGroup)
-									{
-										num = Mathf.Min(num, item.age);
-										num2 = Mathf.Max(num2, item.age);
-									}
-									stringBuilder.Append("ThoughtStartsExpiringIn".Translate(((group.def.DurationTicks * 4) - num2).ToStringTicksToPeriod()));
-									stringBuilder.AppendLine();
-									stringBuilder.Append("ThoughtFinishesExpiringIn".Translate(((group.def.DurationTicks * 4) - num).ToStringTicksToPeriod()));
-								}
-							}
-						}
-						if (___thoughtGroup.Count > 1)
-						{
-							bool flag = false;
-							for (int i = 1; i < ___thoughtGroup.Count; i++)
-							{
-								bool flag2 = false;
-								for (int j = 0; j < i; j++)
-								{
-									if (___thoughtGroup[i].LabelCap == ___thoughtGroup[j].LabelCap)
-									{
-										flag2 = true;
-										break;
-									}
-								}
-								if (!flag2)
-								{
-									if (!flag)
-									{
-										stringBuilder.AppendLine();
-										stringBuilder.AppendLine();
-										flag = true;
-									}
-									stringBuilder.AppendLine("+ " + ___thoughtGroup[i].LabelCap);
-								}
-							}
-						}
-						TooltipHandler.TipRegion(rect, new TipSignal(stringBuilder.ToString(), 7291));
-					}
-					Text.WordWrap = false;
-					Text.Anchor = TextAnchor.MiddleLeft;
-					Rect rect2 = new Rect(rect.x + 10f, rect.y, 225f, rect.height);
-					rect2.yMin -= 3f;
-					rect2.yMax += 3f;
-					string text = leadingThoughtInGroup.LabelCap;
-					if (___thoughtGroup.Count > 1)
-					{
-						text = text + " x" + ___thoughtGroup.Count;
-					}
-					Widgets.Label(rect2, text);
-					Text.Anchor = TextAnchor.MiddleCenter;
-					float num3 = pawn.needs.mood.thoughts.MoodOffsetOfGroup(group);
-					if (num3 == 0f)
-					{
-						GUI.color = NoEffectColor;
-					}
-					else if (num3 > 0f)
-					{
-						GUI.color = MoodColor;
-					}
-					else
-					{
-						GUI.color = MoodColorNegative;
-					}
-					Widgets.Label(new Rect(rect.x + 235f, rect.y, 32f, rect.height), num3.ToString("##0"));
-					Text.Anchor = TextAnchor.UpperLeft;
-					GUI.color = Color.white;
-					Text.WordWrap = true;
-				}
-				catch (Exception ex)
-				{
-					Log.ErrorOnce(string.Concat("Exception in DrawThoughtGroup for ", group.def, " on ", pawn, ": ", ex.ToString()), 3452698);
-				}
-				__result = true;
-				return false;
-			}
-			return true;
-		}
-	}
-
 	[HarmonyPatch(typeof(Bill), "PawnAllowedToStartAnew", new Type[]
 	{
 		typeof(Pawn)
@@ -373,6 +223,14 @@ namespace VanillaTraitsExpanded
 			return true;
 		}
 
+		public static void Postfix(MemoryThoughtHandler __instance, ref Thought_Memory newThought, Pawn otherPawn)
+        {
+			if (newThought != null && __instance.pawn.HasTrait(VTEDefOf.VTE_FunLoving) && (newThought.def == ThoughtDefOf.AttendedParty
+				||	newThought.def.defName == "VFEV_AttendedFeast" || newThought.def.defName == "VFEV_TakingPartInFeast")) // vikings compatibility
+            {
+				newThought.durationTicksOverride = newThought.def.DurationTicks * 4;
+			}
+		}
 
 		public static HashSet<string> horribleThoughts = new HashSet<string>
 		{
