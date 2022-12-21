@@ -42,22 +42,23 @@ namespace VanillaTraitsExpanded
                 {
 					var newResult = (QualityCategory)((int)__result + 1);
 					__result = newResult;
+					
+					if (__result == QualityCategory.Legendary && !__state)
+					{
+						if (ModsConfig.IdeologyActive)
+						{
+							var role = pawn.Ideo.GetRole(pawn);
+							if (role != null && role.def.defName == "IdeoRole_ProductionSpecialist")
+							{
+								return; // we allow legendary for production specialist
+							}
+						}
+						__result = QualityCategory.Masterwork;
+					}
 				}
 				if (__result == QualityCategory.Normal || __result == QualityCategory.Awful || __result == QualityCategory.Poor)
 				{
 					pawn.TryGiveThought(VTEDefOf.VTE_CreatedLowQualityItem);
-				}
-				if (__result == QualityCategory.Legendary && !__state)
-                {
-					if (ModsConfig.IdeologyActive)
-                    {
-						var role = pawn.Ideo.GetRole(pawn);
-						if (role != null && role.def.defName == "IdeoRole_ProductionSpecialist")
-                        {
-							return; // we allow legendary for production specialist
-                        }
-                    }
-					__result = QualityCategory.Masterwork;
 				}
 			}
 		}
